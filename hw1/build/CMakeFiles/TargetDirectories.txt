@@ -1,0 +1,2 @@
+/data2/code/xl_slam/hw1/build/CMakeFiles/hello.dir
+/data2/code/xl_slam/hw1/build/CMakeFiles/sayhello.dir
