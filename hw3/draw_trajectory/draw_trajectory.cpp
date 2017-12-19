@@ -21,7 +21,23 @@ int main(int argc, char **argv) {
 
     /// implement pose reading code
     // start your code here (5~10 lines)
-
+    
+    // Read
+    ifstream T_file(trajectory_file);
+    if (!T_file) {
+      cout<<"unable to read file!"<<endl;
+	exit(1);
+    }
+    double data[8] = {0};
+    while(!T_file.eof()) {
+      for (auto &p:data)
+	T_file >> p;
+      Eigen::Quaterniond q(data[7], data[4], data[5], data[6]);
+      Eigen::Vector3d t(data[1], data[2], data[3]);
+      Sophus::SE3 pose(q,t);
+      poses.push_back(pose);
+    }
+    
     // end your code here
 
     // draw trajectory in pangolin

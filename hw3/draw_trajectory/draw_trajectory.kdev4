@@ -1,0 +1,3 @@
+[Project]
+Manager=KDevCMakeManager
+Name=draw_trajectory
