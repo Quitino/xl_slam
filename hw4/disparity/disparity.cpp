@@ -23,9 +23,9 @@ int main(int argc, char **argv) {
 
     // 内参
     double fx = 718.856, fy = 718.856, cx = 607.1928, cy = 185.2157;
-    // 间距
+    // 间距 baseline = 0.573 m 
     double d = 0.573;
-
+//    double depthScale = 1000.0;
     // 读取图像
     cv::Mat left = cv::imread(left_file, 0);
     cv::Mat right = cv::imread(right_file, 0);
@@ -42,6 +42,20 @@ int main(int argc, char **argv) {
             Vector4d point(0, 0, 0, left.at<uchar>(v, u) / 255.0); // 前三维为xyz,第四维为颜色
 
             // start your code here (~6 lines)
+            // disparity map is 8-bit value
+            
+            // unsigned short: 16bit
+            // unsigned short: 8bit
+
+            unsigned char pixel_disparity = disparity.ptr<unsigned char> ( v )[u]; // 深度值
+            //Eigen::Vector3d point; 
+            //point[2] = fx * d / double(pixel_disparity); 
+            point[2] = fx * d / pixel_disparity; 
+            point[0] = (u-cx)*point[2]/fx;
+            point[1] = (v-cy)*point[2]/fy; 
+            pointcloud.push_back(point);
+            //Vector3d pointWorld = T*point;
+            //z = fx*d/ disparity.at<v,u>;
             // 根据双目模型计算 point 的位置
             // end your code here
         }
