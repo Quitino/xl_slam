@@ -37,14 +37,16 @@ int main(int argc, char **argv) {
             double xi = x_data[i], yi = y_data[i];  // 第i个数据点
             // start your code here
             double error = 0;   // 第i个数据点的计算误差
-            error =  exp(ae*xi*xi + be*xi + ce*xi) - yi; // 填写计算error的表达式
+            error =  yi - exp(ae*xi*xi + be*xi + ce*xi) ; // 填写计算error的表达式
             Vector3d J; // 雅可比矩阵
-            J[0] = exp(ae*xi*xi + be*xi + ce*xi)*xi*xi;  // de/da
-            J[1] = exp(ae*xi*xi + be*xi + ce*xi)*xi;  // de/db
-            J[2] = exp(ae*xi*xi + be*xi + ce*xi);  // de/dc
+            J[0] = -exp(ae*xi*xi + be*xi + ce*xi)*xi*xi;  // de/da
+            J[1] = -exp(ae*xi*xi + be*xi + ce*xi)*xi;  // de/db
+            J[2] = -exp(ae*xi*xi + be*xi + ce*xi);  // de/dc
 
             H += J * J.transpose(); // GN近似的H
+            //H += J.transpose() * J ; // GN近似的H
             b += -error * J;
+            //b += -J.transpose() * error ;
             // end your code here
 
             cost += error * error;
