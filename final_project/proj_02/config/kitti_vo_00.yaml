@@ -1,15 +1,14 @@
 %YAML:1.0
 # data
 # the tum dataset directory, change it to yours! 
-#dataset_dir: /data/code/slambook/project/0.2/data
-dataset_dir:/data/rgb-d_dataset/Category_HandheldSLAM/rgbd_dataset_freiburg1_desk
+dataset_dir: /data/kitti-dataset/kitti_vo_color_dataset/sequences/00
 
 # camera intrinsics
-# fr1
-camera.fx: 517.3
-camera.fy: 516.5
-camera.cx: 325.1
-camera.cy: 249.7
+# seq 00-02
+camera.fx: 718.856
+camera.fy: 718.856
+camera.cx: 607.1928
+camera.cy: 185.2157
 
 camera.depth_scale: 5000
 

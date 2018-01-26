@@ -9,6 +9,8 @@
 ../include/myslam/camera.h
 myslam/common_include.h
 ../include/myslam/myslam/common_include.h
+myslam/config.h
+../include/myslam/myslam/config.h
 
 ../include/myslam/common_include.h
 Eigen/Core

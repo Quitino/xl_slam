@@ -3,6 +3,7 @@
 
 src/CMakeFiles/myslam.dir/camera.cpp.o: ../include/myslam/camera.h
 src/CMakeFiles/myslam.dir/camera.cpp.o: ../include/myslam/common_include.h
+src/CMakeFiles/myslam.dir/camera.cpp.o: ../include/myslam/config.h
 src/CMakeFiles/myslam.dir/camera.cpp.o: /data/code/slambook/3rdparty/Sophus/sophus/se3.h
 src/CMakeFiles/myslam.dir/camera.cpp.o: /data/code/slambook/3rdparty/Sophus/sophus/so3.h
 src/CMakeFiles/myslam.dir/camera.cpp.o: ../src/camera.cpp
@@ -639,6 +640,7 @@ src/CMakeFiles/myslam.dir/config.cpp.o: /usr/include/eigen3/Eigen/src/plugins/Ma
 
 src/CMakeFiles/myslam.dir/frame.cpp.o: ../include/myslam/camera.h
 src/CMakeFiles/myslam.dir/frame.cpp.o: ../include/myslam/common_include.h
+src/CMakeFiles/myslam.dir/frame.cpp.o: ../include/myslam/config.h
 src/CMakeFiles/myslam.dir/frame.cpp.o: ../include/myslam/frame.h
 src/CMakeFiles/myslam.dir/frame.cpp.o: /data/code/slambook/3rdparty/Sophus/sophus/se3.h
 src/CMakeFiles/myslam.dir/frame.cpp.o: /data/code/slambook/3rdparty/Sophus/sophus/so3.h
@@ -958,6 +960,7 @@ src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/include/eigen3/Eigen/src/plugins/Mat
 
 src/CMakeFiles/myslam.dir/map.cpp.o: ../include/myslam/camera.h
 src/CMakeFiles/myslam.dir/map.cpp.o: ../include/myslam/common_include.h
+src/CMakeFiles/myslam.dir/map.cpp.o: ../include/myslam/config.h
 src/CMakeFiles/myslam.dir/map.cpp.o: ../include/myslam/frame.h
 src/CMakeFiles/myslam.dir/map.cpp.o: ../include/myslam/map.h
 src/CMakeFiles/myslam.dir/map.cpp.o: ../include/myslam/mappoint.h

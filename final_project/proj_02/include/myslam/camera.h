@@ -2,6 +2,7 @@
 #define CAMERA_H
 
 #include "myslam/common_include.h"
+#include "myslam/config.h"
 
 namespace myslam
 {
