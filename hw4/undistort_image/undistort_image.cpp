@@ -21,20 +21,32 @@ int main(int argc, char **argv) {
     int rows = image.rows, cols = image.cols;
     cv::Mat image_undistort = cv::Mat(rows, cols, CV_8UC1);   // 去畸变以后的图
 
-    // 计算去畸变后图像的内容
+    // 计算去畸变后图像的内容: 
+    //去畸变后 : u,v ; 
+    //去畸变前 : u_distorted, v_distorted
+
     for (int v = 0; v < rows; v++)
         for (int u = 0; u < cols; u++) {
 
             double u_distorted = 0, v_distorted = 0;
             // TODO 按照公式，计算点(u,v)对应到畸变图像中的坐标(u_distorted, v_distorted) (~6 lines)
             // start your code here
-            double r2= u*u + v*v;
-            u_distorted = u*(1+k1*r2+k2*r2*r2) + 2*p1*u*v+ p2*(r2+2*u*u);
 
-            v_distorted = v*(1+k1*r2+k2*r2*r2) + p1*(r2+2*v*v) + 2*p2*u*v;
+            // 1. back project to normilized image coordinate (z=1)
+            double x = (u - cx) / fx;
+            double y = (v - cy) / fy;
 
-            u_distorted = fx*u_distorted + cx;
-            v_distorted = fy*v_distorted + cy;
+            // 2. apply distortion formula, in meter scale
+            double r2 = x*x + y*y;
+            double x_distorted = 0, y_distorted = 0;
+
+            x_distorted = x*(1 + k1*r2 + k2*r2*r2) + 2*p1*x*y + p2*(r2 + 2*x*x);
+            y_distorted = y*(1 + k1*r2 + k2*r2*r2) + p1*(r2 + 2*y*y) + 2*p2*x*y;
+
+            // 3. project it back to pixel coordinates
+            u_distorted = fx*x_distorted + cx;
+            v_distorted = fy*y_distorted + cy;
+
             // end your code here
 
             // 赋值 (最近邻插值)

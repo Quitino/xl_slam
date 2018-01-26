@@ -1,0 +1,1734 @@
+dataset: /data/rgb-d_dataset/Category_HandheldSLAM/rgbd_dataset_freiburg1_desk
+read total 574 entries
+Key frame size = 0
+VO costs time: 0.264392
+good matches: 172
+pnp inliers: 172
+VO costs time: 0.016529
+good matches: 222
+pnp inliers: 220
+VO costs time: 0.016922
+good matches: 202
+pnp inliers: 195
+VO costs time: 0.019114
+good matches: 256
+pnp inliers: 249
+VO costs time: 0.016275
+good matches: 279
+pnp inliers: 277
+VO costs time: 0.017096
+good matches: 291
+pnp inliers: 287
+VO costs time: 0.015717
+good matches: 294
+pnp inliers: 291
+VO costs time: 0.017134
+good matches: 227
+pnp inliers: 218
+VO costs time: 0.016247
+good matches: 259
+pnp inliers: 253
+VO costs time: 0.016044
+good matches: 263
+pnp inliers: 260
+VO costs time: 0.016631
+good matches: 230
+pnp inliers: 228
+VO costs time: 0.015938
+good matches: 206
+pnp inliers: 197
+VO costs time: 0.016423
+good matches: 224
+pnp inliers: 219
+VO costs time: 0.016243
+good matches: 245
+pnp inliers: 226
+VO costs time: 0.017657
+good matches: 209
+pnp inliers: 199
+VO costs time: 0.016832
+good matches: 244
+pnp inliers: 223
+VO costs time: 0.015705
+good matches: 244
+pnp inliers: 239
+VO costs time: 0.017131
+good matches: 233
+pnp inliers: 205
+VO costs time: 0.016424
+good matches: 258
+pnp inliers: 240
+VO costs time: 0.016321
+good matches: 294
+pnp inliers: 282
+VO costs time: 0.016698
+good matches: 274
+pnp inliers: 254
+VO costs time: 0.01692
+good matches: 239
+pnp inliers: 213
+VO costs time: 0.015841
+good matches: 270
+pnp inliers: 238
+VO costs time: 0.01728
+good matches: 212
+pnp inliers: 190
+VO costs time: 0.017038
+good matches: 235
+pnp inliers: 217
+VO costs time: 0.016281
+good matches: 180
+pnp inliers: 159
+VO costs time: 0.016389
+good matches: 166
+pnp inliers: 134
+VO costs time: 0.021689
+good matches: 252
+pnp inliers: 240
+VO costs time: 0.017805
+good matches: 161
+pnp inliers: 145
+VO costs time: 0.017188
+good matches: 242
+pnp inliers: 209
+VO costs time: 0.016989
+good matches: 256
+pnp inliers: 248
+VO costs time: 0.017955
+good matches: 243
+pnp inliers: 224
+VO costs time: 0.017107
+good matches: 150
+pnp inliers: 130
+VO costs time: 0.017073
+good matches: 292
+pnp inliers: 268
+VO costs time: 0.017186
+good matches: 288
+pnp inliers: 273
+VO costs time: 0.017708
+good matches: 259
+pnp inliers: 254
+VO costs time: 0.016618
+good matches: 227
+pnp inliers: 221
+VO costs time: 0.017236
+good matches: 270
+pnp inliers: 254
+VO costs time: 0.01726
+good matches: 263
+pnp inliers: 252
+VO costs time: 0.017172
+good matches: 260
+pnp inliers: 243
+VO costs time: 0.016823
+good matches: 213
+pnp inliers: 192
+VO costs time: 0.016953
+good matches: 216
+pnp inliers: 214
+VO costs time: 0.017799
+good matches: 346
+pnp inliers: 345
+VO costs time: 0.017973
+good matches: 270
+pnp inliers: 267
+VO costs time: 0.016876
+good matches: 280
+pnp inliers: 277
+VO costs time: 0.020761
+good matches: 333
+pnp inliers: 331
+VO costs time: 0.017776
+good matches: 330
+pnp inliers: 328
+VO costs time: 0.017878
+good matches: 318
+pnp inliers: 312
+VO costs time: 0.017399
+good matches: 271
+pnp inliers: 269
+VO costs time: 0.019166
+good matches: 290
+pnp inliers: 289
+VO costs time: 0.018336
+good matches: 290
+pnp inliers: 289
+VO costs time: 0.018029
+good matches: 298
+pnp inliers: 296
+VO costs time: 0.018399
+good matches: 282
+pnp inliers: 282
+VO costs time: 0.0178
+good matches: 283
+pnp inliers: 283
+VO costs time: 0.017407
+good matches: 306
+pnp inliers: 290
+VO costs time: 0.017665
+good matches: 292
+pnp inliers: 291
+VO costs time: 0.018029
+good matches: 230
+pnp inliers: 229
+VO costs time: 0.017307
+good matches: 284
+pnp inliers: 282
+VO costs time: 0.017617
+good matches: 249
+pnp inliers: 243
+VO costs time: 0.01658
+good matches: 183
+pnp inliers: 178
+VO costs time: 0.017561
+good matches: 220
+pnp inliers: 220
+VO costs time: 0.017253
+good matches: 231
+pnp inliers: 226
+VO costs time: 0.017899
+good matches: 252
+pnp inliers: 249
+VO costs time: 0.018385
+good matches: 276
+pnp inliers: 273
+VO costs time: 0.017658
+good matches: 221
+pnp inliers: 220
+VO costs time: 0.017043
+good matches: 243
+pnp inliers: 239
+VO costs time: 0.016703
+good matches: 244
+pnp inliers: 238
+VO costs time: 0.017525
+good matches: 258
+pnp inliers: 257
+VO costs time: 0.018555
+good matches: 236
+pnp inliers: 234
+VO costs time: 0.017865
+good matches: 270
+pnp inliers: 268
+VO costs time: 0.017385
+good matches: 298
+pnp inliers: 294
+VO costs time: 0.018033
+good matches: 280
+pnp inliers: 273
+VO costs time: 0.017883
+good matches: 232
+pnp inliers: 229
+VO costs time: 0.018851
+good matches: 270
+pnp inliers: 270
+VO costs time: 0.01841
+good matches: 315
+pnp inliers: 312
+VO costs time: 0.017985
+good matches: 327
+pnp inliers: 318
+VO costs time: 0.017827
+good matches: 286
+pnp inliers: 280
+VO costs time: 0.018926
+good matches: 275
+pnp inliers: 272
+VO costs time: 0.017971
+good matches: 295
+pnp inliers: 291
+VO costs time: 0.018014
+good matches: 200
+pnp inliers: 189
+VO costs time: 0.016866
+good matches: 248
+pnp inliers: 233
+VO costs time: 0.017979
+good matches: 258
+pnp inliers: 256
+VO costs time: 0.017942
+good matches: 287
+pnp inliers: 280
+VO costs time: 0.017719
+good matches: 250
+pnp inliers: 244
+VO costs time: 0.021832
+good matches: 226
+pnp inliers: 225
+VO costs time: 0.018287
+good matches: 222
+pnp inliers: 221
+VO costs time: 0.017405
+good matches: 229
+pnp inliers: 219
+VO costs time: 0.017839
+good matches: 299
+pnp inliers: 299
+VO costs time: 0.017406
+good matches: 269
+pnp inliers: 258
+VO costs time: 0.018147
+good matches: 215
+pnp inliers: 213
+VO costs time: 0.018448
+good matches: 217
+pnp inliers: 199
+VO costs time: 0.01819
+good matches: 264
+pnp inliers: 261
+VO costs time: 0.021461
+good matches: 212
+pnp inliers: 201
+VO costs time: 0.017749
+good matches: 136
+pnp inliers: 126
+VO costs time: 0.01711
+good matches: 73
+pnp inliers: 68
+VO costs time: 0.017988
+good matches: 206
+pnp inliers: 201
+VO costs time: 0.018616
+good matches: 132
+pnp inliers: 116
+VO costs time: 0.017598
+good matches: 135
+pnp inliers: 130
+VO costs time: 0.017316
+good matches: 168
+pnp inliers: 161
+VO costs time: 0.018553
+good matches: 255
+pnp inliers: 243
+VO costs time: 0.01958
+good matches: 167
+pnp inliers: 161
+VO costs time: 0.017543
+good matches: 227
+pnp inliers: 226
+VO costs time: 0.018298
+good matches: 249
+pnp inliers: 244
+VO costs time: 0.018449
+good matches: 191
+pnp inliers: 181
+VO costs time: 0.018658
+good matches: 257
+pnp inliers: 254
+VO costs time: 0.019062
+good matches: 212
+pnp inliers: 209
+VO costs time: 0.018675
+good matches: 268
+pnp inliers: 267
+VO costs time: 0.018711
+good matches: 194
+pnp inliers: 192
+VO costs time: 0.018154
+good matches: 235
+pnp inliers: 234
+VO costs time: 0.019038
+good matches: 196
+pnp inliers: 194
+VO costs time: 0.018554
+good matches: 217
+pnp inliers: 213
+VO costs time: 0.019744
+good matches: 249
+pnp inliers: 237
+VO costs time: 0.024033
+good matches: 276
+pnp inliers: 274
+VO costs time: 0.018983
+good matches: 301
+pnp inliers: 284
+VO costs time: 0.019188
+good matches: 271
+pnp inliers: 270
+VO costs time: 0.019039
+good matches: 260
+pnp inliers: 257
+VO costs time: 0.018051
+good matches: 238
+pnp inliers: 238
+VO costs time: 0.019206
+good matches: 259
+pnp inliers: 259
+VO costs time: 0.019731
+good matches: 248
+pnp inliers: 240
+VO costs time: 0.01805
+good matches: 284
+pnp inliers: 283
+VO costs time: 0.021199
+good matches: 183
+pnp inliers: 176
+VO costs time: 0.017859
+good matches: 177
+pnp inliers: 170
+VO costs time: 0.019066
+good matches: 256
+pnp inliers: 256
+VO costs time: 0.019074
+good matches: 140
+pnp inliers: 131
+VO costs time: 0.02555
+good matches: 211
+pnp inliers: 206
+VO costs time: 0.023033
+good matches: 245
+pnp inliers: 240
+VO costs time: 0.019978
+good matches: 273
+pnp inliers: 263
+VO costs time: 0.01923
+good matches: 182
+pnp inliers: 169
+VO costs time: 0.02052
+good matches: 302
+pnp inliers: 300
+VO costs time: 0.019644
+good matches: 250
+pnp inliers: 249
+VO costs time: 0.020476
+good matches: 236
+pnp inliers: 228
+VO costs time: 0.020474
+good matches: 191
+pnp inliers: 181
+VO costs time: 0.018488
+good matches: 223
+pnp inliers: 208
+VO costs time: 0.017896
+good matches: 109
+pnp inliers: 87
+VO costs time: 0.021265
+good matches: 194
+pnp inliers: 177
+VO costs time: 0.021713
+good matches: 229
+pnp inliers: 212
+VO costs time: 0.019342
+good matches: 132
+pnp inliers: 109
+VO costs time: 0.018927
+good matches: 201
+pnp inliers: 167
+VO costs time: 0.017913
+good matches: 209
+pnp inliers: 194
+VO costs time: 0.0176
+good matches: 110
+pnp inliers: 97
+VO costs time: 0.017358
+good matches: 196
+pnp inliers: 183
+VO costs time: 0.016031
+good matches: 60
+pnp inliers: 49
+VO costs time: 0.01744
+good matches: 240
+pnp inliers: 237
+VO costs time: 0.017855
+good matches: 155
+pnp inliers: 148
+VO costs time: 0.017892
+good matches: 133
+pnp inliers: 124
+VO costs time: 0.016907
+good matches: 112
+pnp inliers: 101
+VO costs time: 0.01633
+good matches: 168
+pnp inliers: 158
+VO costs time: 0.017034
+good matches: 108
+pnp inliers: 96
+VO costs time: 0.016666
+good matches: 179
+pnp inliers: 161
+VO costs time: 0.017618
+good matches: 117
+pnp inliers: 106
+VO costs time: 0.019627
+good matches: 160
+pnp inliers: 156
+VO costs time: 0.017309
+good matches: 211
+pnp inliers: 206
+VO costs time: 0.018618
+good matches: 176
+pnp inliers: 166
+VO costs time: 0.016807
+good matches: 208
+pnp inliers: 204
+VO costs time: 0.018278
+good matches: 90
+pnp inliers: 72
+VO costs time: 0.017823
+good matches: 132
+pnp inliers: 114
+VO costs time: 0.016797
+good matches: 151
+pnp inliers: 131
+VO costs time: 0.016685
+good matches: 84
+pnp inliers: 55
+adding a key-frame
+Key frame size = 1
+VO costs time: 0.016947
+good matches: 153
+pnp inliers: 120
+VO costs time: 0.015321
+good matches: 113
+pnp inliers: 91
+VO costs time: 0.016224
+good matches: 138
+pnp inliers: 133
+VO costs time: 0.015967
+good matches: 164
+pnp inliers: 156
+VO costs time: 0.016119
+good matches: 79
+pnp inliers: 60
+adding a key-frame
+Key frame size = 2
+VO costs time: 0.017864
+good matches: 169
+pnp inliers: 143
+VO costs time: 0.017479
+good matches: 92
+pnp inliers: 56
+adding a key-frame
+Key frame size = 3
+VO costs time: 0.01977
+good matches: 92
+pnp inliers: 60
+adding a key-frame
+Key frame size = 4
+VO costs time: 0.018258
+good matches: 93
+pnp inliers: 65
+adding a key-frame
+Key frame size = 5
+VO costs time: 0.018525
+good matches: 102
+pnp inliers: 85
+adding a key-frame
+Key frame size = 6
+VO costs time: 0.01935
+good matches: 77
+pnp inliers: 73
+VO costs time: 0.017718
+good matches: 158
+pnp inliers: 157
+VO costs time: 0.01744
+good matches: 102
+pnp inliers: 98
+VO costs time: 0.017978
+good matches: 178
+pnp inliers: 172
+VO costs time: 0.016562
+good matches: 191
+pnp inliers: 191
+VO costs time: 0.01785
+good matches: 137
+pnp inliers: 134
+VO costs time: 0.018111
+good matches: 119
+pnp inliers: 111
+VO costs time: 0.018921
+good matches: 229
+pnp inliers: 228
+VO costs time: 0.017903
+good matches: 177
+pnp inliers: 174
+VO costs time: 0.016259
+good matches: 185
+pnp inliers: 177
+VO costs time: 0.016467
+good matches: 230
+pnp inliers: 218
+VO costs time: 0.017091
+good matches: 181
+pnp inliers: 172
+VO costs time: 0.017868
+good matches: 213
+pnp inliers: 204
+VO costs time: 0.017144
+good matches: 223
+pnp inliers: 217
+VO costs time: 0.016998
+good matches: 146
+pnp inliers: 129
+VO costs time: 0.02161
+good matches: 199
+pnp inliers: 192
+VO costs time: 0.016722
+good matches: 153
+pnp inliers: 144
+VO costs time: 0.0153
+good matches: 180
+pnp inliers: 176
+VO costs time: 0.016762
+good matches: 183
+pnp inliers: 179
+VO costs time: 0.015858
+good matches: 185
+pnp inliers: 179
+VO costs time: 0.015656
+good matches: 195
+pnp inliers: 193
+VO costs time: 0.016595
+good matches: 188
+pnp inliers: 183
+VO costs time: 0.016205
+good matches: 273
+pnp inliers: 269
+VO costs time: 0.019714
+good matches: 196
+pnp inliers: 184
+VO costs time: 0.016932
+good matches: 148
+pnp inliers: 143
+VO costs time: 0.015872
+good matches: 244
+pnp inliers: 224
+VO costs time: 0.01738
+good matches: 189
+pnp inliers: 167
+VO costs time: 0.016997
+good matches: 273
+pnp inliers: 268
+VO costs time: 0.016787
+good matches: 246
+pnp inliers: 243
+VO costs time: 0.017718
+good matches: 236
+pnp inliers: 233
+VO costs time: 0.016966
+good matches: 265
+pnp inliers: 262
+VO costs time: 0.016874
+good matches: 266
+pnp inliers: 253
+VO costs time: 0.016713
+good matches: 256
+pnp inliers: 252
+VO costs time: 0.016565
+good matches: 228
+pnp inliers: 227
+VO costs time: 0.017018
+good matches: 255
+pnp inliers: 252
+VO costs time: 0.016049
+good matches: 301
+pnp inliers: 298
+VO costs time: 0.017558
+good matches: 281
+pnp inliers: 279
+VO costs time: 0.016899
+good matches: 251
+pnp inliers: 249
+VO costs time: 0.016646
+good matches: 186
+pnp inliers: 179
+VO costs time: 0.017141
+good matches: 236
+pnp inliers: 234
+VO costs time: 0.017561
+good matches: 161
+pnp inliers: 155
+VO costs time: 0.016413
+good matches: 221
+pnp inliers: 215
+VO costs time: 0.016876
+good matches: 223
+pnp inliers: 210
+VO costs time: 0.01727
+good matches: 231
+pnp inliers: 228
+VO costs time: 0.017024
+good matches: 279
+pnp inliers: 274
+VO costs time: 0.017988
+good matches: 239
+pnp inliers: 234
+VO costs time: 0.017542
+good matches: 288
+pnp inliers: 271
+VO costs time: 0.016527
+good matches: 234
+pnp inliers: 228
+VO costs time: 0.017307
+good matches: 262
+pnp inliers: 246
+VO costs time: 0.017994
+good matches: 258
+pnp inliers: 253
+VO costs time: 0.019387
+good matches: 282
+pnp inliers: 277
+VO costs time: 0.018139
+good matches: 266
+pnp inliers: 257
+VO costs time: 0.017913
+good matches: 151
+pnp inliers: 132
+VO costs time: 0.016576
+good matches: 154
+pnp inliers: 150
+VO costs time: 0.01635
+good matches: 144
+pnp inliers: 133
+VO costs time: 0.016998
+good matches: 161
+pnp inliers: 148
+VO costs time: 0.016994
+good matches: 317
+pnp inliers: 313
+VO costs time: 0.016679
+good matches: 268
+pnp inliers: 263
+VO costs time: 0.017712
+good matches: 182
+pnp inliers: 177
+VO costs time: 0.016753
+good matches: 161
+pnp inliers: 158
+VO costs time: 0.017703
+good matches: 201
+pnp inliers: 193
+VO costs time: 0.017364
+good matches: 243
+pnp inliers: 228
+VO costs time: 0.017046
+good matches: 254
+pnp inliers: 246
+VO costs time: 0.017843
+good matches: 153
+pnp inliers: 137
+VO costs time: 0.016714
+good matches: 155
+pnp inliers: 145
+VO costs time: 0.015999
+good matches: 132
+pnp inliers: 125
+VO costs time: 0.016376
+good matches: 123
+pnp inliers: 118
+VO costs time: 0.016654
+good matches: 93
+pnp inliers: 75
+VO costs time: 0.017709
+good matches: 125
+pnp inliers: 114
+VO costs time: 0.016425
+good matches: 245
+pnp inliers: 242
+VO costs time: 0.017655
+good matches: 258
+pnp inliers: 247
+VO costs time: 0.017348
+good matches: 270
+pnp inliers: 266
+VO costs time: 0.017155
+good matches: 219
+pnp inliers: 205
+VO costs time: 0.01686
+good matches: 251
+pnp inliers: 248
+VO costs time: 0.017377
+good matches: 267
+pnp inliers: 256
+VO costs time: 0.017957
+good matches: 234
+pnp inliers: 230
+VO costs time: 0.017715
+good matches: 298
+pnp inliers: 290
+VO costs time: 0.016569
+good matches: 248
+pnp inliers: 245
+VO costs time: 0.017315
+good matches: 197
+pnp inliers: 193
+VO costs time: 0.017031
+good matches: 203
+pnp inliers: 201
+VO costs time: 0.016747
+good matches: 233
+pnp inliers: 231
+VO costs time: 0.016094
+good matches: 167
+pnp inliers: 166
+VO costs time: 0.014973
+good matches: 189
+pnp inliers: 188
+VO costs time: 0.016146
+good matches: 152
+pnp inliers: 144
+VO costs time: 0.015563
+good matches: 170
+pnp inliers: 146
+VO costs time: 0.015987
+good matches: 190
+pnp inliers: 183
+VO costs time: 0.015875
+good matches: 213
+pnp inliers: 208
+VO costs time: 0.01508
+good matches: 213
+pnp inliers: 208
+VO costs time: 0.015457
+good matches: 231
+pnp inliers: 226
+VO costs time: 0.014547
+good matches: 219
+pnp inliers: 215
+VO costs time: 0.014923
+good matches: 201
+pnp inliers: 197
+VO costs time: 0.014146
+good matches: 190
+pnp inliers: 189
+VO costs time: 0.015549
+good matches: 149
+pnp inliers: 143
+VO costs time: 0.014979
+good matches: 141
+pnp inliers: 121
+VO costs time: 0.015008
+good matches: 192
+pnp inliers: 183
+VO costs time: 0.015668
+good matches: 198
+pnp inliers: 195
+VO costs time: 0.014979
+good matches: 192
+pnp inliers: 183
+VO costs time: 0.015483
+good matches: 193
+pnp inliers: 169
+VO costs time: 0.015877
+good matches: 218
+pnp inliers: 213
+VO costs time: 0.015117
+good matches: 169
+pnp inliers: 164
+VO costs time: 0.015525
+good matches: 220
+pnp inliers: 205
+VO costs time: 0.014852
+good matches: 191
+pnp inliers: 189
+VO costs time: 0.016314
+good matches: 176
+pnp inliers: 166
+VO costs time: 0.015693
+good matches: 222
+pnp inliers: 216
+VO costs time: 0.016567
+good matches: 199
+pnp inliers: 187
+VO costs time: 0.016484
+good matches: 194
+pnp inliers: 190
+VO costs time: 0.016551
+good matches: 135
+pnp inliers: 124
+VO costs time: 0.015562
+good matches: 268
+pnp inliers: 265
+VO costs time: 0.016768
+good matches: 206
+pnp inliers: 201
+VO costs time: 0.016355
+good matches: 173
+pnp inliers: 166
+VO costs time: 0.016862
+good matches: 243
+pnp inliers: 240
+VO costs time: 0.016775
+good matches: 181
+pnp inliers: 176
+VO costs time: 0.017459
+good matches: 236
+pnp inliers: 231
+VO costs time: 0.01525
+good matches: 152
+pnp inliers: 143
+VO costs time: 0.016505
+good matches: 162
+pnp inliers: 156
+VO costs time: 0.017156
+good matches: 243
+pnp inliers: 241
+VO costs time: 0.016605
+good matches: 108
+pnp inliers: 103
+VO costs time: 0.016743
+good matches: 203
+pnp inliers: 201
+VO costs time: 0.015932
+good matches: 88
+pnp inliers: 84
+VO costs time: 0.017434
+good matches: 120
+pnp inliers: 113
+VO costs time: 0.017941
+good matches: 129
+pnp inliers: 123
+VO costs time: 0.016001
+good matches: 134
+pnp inliers: 128
+VO costs time: 0.01774
+good matches: 280
+pnp inliers: 278
+VO costs time: 0.017254
+good matches: 195
+pnp inliers: 190
+VO costs time: 0.016542
+good matches: 204
+pnp inliers: 201
+VO costs time: 0.017482
+good matches: 235
+pnp inliers: 234
+VO costs time: 0.018818
+good matches: 235
+pnp inliers: 234
+VO costs time: 0.017933
+good matches: 271
+pnp inliers: 267
+VO costs time: 0.018002
+good matches: 221
+pnp inliers: 217
+VO costs time: 0.017976
+good matches: 202
+pnp inliers: 198
+VO costs time: 0.01752
+good matches: 253
+pnp inliers: 249
+VO costs time: 0.017116
+good matches: 208
+pnp inliers: 207
+VO costs time: 0.020839
+good matches: 160
+pnp inliers: 159
+VO costs time: 0.018623
+good matches: 200
+pnp inliers: 192
+VO costs time: 0.017332
+good matches: 179
+pnp inliers: 176
+VO costs time: 0.017
+good matches: 175
+pnp inliers: 169
+VO costs time: 0.017391
+good matches: 256
+pnp inliers: 235
+VO costs time: 0.018788
+good matches: 190
+pnp inliers: 185
+VO costs time: 0.018971
+good matches: 248
+pnp inliers: 239
+VO costs time: 0.018253
+good matches: 154
+pnp inliers: 143
+VO costs time: 0.018289
+good matches: 253
+pnp inliers: 252
+VO costs time: 0.018082
+good matches: 227
+pnp inliers: 224
+VO costs time: 0.018256
+good matches: 207
+pnp inliers: 203
+VO costs time: 0.018523
+good matches: 219
+pnp inliers: 217
+VO costs time: 0.018297
+good matches: 194
+pnp inliers: 187
+VO costs time: 0.017551
+good matches: 78
+pnp inliers: 71
+VO costs time: 0.017213
+good matches: 215
+pnp inliers: 205
+VO costs time: 0.016543
+good matches: 225
+pnp inliers: 218
+VO costs time: 0.016886
+good matches: 165
+pnp inliers: 146
+VO costs time: 0.016441
+good matches: 160
+pnp inliers: 150
+VO costs time: 0.017575
+good matches: 127
+pnp inliers: 120
+VO costs time: 0.01844
+good matches: 142
+pnp inliers: 136
+VO costs time: 0.01771
+good matches: 164
+pnp inliers: 148
+VO costs time: 0.017007
+good matches: 155
+pnp inliers: 147
+VO costs time: 0.016281
+good matches: 217
+pnp inliers: 202
+VO costs time: 0.018554
+good matches: 160
+pnp inliers: 156
+VO costs time: 0.017713
+good matches: 203
+pnp inliers: 198
+VO costs time: 0.017585
+good matches: 249
+pnp inliers: 243
+VO costs time: 0.016664
+good matches: 245
+pnp inliers: 242
+VO costs time: 0.017661
+good matches: 201
+pnp inliers: 201
+VO costs time: 0.018248
+good matches: 67
+pnp inliers: 51
+VO costs time: 0.017203
+good matches: 266
+pnp inliers: 244
+VO costs time: 0.016237
+good matches: 267
+pnp inliers: 249
+VO costs time: 0.016789
+good matches: 256
+pnp inliers: 238
+VO costs time: 0.017522
+good matches: 258
+pnp inliers: 240
+VO costs time: 0.017754
+good matches: 172
+pnp inliers: 155
+VO costs time: 0.017804
+good matches: 218
+pnp inliers: 204
+VO costs time: 0.017245
+good matches: 209
+pnp inliers: 197
+VO costs time: 0.018089
+good matches: 167
+pnp inliers: 154
+VO costs time: 0.018531
+good matches: 193
+pnp inliers: 184
+VO costs time: 0.01767
+good matches: 222
+pnp inliers: 209
+VO costs time: 0.018523
+good matches: 236
+pnp inliers: 226
+VO costs time: 0.017833
+good matches: 215
+pnp inliers: 207
+VO costs time: 0.017974
+good matches: 177
+pnp inliers: 170
+VO costs time: 0.018597
+good matches: 250
+pnp inliers: 245
+VO costs time: 0.018826
+good matches: 237
+pnp inliers: 234
+VO costs time: 0.017422
+good matches: 246
+pnp inliers: 243
+VO costs time: 0.018392
+good matches: 249
+pnp inliers: 244
+VO costs time: 0.018828
+good matches: 207
+pnp inliers: 206
+VO costs time: 0.018313
+good matches: 243
+pnp inliers: 237
+VO costs time: 0.017759
+good matches: 238
+pnp inliers: 216
+VO costs time: 0.018391
+good matches: 269
+pnp inliers: 263
+VO costs time: 0.019599
+good matches: 220
+pnp inliers: 216
+VO costs time: 0.018583
+good matches: 156
+pnp inliers: 151
+VO costs time: 0.018185
+good matches: 153
+pnp inliers: 145
+VO costs time: 0.017271
+good matches: 171
+pnp inliers: 160
+VO costs time: 0.018439
+good matches: 237
+pnp inliers: 228
+VO costs time: 0.017907
+good matches: 174
+pnp inliers: 156
+VO costs time: 0.018079
+good matches: 197
+pnp inliers: 187
+VO costs time: 0.017732
+good matches: 137
+pnp inliers: 124
+VO costs time: 0.017519
+good matches: 212
+pnp inliers: 197
+VO costs time: 0.018555
+good matches: 251
+pnp inliers: 247
+VO costs time: 0.017646
+good matches: 203
+pnp inliers: 202
+VO costs time: 0.016951
+good matches: 189
+pnp inliers: 182
+VO costs time: 0.015814
+good matches: 175
+pnp inliers: 162
+VO costs time: 0.017874
+good matches: 147
+pnp inliers: 131
+VO costs time: 0.018067
+good matches: 161
+pnp inliers: 158
+VO costs time: 0.016916
+good matches: 197
+pnp inliers: 193
+VO costs time: 0.016794
+good matches: 246
+pnp inliers: 223
+VO costs time: 0.017
+good matches: 153
+pnp inliers: 146
+VO costs time: 0.018693
+good matches: 271
+pnp inliers: 260
+VO costs time: 0.018188
+good matches: 222
+pnp inliers: 221
+VO costs time: 0.017815
+good matches: 228
+pnp inliers: 225
+VO costs time: 0.016157
+good matches: 201
+pnp inliers: 190
+VO costs time: 0.017547
+good matches: 196
+pnp inliers: 186
+VO costs time: 0.017339
+good matches: 253
+pnp inliers: 240
+VO costs time: 0.017106
+good matches: 91
+pnp inliers: 86
+VO costs time: 0.016105
+good matches: 238
+pnp inliers: 228
+VO costs time: 0.017561
+good matches: 167
+pnp inliers: 161
+VO costs time: 0.017687
+good matches: 238
+pnp inliers: 236
+VO costs time: 0.016059
+good matches: 187
+pnp inliers: 184
+VO costs time: 0.017412
+good matches: 224
+pnp inliers: 220
+VO costs time: 0.020707
+good matches: 225
+pnp inliers: 214
+VO costs time: 0.019664
+good matches: 226
+pnp inliers: 224
+VO costs time: 0.016899
+good matches: 218
+pnp inliers: 216
+VO costs time: 0.017476
+good matches: 303
+pnp inliers: 298
+VO costs time: 0.017051
+good matches: 253
+pnp inliers: 250
+VO costs time: 0.017145
+good matches: 305
+pnp inliers: 303
+VO costs time: 0.017246
+good matches: 262
+pnp inliers: 256
+VO costs time: 0.017826
+good matches: 226
+pnp inliers: 224
+VO costs time: 0.016809
+good matches: 211
+pnp inliers: 208
+VO costs time: 0.016316
+good matches: 265
+pnp inliers: 253
+VO costs time: 0.016676
+good matches: 311
+pnp inliers: 308
+VO costs time: 0.017943
+good matches: 269
+pnp inliers: 268
+VO costs time: 0.016982
+good matches: 278
+pnp inliers: 276
+VO costs time: 0.015733
+good matches: 289
+pnp inliers: 289
+VO costs time: 0.018045
+good matches: 295
+pnp inliers: 293
+VO costs time: 0.017993
+good matches: 307
+pnp inliers: 303
+VO costs time: 0.017633
+good matches: 251
+pnp inliers: 250
+VO costs time: 0.015914
+good matches: 247
+pnp inliers: 245
+VO costs time: 0.016138
+good matches: 265
+pnp inliers: 260
+VO costs time: 0.016592
+good matches: 285
+pnp inliers: 285
+VO costs time: 0.01644
+good matches: 218
+pnp inliers: 212
+VO costs time: 0.01605
+good matches: 250
+pnp inliers: 248
+VO costs time: 0.016089
+good matches: 301
+pnp inliers: 296
+VO costs time: 0.018027
+good matches: 301
+pnp inliers: 298
+VO costs time: 0.017238
+good matches: 196
+pnp inliers: 193
+VO costs time: 0.016687
+good matches: 288
+pnp inliers: 273
+VO costs time: 0.016458
+good matches: 263
+pnp inliers: 256
+VO costs time: 0.017538
+good matches: 265
+pnp inliers: 262
+VO costs time: 0.016355
+good matches: 302
+pnp inliers: 286
+VO costs time: 0.016608
+good matches: 305
+pnp inliers: 290
+VO costs time: 0.01649
+good matches: 269
+pnp inliers: 265
+VO costs time: 0.017919
+good matches: 299
+pnp inliers: 295
+VO costs time: 0.016921
+good matches: 256
+pnp inliers: 248
+VO costs time: 0.017448
+good matches: 319
+pnp inliers: 317
+VO costs time: 0.016648
+good matches: 306
+pnp inliers: 301
+VO costs time: 0.018307
+good matches: 244
+pnp inliers: 232
+VO costs time: 0.017577
+good matches: 310
+pnp inliers: 302
+VO costs time: 0.017155
+good matches: 245
+pnp inliers: 236
+VO costs time: 0.016327
+good matches: 257
+pnp inliers: 253
+VO costs time: 0.017265
+good matches: 279
+pnp inliers: 276
+VO costs time: 0.017881
+good matches: 228
+pnp inliers: 214
+VO costs time: 0.016357
+good matches: 248
+pnp inliers: 246
+VO costs time: 0.017116
+good matches: 212
+pnp inliers: 207
+VO costs time: 0.015962
+good matches: 215
+pnp inliers: 206
+VO costs time: 0.016739
+good matches: 254
+pnp inliers: 251
+VO costs time: 0.016934
+good matches: 195
+pnp inliers: 184
+VO costs time: 0.01644
+good matches: 183
+pnp inliers: 175
+VO costs time: 0.016631
+good matches: 239
+pnp inliers: 234
+VO costs time: 0.017676
+good matches: 244
+pnp inliers: 240
+VO costs time: 0.016996
+good matches: 273
+pnp inliers: 270
+VO costs time: 0.017083
+good matches: 280
+pnp inliers: 269
+VO costs time: 0.018562
+good matches: 203
+pnp inliers: 201
+VO costs time: 0.017255
+good matches: 259
+pnp inliers: 258
+VO costs time: 0.017585
+good matches: 208
+pnp inliers: 205
+VO costs time: 0.017667
+good matches: 297
+pnp inliers: 295
+VO costs time: 0.016846
+good matches: 153
+pnp inliers: 149
+VO costs time: 0.016911
+good matches: 251
+pnp inliers: 245
+VO costs time: 0.01747
+good matches: 276
+pnp inliers: 274
+VO costs time: 0.016776
+good matches: 298
+pnp inliers: 296
+VO costs time: 0.0171
+good matches: 241
+pnp inliers: 234
+VO costs time: 0.016698
+good matches: 258
+pnp inliers: 257
+VO costs time: 0.017871
+good matches: 213
+pnp inliers: 211
+VO costs time: 0.017849
+good matches: 293
+pnp inliers: 292
+VO costs time: 0.017096
+good matches: 278
+pnp inliers: 276
+VO costs time: 0.016517
+good matches: 195
+pnp inliers: 187
+VO costs time: 0.01836
+good matches: 110
+pnp inliers: 98
+VO costs time: 0.016444
+good matches: 196
+pnp inliers: 193
+VO costs time: 0.016437
+good matches: 235
+pnp inliers: 230
+VO costs time: 0.016147
+good matches: 176
+pnp inliers: 175
+VO costs time: 0.017169
+good matches: 212
+pnp inliers: 210
+VO costs time: 0.018021
+good matches: 268
+pnp inliers: 263
+VO costs time: 0.01674
+good matches: 234
+pnp inliers: 230
+VO costs time: 0.016236
+good matches: 232
+pnp inliers: 232
+VO costs time: 0.018365
+good matches: 292
+pnp inliers: 281
+VO costs time: 0.017474
+good matches: 275
+pnp inliers: 272
+VO costs time: 0.0163
+good matches: 270
+pnp inliers: 265
+VO costs time: 0.017243
+good matches: 174
+pnp inliers: 156
+VO costs time: 0.017026
+good matches: 208
+pnp inliers: 204
+VO costs time: 0.01573
+good matches: 238
+pnp inliers: 220
+VO costs time: 0.015707
+good matches: 250
+pnp inliers: 246
+VO costs time: 0.017037
+good matches: 208
+pnp inliers: 200
+VO costs time: 0.017748
+good matches: 256
+pnp inliers: 242
+VO costs time: 0.016853
+good matches: 269
+pnp inliers: 268
+VO costs time: 0.015764
+good matches: 252
+pnp inliers: 250
+VO costs time: 0.015552
+good matches: 263
+pnp inliers: 251
+VO costs time: 0.016139
+good matches: 274
+pnp inliers: 266
+VO costs time: 0.016246
+good matches: 288
+pnp inliers: 283
+VO costs time: 0.015406
+good matches: 305
+pnp inliers: 301
+VO costs time: 0.016559
+good matches: 267
+pnp inliers: 252
+VO costs time: 0.016837
+good matches: 259
+pnp inliers: 245
+VO costs time: 0.016497
+good matches: 280
+pnp inliers: 259
+VO costs time: 0.015829
+good matches: 307
+pnp inliers: 303
+VO costs time: 0.016599
+good matches: 312
+pnp inliers: 295
+VO costs time: 0.016831
+good matches: 251
+pnp inliers: 244
+VO costs time: 0.01614
+good matches: 300
+pnp inliers: 295
+VO costs time: 0.016714
+good matches: 293
+pnp inliers: 277
+VO costs time: 0.016799
+good matches: 256
+pnp inliers: 244
+VO costs time: 0.015717
+good matches: 279
+pnp inliers: 274
+VO costs time: 0.015858
+good matches: 270
+pnp inliers: 265
+VO costs time: 0.015784
+good matches: 264
+pnp inliers: 247
+VO costs time: 0.01657
+good matches: 249
+pnp inliers: 237
+VO costs time: 0.015951
+good matches: 274
+pnp inliers: 244
+VO costs time: 0.015855
+good matches: 267
+pnp inliers: 259
+VO costs time: 0.0164
+good matches: 305
+pnp inliers: 299
+VO costs time: 0.016332
+good matches: 311
+pnp inliers: 301
+VO costs time: 0.015536
+good matches: 275
+pnp inliers: 270
+VO costs time: 0.015765
+good matches: 295
+pnp inliers: 285
+VO costs time: 0.015963
+good matches: 298
+pnp inliers: 280
+VO costs time: 0.016401
+good matches: 312
+pnp inliers: 295
+VO costs time: 0.015931
+good matches: 311
+pnp inliers: 307
+VO costs time: 0.016919
+good matches: 335
+pnp inliers: 333
+VO costs time: 0.016132
+good matches: 285
+pnp inliers: 272
+VO costs time: 0.016294
+good matches: 307
+pnp inliers: 302
+VO costs time: 0.015734
+good matches: 289
+pnp inliers: 286
+VO costs time: 0.016063
+good matches: 269
+pnp inliers: 257
+VO costs time: 0.016266
+good matches: 284
+pnp inliers: 278
+VO costs time: 0.015699
+good matches: 273
+pnp inliers: 262
+VO costs time: 0.016197
+good matches: 208
+pnp inliers: 191
+VO costs time: 0.016648
+good matches: 232
+pnp inliers: 226
+VO costs time: 0.015757
+good matches: 257
+pnp inliers: 254
+VO costs time: 0.015549
+good matches: 182
+pnp inliers: 173
+VO costs time: 0.016469
+good matches: 252
+pnp inliers: 232
+VO costs time: 0.015911
+good matches: 247
+pnp inliers: 241
+VO costs time: 0.015934
+good matches: 258
+pnp inliers: 237
+VO costs time: 0.015759
+good matches: 241
+pnp inliers: 230
+VO costs time: 0.016275
+good matches: 252
+pnp inliers: 243
+VO costs time: 0.016237
+good matches: 285
+pnp inliers: 273
+VO costs time: 0.016257
+good matches: 329
+pnp inliers: 318
+VO costs time: 0.016448
+good matches: 267
+pnp inliers: 258
+VO costs time: 0.017397
+good matches: 321
+pnp inliers: 315
+VO costs time: 0.017267
+good matches: 310
+pnp inliers: 299
+VO costs time: 0.018142
+good matches: 284
+pnp inliers: 282
+VO costs time: 0.017854
+good matches: 324
+pnp inliers: 314
+VO costs time: 0.017257
+good matches: 308
+pnp inliers: 293
+VO costs time: 0.017085
+good matches: 288
+pnp inliers: 280
+VO costs time: 0.01823
+good matches: 281
+pnp inliers: 277
+VO costs time: 0.017397
+good matches: 313
+pnp inliers: 310
+VO costs time: 0.016823
+good matches: 273
+pnp inliers: 257
+VO costs time: 0.018155
+good matches: 293
+pnp inliers: 289
+VO costs time: 0.018698
+good matches: 288
+pnp inliers: 287
+VO costs time: 0.018274
+good matches: 317
+pnp inliers: 316
+VO costs time: 0.018132
+good matches: 307
+pnp inliers: 292
+VO costs time: 0.024396
+good matches: 318
+pnp inliers: 315
+VO costs time: 0.017654
+good matches: 339
+pnp inliers: 337
+VO costs time: 0.018759
+good matches: 313
+pnp inliers: 312
+VO costs time: 0.018391
+good matches: 314
+pnp inliers: 312
+VO costs time: 0.017551
+good matches: 306
+pnp inliers: 304
+VO costs time: 0.018496
+good matches: 313
+pnp inliers: 311
+VO costs time: 0.017629
+good matches: 307
+pnp inliers: 307
+VO costs time: 0.018573
+good matches: 324
+pnp inliers: 322
+VO costs time: 0.017853
+good matches: 299
+pnp inliers: 296
+VO costs time: 0.017416
+good matches: 316
+pnp inliers: 314
+VO costs time: 0.017115
+good matches: 319
+pnp inliers: 310
+VO costs time: 0.017557
+good matches: 321
+pnp inliers: 319
+VO costs time: 0.01747
+good matches: 291
+pnp inliers: 286
+VO costs time: 0.017546
+good matches: 253
+pnp inliers: 247
+VO costs time: 0.016698
+good matches: 288
+pnp inliers: 271
+VO costs time: 0.018172
+good matches: 276
+pnp inliers: 268
+VO costs time: 0.018641
+good matches: 309
+pnp inliers: 306
+VO costs time: 0.017915
+good matches: 276
+pnp inliers: 262
+VO costs time: 0.017128
+good matches: 245
+pnp inliers: 238
+VO costs time: 0.017639
+good matches: 313
+pnp inliers: 309
+VO costs time: 0.016829
+good matches: 304
+pnp inliers: 297
+VO costs time: 0.018112
+good matches: 282
+pnp inliers: 279
+VO costs time: 0.017575
+good matches: 309
+pnp inliers: 307
+VO costs time: 0.017005
+good matches: 280
+pnp inliers: 278
+VO costs time: 0.017263
+good matches: 312
+pnp inliers: 306
+VO costs time: 0.019318
+good matches: 312
+pnp inliers: 308
+VO costs time: 0.017905
+good matches: 332
+pnp inliers: 330
+VO costs time: 0.017087
+good matches: 313
+pnp inliers: 304
+VO costs time: 0.017126
+good matches: 304
+pnp inliers: 300
+VO costs time: 0.018513
+good matches: 273
+pnp inliers: 269
+VO costs time: 0.01713
+good matches: 301
+pnp inliers: 299
+VO costs time: 0.016426
+good matches: 265
+pnp inliers: 259
+VO costs time: 0.018193
+good matches: 323
+pnp inliers: 322
+VO costs time: 0.018362
+good matches: 295
+pnp inliers: 293
+VO costs time: 0.018364
+good matches: 325
+pnp inliers: 325
+VO costs time: 0.017542
+good matches: 318
+pnp inliers: 317
+VO costs time: 0.018477
+good matches: 302
+pnp inliers: 300
+VO costs time: 0.018123
+good matches: 309
+pnp inliers: 308
+VO costs time: 0.018134
+good matches: 298
+pnp inliers: 297
+VO costs time: 0.018588
+good matches: 309
+pnp inliers: 309
+VO costs time: 0.018039
+good matches: 315
+pnp inliers: 314
+VO costs time: 0.017837
+good matches: 300
+pnp inliers: 294
+VO costs time: 0.01888
+good matches: 282
+pnp inliers: 279
+VO costs time: 0.018131
+good matches: 310
+pnp inliers: 307
+VO costs time: 0.018067
+good matches: 315
+pnp inliers: 311
+VO costs time: 0.017625
+good matches: 323
+pnp inliers: 321
+VO costs time: 0.017873
+good matches: 293
+pnp inliers: 292
+VO costs time: 0.01726
+good matches: 287
+pnp inliers: 281
+VO costs time: 0.018357
+good matches: 280
+pnp inliers: 275
+VO costs time: 0.018129
+good matches: 277
+pnp inliers: 264
+VO costs time: 0.017723
+terminate called after throwing an instance of 'std::out_of_range'
+  what():  basic_string::substr: __pos (which is 140) > this->size() (which is 0)
