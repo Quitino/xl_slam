@@ -17,10 +17,22 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "DISABLE_OPENNI2"
   "DISABLE_PCAP"
   "DISABLE_PNG"
+<<<<<<< HEAD
+  "EIGEN_USE_NEW_STDVECTOR"
+  "EIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"
+=======
+>>>>>>> bd44e8eb5325dd543994f357470a7511a2c09a07
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+<<<<<<< HEAD
+  "/data/lib/opencv-3.0.0/release/include"
+  "/usr/include/eigen3"
+  "/usr/include/vtk-5.8"
+  "/usr/local/include/pcl-1.8"
+  "/usr/local/include/eigen3"
+=======
   "/usr/local/include"
   "/usr/local/include/opencv"
   "/root/Downloads2/ElasticFusion/deps/Pangolin/include"
@@ -28,6 +40,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/eigen3"
   "/usr/include/vtk-5.10"
   "/usr/local/include/pcl-1.8"
+>>>>>>> bd44e8eb5325dd543994f357470a7511a2c09a07
   "/usr/include/ni"
   )
 

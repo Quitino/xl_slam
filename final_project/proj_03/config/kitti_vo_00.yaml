@@ -1,0 +1,23 @@
+%YAML:1.0
+# data
+# the tum dataset directory, change it to yours! 
+dataset_dir: /data/kitti-dataset/kitti_vo_color_dataset/sequences/00
+
+# camera intrinsics
+# seq 00-02
+camera.fx: 718.856
+camera.fy: 718.856
+camera.cx: 607.1928
+camera.cy: 185.2157
+
+camera.depth_scale: 5000
+
+# VO paras
+number_of_features: 500
+scale_factor: 1.2
+level_pyramid: 8
+match_ratio: 2.0
+max_num_lost: 10
+min_inliers: 10
+keyframe_rotation: 0.1
+keyframe_translation: 0.1
