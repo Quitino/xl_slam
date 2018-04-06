@@ -48,24 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/code/xl_slam/hw4/gaussnewton
+CMAKE_SOURCE_DIR = /data/code/xl_slam/hw5/GN_BA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/code/xl_slam/hw4/gaussnewton/build
+CMAKE_BINARY_DIR = /data/code/xl_slam/hw5/GN_BA/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -78,11 +67,22 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles /data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/code/xl_slam/hw5/GN_BA/build/CMakeFiles /data/code/xl_slam/hw5/GN_BA/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/code/xl_slam/hw5/GN_BA/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named gaussnewton
+# Target rules for targets named GN_BA
 
 # Build rule for target.
-gaussnewton: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gaussnewton
-.PHONY : gaussnewton
+GN_BA: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GN_BA
+.PHONY : GN_BA
 
 # fast build rule for target.
-gaussnewton/fast:
-	$(MAKE) -f CMakeFiles/gaussnewton.dir/build.make CMakeFiles/gaussnewton.dir/build
-.PHONY : gaussnewton/fast
+GN_BA/fast:
+	$(MAKE) -f CMakeFiles/GN_BA.dir/build.make CMakeFiles/GN_BA.dir/build
+.PHONY : GN_BA/fast
 
-gaussnewton.o: gaussnewton.cpp.o
+GN_BA.o: GN_BA.cpp.o
 
-.PHONY : gaussnewton.o
+.PHONY : GN_BA.o
 
 # target to build an object file
-gaussnewton.cpp.o:
-	$(MAKE) -f CMakeFiles/gaussnewton.dir/build.make CMakeFiles/gaussnewton.dir/gaussnewton.cpp.o
-.PHONY : gaussnewton.cpp.o
+GN_BA.cpp.o:
+	$(MAKE) -f CMakeFiles/GN_BA.dir/build.make CMakeFiles/GN_BA.dir/GN_BA.cpp.o
+.PHONY : GN_BA.cpp.o
 
-gaussnewton.i: gaussnewton.cpp.i
+GN_BA.i: GN_BA.cpp.i
 
-.PHONY : gaussnewton.i
+.PHONY : GN_BA.i
 
 # target to preprocess a source file
-gaussnewton.cpp.i:
-	$(MAKE) -f CMakeFiles/gaussnewton.dir/build.make CMakeFiles/gaussnewton.dir/gaussnewton.cpp.i
-.PHONY : gaussnewton.cpp.i
+GN_BA.cpp.i:
+	$(MAKE) -f CMakeFiles/GN_BA.dir/build.make CMakeFiles/GN_BA.dir/GN_BA.cpp.i
+.PHONY : GN_BA.cpp.i
 
-gaussnewton.s: gaussnewton.cpp.s
+GN_BA.s: GN_BA.cpp.s
 
-.PHONY : gaussnewton.s
+.PHONY : GN_BA.s
 
 # target to generate assembly for a file
-gaussnewton.cpp.s:
-	$(MAKE) -f CMakeFiles/gaussnewton.dir/build.make CMakeFiles/gaussnewton.dir/gaussnewton.cpp.s
-.PHONY : gaussnewton.cpp.s
+GN_BA.cpp.s:
+	$(MAKE) -f CMakeFiles/GN_BA.dir/build.make CMakeFiles/GN_BA.dir/GN_BA.cpp.s
+.PHONY : GN_BA.cpp.s
 
 # Help Target
 help:
@@ -156,12 +156,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... gaussnewton"
-	@echo "... gaussnewton.o"
-	@echo "... gaussnewton.i"
-	@echo "... gaussnewton.s"
+	@echo "... rebuild_cache"
+	@echo "... GN_BA"
+	@echo "... GN_BA.o"
+	@echo "... GN_BA.i"
+	@echo "... GN_BA.s"
 .PHONY : help
 
 

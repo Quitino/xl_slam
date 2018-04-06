@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_d6f1a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_d6f1a.dir/build.make CMakeFiles/cmTC_d6f1a.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_4e9dd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4e9dd.dir/build.make CMakeFiles/cmTC_4e9dd.dir/build
 make[1]: Entering directory '/data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_d6f1a.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_d6f1a.dir/CheckSymbolExists.c.o   -c /data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_d6f1a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d6f1a.dir/link.txt --verbose=1
-/usr/bin/cc  -fPIC     CMakeFiles/cmTC_d6f1a.dir/CheckSymbolExists.c.o  -o cmTC_d6f1a -rdynamic 
-CMakeFiles/cmTC_d6f1a.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_4e9dd.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_4e9dd.dir/CheckSymbolExists.c.o   -c /data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_4e9dd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4e9dd.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC     CMakeFiles/cmTC_4e9dd.dir/CheckSymbolExists.c.o  -o cmTC_4e9dd -rdynamic 
+CMakeFiles/cmTC_4e9dd.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_d6f1a.dir/build.make:97: recipe for target 'cmTC_d6f1a' failed
-make[1]: *** [cmTC_d6f1a] Error 1
+CMakeFiles/cmTC_4e9dd.dir/build.make:97: recipe for target 'cmTC_4e9dd' failed
+make[1]: *** [cmTC_4e9dd] Error 1
 make[1]: Leaving directory '/data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_d6f1a/fast' failed
-make: *** [cmTC_d6f1a/fast] Error 2
+Makefile:126: recipe for target 'cmTC_4e9dd/fast' failed
+make: *** [cmTC_4e9dd/fast] Error 2
 
 File /data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_2c032/fast"
-/usr/bin/make -f CMakeFiles/cmTC_2c032.dir/build.make CMakeFiles/cmTC_2c032.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_6a39c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6a39c.dir/build.make CMakeFiles/cmTC_6a39c.dir/build
 make[1]: Entering directory '/data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_2c032.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_2c032.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_2c032
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c032.dir/link.txt --verbose=1
-/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_2c032.dir/CheckFunctionExists.c.o  -o cmTC_2c032 -rdynamic -lpthreads 
+Building C object CMakeFiles/cmTC_6a39c.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_6a39c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6a39c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6a39c.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_6a39c.dir/CheckFunctionExists.c.o  -o cmTC_6a39c -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_2c032.dir/build.make:97: recipe for target 'cmTC_2c032' failed
-make[1]: *** [cmTC_2c032] Error 1
+CMakeFiles/cmTC_6a39c.dir/build.make:97: recipe for target 'cmTC_6a39c' failed
+make[1]: *** [cmTC_6a39c] Error 1
 make[1]: Leaving directory '/data/code/xl_slam/hw4/gaussnewton/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_2c032/fast' failed
-make: *** [cmTC_2c032/fast] Error 2
+Makefile:126: recipe for target 'cmTC_6a39c/fast' failed
+make: *** [cmTC_6a39c/fast] Error 2
 
 
