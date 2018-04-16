@@ -161,20 +161,22 @@ void bundleAdjustment (
                R.at<double> ( 1,0 ), R.at<double> ( 1,1 ), R.at<double> ( 1,2 ),
                R.at<double> ( 2,0 ), R.at<double> ( 2,1 ), R.at<double> ( 2,2 );
     pose->setId ( 0 );
+    // 以PnP求得的值作為初始值
     pose->setEstimate ( g2o::SE3Quat (
                             R_mat,
                             Eigen::Vector3d ( t.at<double> ( 0,0 ), t.at<double> ( 1,0 ), t.at<double> ( 2,0 ) )
                         ) );
-    optimizer.addVertex ( pose );
+    optimizer.addVertex ( pose );  // adding pose vertex
 
     int index = 1;
     for ( const Point3f p:points_3d )   // landmarks
     {
         g2o::VertexSBAPointXYZ* point = new g2o::VertexSBAPointXYZ();
         point->setId ( index++ );
+        // 以depth map求得3d point 位置作為初始值
         point->setEstimate ( Eigen::Vector3d ( p.x, p.y, p.z ) );
         point->setMarginalized ( true ); // g2o 中必须设置 marg 参见第十讲内容
-        optimizer.addVertex ( point );
+        optimizer.addVertex ( point );  // adding 3d points vertex
     }
 
     // parameter: camera intrinsics
@@ -190,10 +192,13 @@ void bundleAdjustment (
     {
         g2o::EdgeProjectXYZ2UV* edge = new g2o::EdgeProjectXYZ2UV();
         edge->setId ( index );
+        // 设置连接的顶点
         edge->setVertex ( 0, dynamic_cast<g2o::VertexSBAPointXYZ*> ( optimizer.vertex ( index ) ) );
         edge->setVertex ( 1, pose );
+        // 设置观测数值
         edge->setMeasurement ( Eigen::Vector2d ( p.x, p.y ) );
         edge->setParameterId ( 0,0 );
+        // 信息矩阵：协方差矩阵之逆
         edge->setInformation ( Eigen::Matrix2d::Identity() );
         optimizer.addEdge ( edge );
         index++;
