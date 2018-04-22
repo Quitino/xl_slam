@@ -90,6 +90,31 @@ public:
     virtual void computeError() override {
         // TODO START YOUR CODE HERE
         // compute projection error ...
+        const VertexSophus* pose = static_cast<const VertexSophus*> (vertex(1));
+        g2o::VertexSBAPointXYZ* point = static_cast<g2o::VertexSBAPointXYZ*> (vertex(0));
+
+        const Eigen::Vector3d pointe = point->estimate();
+        const Sophus::SE3 posee = pose->estimate();
+
+        auto Pw = posee*pointe;
+        double X = Pw[0];
+        double Y = Pw[1];
+        double Z = Pw[2];
+        double u = fx*X/Z + cx;
+        double v = fy*Y/Z + cy;
+        int n = -1;
+
+        for (int i = -2; i<2; i++)
+        {
+
+            for (int j= -2; j<2; j++)
+            {
+                n++;
+                _error[n] = _measurement[n] - GetPixelValue(targetImg, u+i, v+j);
+            }
+        }
+
+
         // END YOUR CODE HERE
     }
 
@@ -164,6 +189,66 @@ int main(int argc, char **argv) {
 
     // TODO add vertices, edges into the graph optimizer
     // START YOUR CODE HERE
+
+    // add vertices
+    for (int i=0; i<poses.size(); i++)
+    {
+        Sophus::SE3 cam;
+        cam = poses[i]; //from dataset
+        VertexSophus* Camerap = new VertexSophus();
+        Camerap->setEstimate(cam);
+        Camerap->setId(i);
+        optimizer.addVertex(Camerap);
+    }
+
+    for (int i=0; i<points.size(); i++)
+    {
+        Eigen::Vector3d point;
+        point = points[i];
+        g2o::VertexSBAPointXYZ* point3d = new g2o::VertexSBAPointXYZ();
+        point3d->setEstimate(point);
+        point3d->setId(7+i);
+        point3d->setMarginalized(true);
+        optimizer.addVertex(point3d);
+    }
+
+    // ad edges
+    for (int i=0; i<poses.size(); i++)
+    {
+        for (int j=0; j<points.size(); j++)
+        {
+            auto Pc = poses[i] * points[j];
+            double X = Pc[0];
+            double Y = Pc[1];
+            double Z = Pc[2];
+            double m = fx*X/Z + cx;
+            double n = fy*Y/Z + cy;
+            // if out of boundary
+            if (m-2<0 || n-2<0 || m+1 > images[i].cols || n+1 > images[i].rows)
+            {
+                continue;
+            }
+
+            EdgeDirectProjection *ba_edge = new EdgeDirectProjection(color[j], images[i]);
+            // add Huber kernel
+            g2o::RobustKernelHuber *rk = new g2o::RobustKernelHuber;
+            rk->setDelta(1.0);
+            ba_edge->setRobustKernel(rk);
+            ba_edge->setVertex(1, dynamic_cast<VertexSophus*>(optimizer.vertex(i))); //pose
+            ba_edge->setVertex(0, dynamic_cast<g2o::VertexSBAPointXYZ*>(optimizer.vertex(j+7))); //point
+
+            typedef Eigen::Matrix<double, 16, 1> Vector16d;
+            Vector16d colorvector;
+            for (int m =0; m<16; m++)
+            {
+                colorvector[m] = (color[j][m]);  // The j-th point.
+            }
+
+            ba_edge->setMeasurement(colorvector);
+            optimizer.addEdge(ba_edge);
+        }
+    }
+
 
     // END YOUR CODE HERE
 

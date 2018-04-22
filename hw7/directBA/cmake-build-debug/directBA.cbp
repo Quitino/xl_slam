@@ -5,7 +5,7 @@
 		<Option title="directBA"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\usr\local\share\OpenCV\;CMake Files\..\..\..\..\..\root\;CMake Files\..\..\..\..\..\root\Downloads2\;CMake Files\..\..\..\..\..\root\Downloads2\ElasticFusion\;CMake Files\..\..\..\..\..\root\Downloads2\ElasticFusion\deps\;CMake Files\..\..\..\..\..\root\Downloads2\ElasticFusion\deps\Pangolin\;CMake Files\..\..\..\..\..\root\Downloads2\ElasticFusion\deps\Pangolin\build\;CMake Files\..\..\..\..\..\root\Downloads2\ElasticFusion\deps\Pangolin\build\src\;CMake Files\..\..\..\slambook\;CMake Files\..\..\..\slambook\3rdparty\;CMake Files\..\..\..\slambook\3rdparty\Sophus\;CMake Files\..\..\..\slambook\3rdparty\Sophus\build\;CMake Files\cmake_modules\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\usr\local\share\OpenCV\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\Pangolin\;CMake Files\..\..\..\slambook\;CMake Files\..\..\..\slambook\3rdparty\;CMake Files\..\..\..\slambook\3rdparty\Sophus\;CMake Files\..\..\..\slambook\3rdparty\Sophus\build\;CMake Files\cmake_modules\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/data/code/xl_slam/hw7/directBA/cmake-build-debug"/>
@@ -47,8 +47,7 @@
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/local/include/opencv"/>
 					<Add directory="/usr/include/eigen3"/>
-					<Add directory="/root/Downloads2/ElasticFusion/deps/Pangolin/include"/>
-					<Add directory="/root/Downloads2/ElasticFusion/deps/Pangolin/build/src/include"/>
+					<Add directory="/usr/local/lib/cmake/Pangolin/../../../include"/>
 					<Add directory="/data/code/slambook/3rdparty/Sophus"/>
 					<Add directory="/usr/include/suitesparse"/>
 					<Add directory="/usr/include/c++/5"/>
@@ -76,8 +75,7 @@
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/local/include/opencv"/>
 					<Add directory="/usr/include/eigen3"/>
-					<Add directory="/root/Downloads2/ElasticFusion/deps/Pangolin/include"/>
-					<Add directory="/root/Downloads2/ElasticFusion/deps/Pangolin/build/src/include"/>
+					<Add directory="/usr/local/lib/cmake/Pangolin/../../../include"/>
 					<Add directory="/data/code/slambook/3rdparty/Sophus"/>
 					<Add directory="/usr/include/suitesparse"/>
 					<Add directory="/usr/include/c++/5"/>
@@ -114,14 +112,17 @@
 		<Unit filename="/data/code/xl_slam/hw7/directBA/../../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/data/code/xl_slam/hw7/directBA/../../../../../root/Downloads2/ElasticFusion/deps/Pangolin/build/src/PangolinConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\root\Downloads2\ElasticFusion\deps\Pangolin\build\src\"/>
+		<Unit filename="/data/code/xl_slam/hw7/directBA/../../../../../usr/local/lib/cmake/Pangolin/PangolinConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Pangolin\"/>
 		</Unit>
-		<Unit filename="/data/code/xl_slam/hw7/directBA/../../../../../root/Downloads2/ElasticFusion/deps/Pangolin/build/src/PangolinConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\root\Downloads2\ElasticFusion\deps\Pangolin\build\src\"/>
+		<Unit filename="/data/code/xl_slam/hw7/directBA/../../../../../usr/local/lib/cmake/Pangolin/PangolinConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Pangolin\"/>
 		</Unit>
-		<Unit filename="/data/code/xl_slam/hw7/directBA/../../../../../root/Downloads2/ElasticFusion/deps/Pangolin/build/src/PangolinTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\root\Downloads2\ElasticFusion\deps\Pangolin\build\src\"/>
+		<Unit filename="/data/code/xl_slam/hw7/directBA/../../../../../usr/local/lib/cmake/Pangolin/PangolinTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Pangolin\"/>
+		</Unit>
+		<Unit filename="/data/code/xl_slam/hw7/directBA/../../../../../usr/local/lib/cmake/Pangolin/PangolinTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\Pangolin\"/>
 		</Unit>
 		<Unit filename="/data/code/xl_slam/hw7/directBA/../../../slambook/3rdparty/Sophus/build/SophusConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\slambook\3rdparty\Sophus\build\"/>

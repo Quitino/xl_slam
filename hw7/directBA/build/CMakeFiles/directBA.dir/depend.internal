@@ -3,72 +3,6 @@
 
 CMakeFiles/directBA.dir/directBA.cpp.o
  /data/code/xl_slam/hw7/directBA/directBA.cpp
- /root/Downloads2/ElasticFusion/deps/Pangolin/build/src/include/pangolin/config.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/compat/ovr.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/compat/type_traits.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/display/attach.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/display/device/display_android.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/display/device/display_glut.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/display/display.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/display/opengl_render_state.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/display/view.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/display/viewport.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/display/widgets/widgets.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/display/window.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/colour.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/compat/gl_es_compat.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/gl.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/gl.hpp
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/glchar.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/gldraw.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/glfont.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/glformattraits.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/glinclude.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/glpangoglu.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/glpixformat.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/glplatform.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/glsl.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/glstate.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/gltext.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/gl/glvbo.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/handler/handler.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/handler/handler_enums.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/image/copy.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/image/image.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/image/image_io.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/image/managed_image.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/image/memcpy.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/image/pixel_format.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/image/typed_image.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/pangolin.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/platform.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/plot/datalog.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/plot/plotter.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/plot/range.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/utils/assert.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/utils/file_extension.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/utils/file_utils.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/utils/format_string.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/utils/log.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/utils/params.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/utils/picojson.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/utils/simple_math.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/utils/type_convert.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/utils/uri.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/var/var.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/var/varextra.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/var/varstate.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/var/varvalue.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/var/varvaluegeneric.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/var/varvaluet.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/var/varwrapper.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/video/stream_info.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/video/video.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/video/video_exception.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/video/video_input.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/video/video_interface.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/video/video_output.h
- /root/Downloads2/ElasticFusion/deps/Pangolin/include/pangolin/video/video_output_interface.h
  /usr/include/eigen3/Eigen/Cholesky
  /usr/include/eigen3/Eigen/Core
  /usr/include/eigen3/Eigen/Dense
@@ -350,16 +284,6 @@ CMakeFiles/directBA.dir/directBA.cpp.o
  /usr/local/include/opencv2/core/types_c.h
  /usr/local/include/opencv2/core/utility.hpp
  /usr/local/include/opencv2/core/version.hpp
- /usr/local/include/opencv2/cudaarithm.hpp
- /usr/local/include/opencv2/cudabgsegm.hpp
- /usr/local/include/opencv2/cudacodec.hpp
- /usr/local/include/opencv2/cudafeatures2d.hpp
- /usr/local/include/opencv2/cudafilters.hpp
- /usr/local/include/opencv2/cudaimgproc.hpp
- /usr/local/include/opencv2/cudaobjdetect.hpp
- /usr/local/include/opencv2/cudaoptflow.hpp
- /usr/local/include/opencv2/cudastereo.hpp
- /usr/local/include/opencv2/cudawarping.hpp
  /usr/local/include/opencv2/features2d.hpp
  /usr/local/include/opencv2/flann.hpp
  /usr/local/include/opencv2/flann/all_indices.h
@@ -448,5 +372,74 @@ CMakeFiles/directBA.dir/directBA.cpp.o
  /usr/local/include/opencv2/videostab/ring_buffer.hpp
  /usr/local/include/opencv2/videostab/stabilizer.hpp
  /usr/local/include/opencv2/videostab/wobble_suppression.hpp
+ /usr/local/include/opencv2/viz.hpp
+ /usr/local/include/opencv2/viz/types.hpp
+ /usr/local/include/opencv2/viz/viz3d.hpp
+ /usr/local/include/opencv2/viz/vizcore.hpp
+ /usr/local/include/opencv2/viz/widgets.hpp
+ /usr/local/include/pangolin/compat/type_traits.h
+ /usr/local/include/pangolin/config.h
+ /usr/local/include/pangolin/display/attach.h
+ /usr/local/include/pangolin/display/device/display_android.h
+ /usr/local/include/pangolin/display/display.h
+ /usr/local/include/pangolin/display/opengl_render_state.h
+ /usr/local/include/pangolin/display/view.h
+ /usr/local/include/pangolin/display/viewport.h
+ /usr/local/include/pangolin/display/widgets/widgets.h
+ /usr/local/include/pangolin/display/window.h
+ /usr/local/include/pangolin/gl/colour.h
+ /usr/local/include/pangolin/gl/compat/gl_es_compat.h
+ /usr/local/include/pangolin/gl/gl.h
+ /usr/local/include/pangolin/gl/gl.hpp
+ /usr/local/include/pangolin/gl/glchar.h
+ /usr/local/include/pangolin/gl/gldraw.h
+ /usr/local/include/pangolin/gl/glfont.h
+ /usr/local/include/pangolin/gl/glformattraits.h
+ /usr/local/include/pangolin/gl/glinclude.h
+ /usr/local/include/pangolin/gl/glpangoglu.h
+ /usr/local/include/pangolin/gl/glpixformat.h
+ /usr/local/include/pangolin/gl/glplatform.h
+ /usr/local/include/pangolin/gl/glsl.h
+ /usr/local/include/pangolin/gl/glstate.h
+ /usr/local/include/pangolin/gl/gltext.h
+ /usr/local/include/pangolin/gl/glvbo.h
+ /usr/local/include/pangolin/handler/handler.h
+ /usr/local/include/pangolin/handler/handler_enums.h
+ /usr/local/include/pangolin/image/copy.h
+ /usr/local/include/pangolin/image/image.h
+ /usr/local/include/pangolin/image/image_io.h
+ /usr/local/include/pangolin/image/managed_image.h
+ /usr/local/include/pangolin/image/memcpy.h
+ /usr/local/include/pangolin/image/pixel_format.h
+ /usr/local/include/pangolin/image/typed_image.h
+ /usr/local/include/pangolin/pangolin.h
+ /usr/local/include/pangolin/platform.h
+ /usr/local/include/pangolin/plot/datalog.h
+ /usr/local/include/pangolin/plot/plotter.h
+ /usr/local/include/pangolin/plot/range.h
+ /usr/local/include/pangolin/utils/assert.h
+ /usr/local/include/pangolin/utils/file_extension.h
+ /usr/local/include/pangolin/utils/file_utils.h
+ /usr/local/include/pangolin/utils/format_string.h
+ /usr/local/include/pangolin/utils/log.h
+ /usr/local/include/pangolin/utils/params.h
+ /usr/local/include/pangolin/utils/picojson.h
+ /usr/local/include/pangolin/utils/simple_math.h
+ /usr/local/include/pangolin/utils/type_convert.h
+ /usr/local/include/pangolin/utils/uri.h
+ /usr/local/include/pangolin/var/var.h
+ /usr/local/include/pangolin/var/varextra.h
+ /usr/local/include/pangolin/var/varstate.h
+ /usr/local/include/pangolin/var/varvalue.h
+ /usr/local/include/pangolin/var/varvaluegeneric.h
+ /usr/local/include/pangolin/var/varvaluet.h
+ /usr/local/include/pangolin/var/varwrapper.h
+ /usr/local/include/pangolin/video/stream_info.h
+ /usr/local/include/pangolin/video/video.h
+ /usr/local/include/pangolin/video/video_exception.h
+ /usr/local/include/pangolin/video/video_input.h
+ /usr/local/include/pangolin/video/video_interface.h
+ /usr/local/include/pangolin/video/video_output.h
+ /usr/local/include/pangolin/video/video_output_interface.h
  /usr/local/include/sophus/se3.h
  /usr/local/include/sophus/so3.h
