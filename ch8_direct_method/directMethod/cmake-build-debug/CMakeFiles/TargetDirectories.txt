@@ -1,0 +1,4 @@
+/data/code/xl_slam/ch8_direct_method/directMethod/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/data/code/xl_slam/ch8_direct_method/directMethod/cmake-build-debug/CMakeFiles/edit_cache.dir
+/data/code/xl_slam/ch8_direct_method/directMethod/cmake-build-debug/CMakeFiles/direct_semidense.dir
+/data/code/xl_slam/ch8_direct_method/directMethod/cmake-build-debug/CMakeFiles/direct_sparse.dir

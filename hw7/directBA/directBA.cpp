@@ -191,21 +191,23 @@ int main(int argc, char **argv) {
     // START YOUR CODE HERE
 
     // add vertices
+    VertexSophus* Camerap = new VertexSophus();
     for (int i=0; i<poses.size(); i++)
     {
         Sophus::SE3 cam;
         cam = poses[i]; //from dataset
-        VertexSophus* Camerap = new VertexSophus();
+        //VertexSophus* Camerap = new VertexSophus();
         Camerap->setEstimate(cam);
         Camerap->setId(i);
         optimizer.addVertex(Camerap);
     }
 
+    g2o::VertexSBAPointXYZ* point3d = new g2o::VertexSBAPointXYZ();
     for (int i=0; i<points.size(); i++)
     {
         Eigen::Vector3d point;
         point = points[i];
-        g2o::VertexSBAPointXYZ* point3d = new g2o::VertexSBAPointXYZ();
+        //g2o::VertexSBAPointXYZ* point3d = new g2o::VertexSBAPointXYZ();
         point3d->setEstimate(point);
         point3d->setId(7+i);
         point3d->setMarginalized(true);
@@ -258,6 +260,46 @@ int main(int argc, char **argv) {
 
     // TODO fetch data from the optimizer
     // START YOUR CODE HERE
+
+    /*
+    const int num_points = bal_problem->num_points();
+    const int num_cameras = bal_problem->num_cameras();
+    const int camera_block_size = bal_problem->camera_block_size();
+    const int point_block_size = bal_problem->point_block_size();
+
+    double* raw_cameras = bal_problem->mutable_cameras();
+    for(int i = 0; i < num_cameras; ++i)
+    {
+        VertexCameraBAL* pCamera = dynamic_cast<VertexCameraBAL*>(optimizer->vertex(i));
+        Eigen::VectorXd NewCameraVec = pCamera->estimate();
+        memcpy(raw_cameras + i * camera_block_size, NewCameraVec.data(), sizeof(double) * camera_block_size);
+    }
+
+    double* raw_points = bal_problem->mutable_points();
+    for(int j = 0; j < num_points; ++j)
+    {
+        VertexPointBAL* pPoint = dynamic_cast<VertexPointBAL*>(optimizer->vertex(j + num_cameras));
+        Eigen::Vector3d NewPointVec = pPoint->estimate();
+        memcpy(raw_points + j * point_block_size, NewPointVec.data(), sizeof(double) * point_block_size);
+    }
+     */
+
+
+
+    for (int i=0; i<poses.size(); i++)
+    {
+        VertexSophus* pCamera = dynamic_cast<VertexSophus*>(optimizer.vertex(i));
+        Sophus::SE3 NewCameraVec = pCamera->estimate();
+        poses[i] = NewCameraVec;
+    }
+
+    for (int i=0; i<points.size(); i++)
+    {
+        g2o::VertexSBAPointXYZ* pPoint = dynamic_cast<g2o::VertexSBAPointXYZ*>(optimizer.vertex(7+i));
+        Eigen::Vector3d NewPointVec = pPoint->estimate();
+        points[i] = NewPointVec;
+    }
+
     // END YOUR CODE HERE
 
     // plot the optimized points and poses
