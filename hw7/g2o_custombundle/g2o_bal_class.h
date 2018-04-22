@@ -8,20 +8,34 @@
 #include "common/projection.h"
 
 
-class CameraSe3BAL
+// create 顶点输入类型 for camera input (camera pose, focal_length, distortion_coeff)
+class VertexCamInput 
 {
 public:
-    Sophus::SE3 se3_;
+    VertexCamInput(){
+        //exchange angle-axis and t
+        Vector6d se3;
+        se3.head<3>() = camera.block<3,1>(3,0);
+        se3.tail<3>() = camera.head<3>();
+        SE3_ = SE3::exp(se3);
+        f_ = camera[6];
+        k1_ = cmera[7];
+        k2_ = cmera[8];
+    }
+
+public:
+    SE3 SE3_;
     double f_;
     double k1_;
     double k2_;
 };
 
-class VertexCameraSe3BAL : public g2o::BaseVertex<9,CameraSe3BAL>
+// vertex class for camera's pose and intrinsics parameters.
+class VertexCameraBAL : public g2o::BaseVertex<9, VertexCamInput>
 {
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
-    VertexCameraSe3BAL() {}
+    VertexCameraBAL() {}
 
     virtual bool read ( std::istream& /*is*/ )
     {
@@ -37,19 +51,23 @@ public:
 
     virtual void oplusImpl ( const double* update )
     {
-       // Eigen::VectorXd::ConstMapType v ( update, VertexCameraBAL::Dimension );
-       // _estimate += v;
-        Sophus::SE3 up(Sophus::SO3(update[0],update[1],update[2]),
-                        Eigen::Vector3d(update[3], update[4], update[5]) );
-        _estimate.se3_ = up * _estimate.se3_;
-        _estimate.f_ += update[6];
+        //Eigen::VectorXd::ConstMapType v ( update, VertexCameraBAL::Dimension );
+        //_estimate += v;
+        cout<<"1 VertexCameraBAL update:" 
+        << update[0] << ", " << update[1] << ", " << update[2] << ", "
+        << update[3] << ", " << update[4] << ", " << update[5] << endl;
+
+        Vector6d update_se3;
+        update_se3 << update[0], update[1], update[2], update[3], update[4], update[5];
+        _estimate.SE3_ = SE3::exp(update_se3) * estimate().SE3_;
+        _estimate.f_ += update[6]; 
         _estimate.k1_ += update[7];
-        _estimate.k2_ += update[8];        
+        _estimate.k2_ += update[8];
     }
 
 };
 
-
+// vertex for 3d point
 class VertexPointBAL : public g2o::BaseVertex<3, Eigen::Vector3d>
 {
 public:
@@ -96,7 +114,12 @@ public:
         const VertexCameraBAL* cam = static_cast<const VertexCameraBAL*> ( vertex ( 0 ) );
         const VertexPointBAL* point = static_cast<const VertexPointBAL*> ( vertex ( 1 ) );
 
-        ( *this ) ( cam->estimate().data(), point->estimate().data(), _error.data() );
+        //( *this ) ( cam->estimate().data(), point->estimate().data(), _error.data() );
+
+        double predictions[2];
+        CamProjectionWithDistortion(cam->estimate(), point->estimate(), predictions);
+        _error[0] = double(measurement()(0)) - predictions[0];
+        _error[1] = double(measurement()(1)) - predictions[1];
 
     }
 
@@ -119,9 +142,26 @@ public:
         // return;
         
         // using autodiff from ceres. Otherwise, the system will use g2o numerical diff for Jacobians
-        /*
+
         const VertexCameraBAL* cam = static_cast<const VertexCameraBAL*> ( vertex ( 0 ) );
         const VertexPointBAL* point = static_cast<const VertexPointBAL*> ( vertex ( 1 ) );
+
+
+        /*
+        Vector3d Pc;
+        Pc = cam->estimate().SE3_ * point->estimate();
+        //camera frame
+        double xc = Pc[0];
+        double yc = Pc[1];
+        double zc = Pc[2];
+        //normalized camera frame
+        double xc1 = -xc/zc;
+        double yc1 = -yc/zc;
+        double zc1 = -1;
+    */
+
+
+        
         typedef ceres::internal::AutoDiff<EdgeObservationBAL, double, VertexCameraBAL::Dimension, VertexPointBAL::Dimension> BalAutoDiff;
 
         Eigen::Matrix<double, Dimension, VertexCameraBAL::Dimension, Eigen::RowMajor> dError_dCamera;
@@ -143,57 +183,6 @@ public:
             _jacobianOplusXi.setZero();
             _jacobianOplusXi.setZero();
         }
-        */
-        //BaseBinaryEdge<2, Eigen::Vector2d, VertexCameraSe3BAL, VertexPointBAL>::linearizeOplus();
-        //return;
-        const VertexCameraSe3BAL* cam = static_cast<const VertexCameraSe3BAL*> ( vertex ( 0 ) );
-        const VertexPointBAL* point = static_cast<const VertexPointBAL*> ( vertex ( 1 ) );
-        Eigen::Vector3d X = point->estimate();
-        Eigen::Vector3d P = cam->estimate().se3_*X; // position 
-        double xp = -P[0]/P[2];
-        double yp = -P[1]/P[2];
-        const double& f = cam->estimate().f_;
-        const double& k1 = cam->estimate().k1_;
-        const double& k2 = cam->estimate().k2_;
-        double n2 = xp*xp + yp*yp;
-        double r = 1.0 + n2 * (k1 + k2 * n2);
-        Eigen::Vector3d dr_dP;
-        Eigen::Vector3d dr_dfk;
-        Eigen::Vector3d P2(P[0]*P[0], P[1]*P[1], P[2]*P[2]);
-        dr_dP[0] = 2 * k1 * P[0]/P2[2] + k2*4*P[0]*(P2[0]+P2[1])/(P2[2]*P2[2]);
-        dr_dP[1] = 2 * k1 * P[1]/P2[2] + k2*4*P[1]*(P2[0]+P2[1])/(P2[2]*P2[2]);
-        dr_dP[2] = -2 *k1 * (P2[0]+P2[1])/(P2[2]*P[2]) - 4 * k2 * (P2[0]+P2[1])*(P2[0]+P2[1])/(P2[2]*P2[2]*P[2]);
-
-        Eigen::Matrix<double, 2, 3> duv_dP;  // P is 3d point in camera, P = se3*X;
-        Eigen::Matrix<double, 2, 3> duv_dfk;
-        Eigen::Matrix<double, 3, 6> dP_dse3; //se3 is the cam pose
-        Eigen::Matrix<double, 2, 3> duv_dX; //X is the 3d point
-        Eigen::Matrix<double, 3, 3> dP_dX;
-        duv_dP(0,0) = dr_dP[0]*(-P[0]/P[2]) + r * (-1) / P[2];
-        duv_dP(0,1) = dr_dP[1]*(-P[0]/P[2]);
-        duv_dP(0,2) = dr_dP[2]*(-P[0]/P[2]) + r * P[0] / P2[2];
-
-        duv_dP(1,0) = dr_dP[0]*(-P[1]/P[2]);
-        duv_dP(1,1) = dr_dP[1]*(-P[1]/P[2]) + r * (-1) / P[2];
-        duv_dP(1,2) = dr_dP[2]*(-P[1]/P[2]) + r * P[1] / P2[2];
-
-        duv_dP = f * duv_dP;
-
-        duv_dfk(0,0) = r * xp;
-        duv_dfk(0,1) = f * n2 * xp;
-        duv_dfk(0,2) = f * n2 * n2 * xp;
-
-        duv_dfk(1,0) = r * yp;
-        duv_dfk(1,1) = f * n2 * yp;
-        duv_dfk(1,2) = f * n2 * n2 * yp;
-
-        dP_dse3.block<3,3>(0,0) = -Sophus::SO3::hat(P);
-        dP_dse3.block<3,3>(0,3) = Eigen::Matrix3d::Identity();
-        _jacobianOplusXi.block<2,6>(0,0) = duv_dP * dP_dse3;
-        _jacobianOplusXi.block<2,3>(0,6) = duv_dfk;
-        dP_dX = cam->estimate().se3_.rotation_matrix();
-        _jacobianOplusXj = duv_dP * dP_dX;
-        _jacobianOplusXi = -1 * _jacobianOplusXi;
-        _jacobianOplusXj = -1 * _jacobianOplusXj;
+        
     }
 };

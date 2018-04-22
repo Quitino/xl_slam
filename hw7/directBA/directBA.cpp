@@ -68,6 +68,7 @@ public:
 
     virtual void oplusImpl(const double *update_) {
         Eigen::Map<const Eigen::Matrix<double, 6, 1>> update(update_);
+        // estimate() : return the current estimate of the vertex
         setEstimate(Sophus::SE3::exp(update) * estimate());
     }
 };
