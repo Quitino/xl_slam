@@ -23,16 +23,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="directBA.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="directBA.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/directBA.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
+            <state relative-caret-position="-138">
               <caret line="52" column="56" selection-start-line="52" selection-start-column="56" selection-end-line="52" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="se3.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="se3.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../slambook/3rdparty/Sophus/sophus/se3.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="267">
@@ -45,7 +45,7 @@
         <entry file="file:///usr/local/include/g2o/core/base_vertex.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="412">
-              <caret line="97" column="49" lean-forward="true" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="49" />
+              <caret line="97" column="49" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -130,12 +130,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523952950492</updated>
-      <workItem from="1523952951873" duration="3577000" />
+      <workItem from="1523952951873" duration="3598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3577000" />
+    <option name="totallyTimeSpent" value="3598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="230" y="52" width="1195" height="960" extended-state="0" />
@@ -170,14 +170,7 @@
     <entry file="file:///usr/local/include/g2o/core/base_vertex.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="412">
-          <caret line="97" column="49" lean-forward="true" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/directBA.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="52" column="56" selection-start-line="52" selection-start-column="56" selection-end-line="52" selection-end-column="56" />
+          <caret line="97" column="49" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -185,6 +178,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/directBA.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138">
+          <caret line="52" column="56" selection-start-line="52" selection-start-column="56" selection-end-line="52" selection-end-column="56" />
         </state>
       </provider>
     </entry>
