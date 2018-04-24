@@ -26,8 +26,25 @@
       <file leaf-file-name="directBA.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/directBA.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+            <state relative-caret-position="368">
+              <caret line="168" column="58" lean-forward="true" selection-start-line="168" selection-start-column="58" selection-end-line="168" selection-end-column="58" />
+              <folding>
+                <element signature="e#142#179#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="poses.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/poses.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="interface.h" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/include/opencv2/core/hal/interface.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -35,8 +52,8 @@
       <file leaf-file-name="points.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/points.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="53" selection-end-line="2" selection-end-column="152" />
+            <state relative-caret-position="-1755">
+              <caret column="119" selection-start-column="27" selection-end-column="119" />
             </state>
           </provider>
         </entry>
@@ -44,8 +61,8 @@
       <file leaf-file-name="se3.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../slambook/3rdparty/Sophus/sophus/se3.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+            <state relative-caret-position="686">
+              <caret line="158" column="39" selection-start-line="158" selection-start-column="39" selection-end-line="158" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -53,8 +70,8 @@
       <file leaf-file-name="base_vertex.h" pinned="false" current-in-tab="false">
         <entry file="file:///usr/local/include/g2o/core/base_vertex.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1455">
-              <caret line="97" column="49" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="49" />
+            <state relative-caret-position="615">
+              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -146,12 +163,12 @@
       <updated>1523952950492</updated>
       <workItem from="1523952951873" duration="3598000" />
       <workItem from="1524414282072" duration="6218000" />
-      <workItem from="1524530497599" duration="99000" />
+      <workItem from="1524530497599" duration="5594000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9915000" />
+    <option name="totallyTimeSpent" value="15410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -187,6 +204,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4290">
           <caret line="286" selection-start-line="286" selection-end-line="286" />
+          <folding>
+            <element signature="e#142#179#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -225,31 +245,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/include/g2o/core/base_vertex.h">
+    <entry file="file://$PROJECT_DIR$/../../../slambook/3rdparty/Sophus/sophus/se3.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="97" column="49" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="49" />
+        <state relative-caret-position="686">
+          <caret line="158" column="39" selection-start-line="158" selection-start-column="39" selection-end-line="158" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../slambook/3rdparty/Sophus/sophus/se3.h">
+    <entry file="file:///usr/local/include/g2o/core/base_vertex.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+        <state relative-caret-position="615">
+          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/opencv2/core/hal/interface.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/points.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="53" selection-end-line="2" selection-end-column="152" />
+        <state relative-caret-position="-1755">
+          <caret column="119" selection-start-column="27" selection-end-column="119" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/poses.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/directBA.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        <state relative-caret-position="368">
+          <caret line="168" column="58" lean-forward="true" selection-start-line="168" selection-start-column="58" selection-end-line="168" selection-end-column="58" />
+          <folding>
+            <element signature="e#142#179#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

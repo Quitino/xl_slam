@@ -23,8 +23,8 @@ using namespace std;
 #include <pangolin/pangolin.h>
 #include <boost/format.hpp>
 
-typedef vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> VecSE3;
-typedef vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> VecVec3d;
+typedef vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> VecSE3;  // a set of poses
+typedef vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> VecVec3d; // a set of 3d points
 
 // global variables
 string pose_file = "./poses.txt";
@@ -46,15 +46,18 @@ string points_file = "./points.txt";
 0.221176 -3.60007 3.41384 308.475 325.507 333.023 338.321 299.138 316.006 328.791 336.053 290.544 302.37 320.362 331.31 285.574 291.719 306.631 322.094
  */
 
-// intrinsics
+// camera intrinsics, the image is in 640x480 resolution.
 float fx = 277.34;
 float fy = 291.402;
 float cx = 312.234;
 float cy = 239.777;
 
 // bilinear interpolation
+// get the intensity value from pixel (x,y)
 inline float GetPixelValue(const cv::Mat &img, float x, float y) {
+    // uchar : 8-bit无符号整形数据，范围为[0, 255]
     uchar *data = &img.data[int(y) * img.step + int(x)];
+    // xx (yy) is offsets from floor value
     float xx = x - floor(x);
     float yy = y - floor(y);
     return float(
@@ -65,7 +68,7 @@ inline float GetPixelValue(const cv::Mat &img, float x, float y) {
     );
 }
 
-// g2o vertex that use sophus::SE3 as pose
+// g2o vertex that use sophus::SE3 as pose, view as Lie algebra
 class VertexSophus : public g2o::BaseVertex<6, Sophus::SE3> {
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
@@ -77,7 +80,7 @@ public:
     bool read(std::istream &is) {}
 
     bool write(std::ostream &os) const {}
-
+    // initialize
     virtual void setToOriginImpl() {
         _estimate = Sophus::SE3();
     }
@@ -160,7 +163,7 @@ int main(int argc, char **argv) {
         fin >> timestamp;
         if (timestamp == 0) break;
         double data[7];
-        for (auto &d: data) fin >> d;
+        for (auto &d: data) fin >> d; // 先順序讀出pose值: tx,ty,tz,qx,qy,qz,qw.
         poses.push_back(Sophus::SE3(
                 Eigen::Quaterniond(data[6], data[3], data[4], data[5]),
                 Eigen::Vector3d(data[0], data[1], data[2])
@@ -325,7 +328,10 @@ int main(int argc, char **argv) {
     for (auto &c: color) delete[] c;
     return 0;
 }
-
+// use pangolin to draw camera poses and points.
+// input:
+//   poses:  a set of poses
+//   points: a set of 3d points
 void Draw(const VecSE3 &poses, const VecVec3d &points) {
     if (poses.empty() || points.empty()) {
         cerr << "parameter is empty!" << endl;

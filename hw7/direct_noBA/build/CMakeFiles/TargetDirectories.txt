@@ -1,0 +1,3 @@
+/data/code/xl_slam/hw7/direct_noBA/build/CMakeFiles/edit_cache.dir
+/data/code/xl_slam/hw7/direct_noBA/build/CMakeFiles/rebuild_cache.dir
+/data/code/xl_slam/hw7/direct_noBA/build/CMakeFiles/direct_noBA.dir
