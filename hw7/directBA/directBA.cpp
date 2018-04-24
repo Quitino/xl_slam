@@ -162,31 +162,33 @@ int main(int argc, char **argv) {
         double timestamp = 0;
         fin >> timestamp;
         if (timestamp == 0) break;
-        double data[7];
+        double data[7]; // temp variable
         for (auto &d: data) fin >> d; // 先順序讀出pose值: tx,ty,tz,qx,qy,qz,qw.
+        // wrap for Sophus::SE3 format
         poses.push_back(Sophus::SE3(
+                // Eigen::Quaterniond use real part as the first element
                 Eigen::Quaterniond(data[6], data[3], data[4], data[5]),
                 Eigen::Vector3d(data[0], data[1], data[2])
         ));
         if (!fin.good()) break;
     }
-    fin.close();
+    fin.close();  // finish reading poses.
 
-
+    // use color to store grapyscale value, store 16 pixel value for each point
     vector<float *> color;
     fin.open(points_file);
     while (!fin.eof()) {
-        double xyz[3] = {0};
-        for (int i = 0; i < 3; i++) fin >> xyz[i];
+        double xyz[3] = {0};  // temp variable
+        for (int i = 0; i < 3; i++) fin >> xyz[i];  // 讀出x, y, z值
         if (xyz[0] == 0) break;
-        points.push_back(Eigen::Vector3d(xyz[0], xyz[1], xyz[2]));
-        float *c = new float[16];
+        points.push_back(Eigen::Vector3d(xyz[0], xyz[1], xyz[2])); // wrap for Eigen::Vector3d format
+        float *c = new float[16]; // temp variable
         for (int i = 0; i < 16; i++) fin >> c[i];
         color.push_back(c);
 
         if (fin.good() == false) break;
     }
-    fin.close();
+    fin.close(); // finish reading points.
 
     cout << "poses: " << poses.size() << ", points: " << points.size() << endl;
 
@@ -195,7 +197,10 @@ int main(int argc, char **argv) {
     boost::format fmt("./%d.png");
     for (int i = 0; i < 7; i++) {
         images.push_back(cv::imread((fmt % i).str(), 0));
-    }
+    } // finish reading images
+
+    // Prior to optimization, draw the poses and points
+    Draw(poses, points);
 
     // build optimization problem
     typedef g2o::BlockSolver<g2o::BlockSolverTraits<6, 3>> DirectBlock;  // 求解的向量是6＊1的
