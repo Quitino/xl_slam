@@ -182,9 +182,9 @@ int main(int argc, char **argv) {
         for (int i = 0; i < 3; i++) fin >> xyz[i];  // 讀出x, y, z值
         if (xyz[0] == 0) break;
         points.push_back(Eigen::Vector3d(xyz[0], xyz[1], xyz[2])); // wrap for Eigen::Vector3d format
-        float *c = new float[16]; // temp variable
+        float *c = new float[16]; // temp variable, c is a 16-dim array
         for (int i = 0; i < 16; i++) fin >> c[i];
-        color.push_back(c);
+        color.push_back(c); //
 
         if (fin.good() == false) break;
     }
@@ -200,89 +200,131 @@ int main(int argc, char **argv) {
     } // finish reading images
 
     // Prior to optimization, draw the poses and points
-    Draw(poses, points);
+    //Draw(poses, points);
 
+
+    cout << "Start constructing graph" << endl;
     // build optimization problem
-    typedef g2o::BlockSolver<g2o::BlockSolverTraits<6, 3>> DirectBlock;  // 求解的向量是6＊1的
+    //  z - g(x,y) : x (SE3) in 6-dim, y (XYZ) in 3-dim
+    typedef g2o::BlockSolver<g2o::BlockSolverTraits<6, 3>> DirectBlock;  // 求解的向量是6＊1的, binary edge 對應的頂點， 一個是6維(pose), 一個是3維(point)
+    // linearSolver : is the solver for equation Hx = -b, using dense solver
     DirectBlock::LinearSolverType *linearSolver = new g2o::LinearSolverDense<DirectBlock::PoseMatrixType>();
+    // solver_ptr :  單個誤差項對應的參數塊, 參數塊 size = 6 x 3
     DirectBlock *solver_ptr = new DirectBlock(linearSolver);
-    g2o::OptimizationAlgorithmLevenberg *solver = new g2o::OptimizationAlgorithmLevenberg(solver_ptr); // L-M
-    g2o::SparseOptimizer optimizer;
+    // construct the specific algorithm of gradient decent (L-M), for 單個誤差項對應的參數塊
+    g2o::OptimizationAlgorithmLevenberg *solver = new g2o::OptimizationAlgorithmLevenberg(solver_ptr); // L-M used
+    g2o::SparseOptimizer optimizer; // create the "graph", including its elements (vertex & edges) and algorithm
+    // set the algorithm (L-M)
     optimizer.setAlgorithm(solver);
     optimizer.setVerbose(true);
+    cout << "Finsh constructing graph" << endl;
 
 
     // TODO add vertices, edges into the graph optimizer
     // START YOUR CODE HERE
 
-    // add vertices
+    cout << "Start adding vertex into graph" << endl;
+    // ADD vertices
+    // create pointer for VertexSophus
     VertexSophus* Camerap = new VertexSophus();
     for (int i=0; i<poses.size(); i++)
     {
         Sophus::SE3 cam;
-        cam = poses[i]; //from dataset
-        //VertexSophus* Camerap = new VertexSophus();
-        Camerap->setEstimate(cam);
+        cam = poses[i]; // poses are read from './poses.txt'
         Camerap->setId(i);
-        optimizer.addVertex(Camerap);
+
+        if (i==0) {
+            Camerap->setFixed(true); //第一個點固定為零點
+        }
+        //VertexSophus* Camerap = new VertexSophus();
+        // 設定預設值（初始值）
+        Camerap->setEstimate(cam);  //! set the estimate for the vertex also calls updateCache()
+
+        optimizer.addVertex(Camerap); // add vertex
     }
 
+    // ADD vertices
+    // create pointer for VertexSBAPointXYZ
     g2o::VertexSBAPointXYZ* point3d = new g2o::VertexSBAPointXYZ();
     for (int i=0; i<points.size(); i++)
     {
         Eigen::Vector3d point;
-        point = points[i];
+        point = points[i]; // points are read from './points.txt'
         //g2o::VertexSBAPointXYZ* point3d = new g2o::VertexSBAPointXYZ();
-        point3d->setEstimate(point);
         point3d->setId(7+i);
+        // 設定預設值（初始值）
+        point3d->setEstimate(point);
+        // set as Marginalized
         point3d->setMarginalized(true);
-        optimizer.addVertex(point3d);
+        optimizer.addVertex(point3d); // add vertex
     }
+    cout << "Finsh adding vertex into graph" << endl;
 
-    // ad edges
-    for (int i=0; i<poses.size(); i++)
+    cout << "Start adding edges into graph" << endl;
+    // ADD edges, first check whether near or out of border
+    int id=1;
+    for (int i=0; i<poses.size(); i++) // loop through poses
     {
-        for (int j=0; j<points.size(); j++)
+        for (int j=0; j<points.size(); j++) // loop through points
         {
-            auto Pc = poses[i] * points[j];
+            auto Pc = poses[i] * points[j]; // transform points[j] in world coordinate to point in camera (pose_i) coordinate
             double X = Pc[0];
             double Y = Pc[1];
             double Z = Pc[2];
             double m = fx*X/Z + cx;
             double n = fy*Y/Z + cy;
-            // if out of boundary
+            // if out of boundary (point_j is invisible to frame_i), no need for optimization
             if (m-2<0 || n-2<0 || m+1 > images[i].cols || n+1 > images[i].rows)
             {
                 continue;
             }
-
+            // construct the binary edge "ba_edge", connecting color_j vertex with image_i vertex
+            // each point_j corresponds to color_j
+            // <g2o::VertexSBAPointXYZ, VertexSophus>
             EdgeDirectProjection *ba_edge = new EdgeDirectProjection(color[j], images[i]);
+            //EdgeDirectProjection *ba_edge = new EdgeDirectProjection(points[j], poses[i]);
+            //EdgeDirectProjection *ba_edge = new EdgeDirectProjection(color[j], poses[i]);
             // add Huber kernel
             g2o::RobustKernelHuber *rk = new g2o::RobustKernelHuber;
-            rk->setDelta(1.0);
-            ba_edge->setRobustKernel(rk);
-            ba_edge->setVertex(1, dynamic_cast<VertexSophus*>(optimizer.vertex(i))); //pose
+            rk->setDelta(1.0); // set delta params for huber kernel
+            ba_edge->setRobustKernel(rk); // add kernel
+
             ba_edge->setVertex(0, dynamic_cast<g2o::VertexSBAPointXYZ*>(optimizer.vertex(j+7))); //point
+            ba_edge->setVertex(1, dynamic_cast<VertexSophus*>(optimizer.vertex(i))); //pose
 
-            typedef Eigen::Matrix<double, 16, 1> Vector16d;
+
+            typedef Eigen::Matrix<double, 16, 1> Vector16d; // for 16 pixel intensities
+            typedef Eigen::Matrix<double, 16, 16> Matrix16x16d; // for information matrix
             Vector16d colorvector;
-            for (int m =0; m<16; m++)
+            for (int w=0; w<16; m++) // loop inside the patch (4x4)
             {
-                colorvector[m] = (color[j][m]);  // The j-th point.
+                colorvector[w] = (color[j][w]);  // The j-th point.
             }
-
+            // set measurement value, 16-dim Eigen vector
             ba_edge->setMeasurement(colorvector);
+            // set information matrix
+            ba_edge->setInformation(Matrix16x16d::Identity());
+            ba_edge->setId ( id++ );
             optimizer.addEdge(ba_edge);
         }
+
     }
+    cout << "Finsh adding edges into graph" << endl;
+
+    cout<<"edges in graph: "<<optimizer.edges().size() <<endl;
+ //   optimizer.setVerbose(true); //! verbose information during optimization
+ //   optimizer.initializeOptimization();
+//    optimizer.optimize ( 30 );
+//    Tcw = pose->estimate();
 
 
     // END YOUR CODE HERE
 
     // perform optimization
-    optimizer.initializeOptimization(0);
-    optimizer.optimize(200);
-
+    cout << "START optimization ..." << endl;
+    optimizer.initializeOptimization(0);  //Initializes the structures for optimizing the whole graph, in level 0.
+    optimizer.optimize(200); // run optimization in 200 iterations
+    cout << "FINISH optimization ..." << endl;
     // TODO fetch data from the optimizer
     // START YOUR CODE HERE
 
