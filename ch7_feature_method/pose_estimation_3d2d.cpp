@@ -65,6 +65,7 @@ int main ( int argc, char** argv )
     }
 
     cout<<"3d-2d pairs: "<<pts_3d.size() <<endl;
+    cout<<"2d points in second pic: "<<pts_2d.size() <<endl;
 
     Mat r, t;
     solvePnP ( pts_3d, pts_2d, K, Mat(), r, t, false ); // 调用OpenCV 的 PnP 求解，可选择EPNP，DLS等方法

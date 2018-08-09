@@ -211,6 +211,7 @@ int main(int argc, char **argv) {
     optimizer.setAlgorithm(solver);
     optimizer.setVerbose(true);
 
+
     // TODO add vertices, edges into the graph optimizer
     // START YOUR CODE HERE
 

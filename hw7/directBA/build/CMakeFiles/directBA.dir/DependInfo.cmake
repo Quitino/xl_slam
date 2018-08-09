@@ -13,7 +13,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include"
   "/usr/local/include/opencv"
   "/usr/include/eigen3"
-  "/usr/local/lib/cmake/Pangolin/../../../include"
+  "/root/Downloads2/ElasticFusion/deps/Pangolin/include"
+  "/root/Downloads2/ElasticFusion/deps/Pangolin/build/src/include"
   "/data/code/slambook/3rdparty/Sophus"
   "/usr/include/suitesparse"
   )
