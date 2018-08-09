@@ -230,7 +230,7 @@ bool update(const Mat& ref, const Mat& curr, const SE3& T_C_R, Mat& depth, Mat& 
                 continue; 
             
 			// 取消该注释以显示匹配
-            // showEpipolarMatch( ref, curr, Vector2d(x,y), pt_curr );
+            //showEpipolarMatch( ref, curr, Vector2d(x,y), pt_curr );
             
             // 匹配成功，更新深度图 
             updateDepthFilter( Vector2d(x,y), pt_curr, T_C_R, depth, depth_cov );
