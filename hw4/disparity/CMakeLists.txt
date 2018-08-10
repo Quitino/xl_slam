@@ -5,12 +5,12 @@ set( CMAKE_BUILD_TYPE Release )
 set( CMAKE_CXX_FLAGS "-std=c++11 -O3" )
 
 
-set(OpenCV_LIBS_DIR "/data/lib/opencv-3.0.0/release/lib")
+set(OpenCV_LIBS_DIR "/data2/lib/opencv-3.0.0/release/lib")
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_calib3d opencv_video opencv_features2d opencv_ml opencv_highgui opencv_objdetect opencv_contrib opencv_legacy opencv_imgcodecs)
 
 # opencv 
 #find_package( OpenCV REQUIRED )
-include_directories( "/data/lib/opencv-3.0.0/release/include" )
+include_directories( "/data2/lib/opencv-3.0.0/release/include" )
 
 # opencv 
 find_package( OpenCV REQUIRED )

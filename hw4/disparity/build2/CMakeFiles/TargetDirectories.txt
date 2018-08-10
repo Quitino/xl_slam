@@ -1,0 +1,3 @@
+/data2/code2/xl_slam/hw4/disparity/build2/CMakeFiles/rebuild_cache.dir
+/data2/code2/xl_slam/hw4/disparity/build2/CMakeFiles/disparity.dir
+/data2/code2/xl_slam/hw4/disparity/build2/CMakeFiles/edit_cache.dir

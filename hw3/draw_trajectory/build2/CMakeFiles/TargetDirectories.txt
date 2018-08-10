@@ -1,0 +1,3 @@
+/data2/code2/xl_slam/hw3/draw_trajectory/build2/CMakeFiles/rebuild_cache.dir
+/data2/code2/xl_slam/hw3/draw_trajectory/build2/CMakeFiles/draw_trajectory.dir
+/data2/code2/xl_slam/hw3/draw_trajectory/build2/CMakeFiles/edit_cache.dir
