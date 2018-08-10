@@ -1,0 +1,4 @@
+/data/code/xl_slam/ch13_mapping/dense_RGBD/build/CMakeFiles/edit_cache.dir
+/data/code/xl_slam/ch13_mapping/dense_RGBD/build/CMakeFiles/octomap_mapping.dir
+/data/code/xl_slam/ch13_mapping/dense_RGBD/build/CMakeFiles/rebuild_cache.dir
+/data/code/xl_slam/ch13_mapping/dense_RGBD/build/CMakeFiles/pointcloud_mapping.dir
