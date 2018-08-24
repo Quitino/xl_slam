@@ -77,12 +77,15 @@ void DrawTrajectory(vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> p
 
         glLineWidth(2);
         for (size_t i = 0; i < poses.size() - 1; i++) {
-            glColor3f(1 - (float) i / poses.size(), 0.0f, (float) i / poses.size());
+            glColor3f(1 - (float) i / poses.size(), 0.0f, (float) i / poses.size()); // start from red and end with blue color
+            // start the drawing
             glBegin(GL_LINES);
             auto p1 = poses[i], p2 = poses[i + 1];
+            // define two vertex, 1st is starting point, 2nd is ending point.
             glVertex3d(p1.translation()[0], p1.translation()[1], p1.translation()[2]);
             glVertex3d(p2.translation()[0], p2.translation()[1], p2.translation()[2]);
             glEnd();
+            // finish the drawing
         }
         pangolin::FinishFrame();
         usleep(5000);   // sleep 5 ms

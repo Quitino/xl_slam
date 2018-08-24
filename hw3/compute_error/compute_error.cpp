@@ -23,6 +23,9 @@ int main(int argc, char **argv) {
 
     vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_e;
     vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_g;
+
+    vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> trans_e;
+    vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> trans_g;
     
     /// implement pose reading code
     // start your code here (5~10 lines)
@@ -40,44 +43,64 @@ int main(int argc, char **argv) {
 	exit(1);
     }
 
-    double data[8] = {0};
+    double data[8] = {0}; // timestep, tx, ty, tz, qx, qy, qz, qw
     while(!T_est.eof()) {
       for (auto &p:data)
-	T_est >> p;
+          T_est >> p;
       Eigen::Quaterniond q(data[7], data[4], data[5], data[6]);
       Eigen::Vector3d t(data[1], data[2], data[3]);
-      Sophus::SE3 pose(q,t);
+      Sophus::SE3 pose(q,t); // pass to a Lie algebra variable "pose"
       poses_e.push_back(pose);
+
+      trans_e.push_back(t);
     }
     
     while(!T_gt.eof()) {
       for (auto &p:data)
-	T_gt >> p;
+          T_gt >> p;
       Eigen::Quaterniond q(data[7], data[4], data[5], data[6]);
       Eigen::Vector3d t(data[1], data[2], data[3]);
       Sophus::SE3 pose(q,t);
       poses_g.push_back(pose);
-      
+
+      trans_g.push_back(t);
     }
 
-    vector<double> a;
+    // print size of estimated poses and GT poses
+    cout<< "estimated poses: " << poses_e.size() << "個"<<endl;  // 613
+    cout<< "GT poses: " << poses_g.size() << "個"<<endl;         // 613
+
+    vector<double> a,b;
     //Eigen::VectorXd a;
     double result=0;
+    double result2=0;
     for (auto i=0; i<poses_e.size(); i++) {
       Sophus::SE3 e = poses_e[i];
       Sophus::SE3 g = poses_g[i];
-      Eigen::Matrix<double, 6, 1> err;
+      Eigen::Matrix<double, 6, 1> err; // err is 6-dim vector
+      // use Sophus::SE3, can use it as Lie group. After log(), vee operator is implicitly executed, then return a 6-dim vector
       err = (g.inverse()*e).log();
-      a.push_back(err.norm());
+      a.push_back(err.norm()); // get norm-2 (in double value)
+
+      Eigen::Vector3d tran_e = trans_e[i];
+      Eigen::Vector3d tran_g = trans_g[i];
+      Eigen::Matrix<double, 3, 1> err_trans; // err is 3-dim vector
+      err_trans = tran_e - tran_g;
+      b.push_back(err_trans.norm()); // get norm-2 (in double value)
     }
    
-  
+
+
+
     // compute RMSE for err
     for (auto i=0; i<a.size(); i++) {
-      result += a[i]*a[i];
+      result += a[i]*a[i]; // accumulated squared err
+      result2 += b[i]*b[i]; // accumulated squared err
     }
-    result = sqrt(result/a.size());
-    cout<<"RMSE is: "<<result<<endl;
+    result = sqrt(result/a.size()); // mean -> square root, obtain RMSE
+    result2 = sqrt(result2/b.size()); // mean -> square root, obtain RMSE
+    cout<<"RMSE (Lie algebra) is: "<<result<<endl;
+    cout<<"RMSE (translation error) is: "<<result2<<endl;
     // end your code here
 
     // draw gt and est. trajectory in pangolin   
@@ -108,28 +131,29 @@ void DrawCompare(vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> pose
             .SetBounds(0.0, 1.0, pangolin::Attach::Pix(175), 1.0, -1024.0f / 768.0f)
             .SetHandler(new pangolin::Handler3D(s_cam));
 
-
+    // To draw
     while (pangolin::ShouldQuit() == false) {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         d_cam.Activate(s_cam);
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        //glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // set background color as white
+        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);  // set background color as black
 
         glLineWidth(2);
         for (size_t i = 0; i < poses_e.size() - 1; i++) {
-            glColor3f(1 - (float) i / poses_e.size(), 0.0f, (float) i / poses_e.size());
+            glColor3f(1 - (float) i / poses_e.size(), 0.0f, (float) i / poses_e.size()); // from red to blue
             glBegin(GL_LINES);
             auto p1 = poses_e[i], p2 = poses_e[i + 1];
-	    auto p3 = poses_g[i], p4 = poses_g[i + 1];
-            glVertex3d(p1.translation()[0], p1.translation()[1], p1.translation()[2]);
+	        auto p3 = poses_g[i], p4 = poses_g[i + 1];
+            glVertex3d(p1.translation()[0], p1.translation()[1], p1.translation()[2]); // start to draw line for estimated poses
             glVertex3d(p2.translation()[0], p2.translation()[1], p2.translation()[2]);
-	    glEnd();
+	        glEnd(); // finish draw segment for estimated poses
 	    
-            glColor3f(0.0f , 1.0f, 0.0f);
+            glColor3f(0.0f , 1.0f, 0.0f); // GT in green color
             glBegin(GL_LINES);	    
-	    glVertex3d(p3.translation()[0], p3.translation()[1], p3.translation()[2]);
+	        glVertex3d(p3.translation()[0], p3.translation()[1], p3.translation()[2]); // start to draw line for GT poses
             glVertex3d(p4.translation()[0], p4.translation()[1], p4.translation()[2]);
-            glEnd();
+            glEnd(); // finish draw segment for GT poses
         }
         
         pangolin::FinishFrame();
