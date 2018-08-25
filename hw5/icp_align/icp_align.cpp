@@ -22,6 +22,9 @@ void DrawTrajectory(vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> p
 void DrawTrajectoryAligned(vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_e,
                            vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_g,
                            Eigen::Matrix3d R, Eigen::Vector3d t);
+
+double computeATE(vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> trans_e,
+                  vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> trans_g);
 /*void pose_estimation_3d3d (
         const vector<Eigen::Vector3d>& pts1,
         const vector<Eigen::Vector3d>& pts2,
@@ -122,6 +125,14 @@ int main(int argc, char **argv) {
     // draw trajectory in pangolin
     //DrawTrajectory(poses_e, poses_g);
 
+    cout << "Compute error (ATE): "<< endl;
+    //cout<<"Before ICP alignment, RMSE (translation error, ATE) is: "<<computeATE(trans_e, trans_g)<<endl;
+
+    vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> trans_g_transformed;
+    for (auto i=0; i<trans_g.size(); i++) {
+        trans_g_transformed.push_back(R_ * trans_g[i] + t_);
+    }
+    cout<<"After ICP alignment, RMSE (translation error, ATE) is: "<<computeATE(trans_e, trans_g_transformed)<<endl;
     // After ICP alignment
     DrawTrajectoryAligned(poses_e, poses_g, R_, t_);
 
@@ -129,6 +140,31 @@ int main(int argc, char **argv) {
     // use SVD from opencv api
 
     return 0;
+}
+
+double computeATE(const vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> trans_e,
+                  const vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> trans_g) {
+    vector<double> b;
+    //Eigen::VectorXd a;
+    double result2=0;
+    for (auto i=0; i<trans_e.size(); i++) {
+
+        Eigen::Vector3d tran_e = trans_e[i];
+        Eigen::Vector3d tran_g = trans_g[i];
+        Eigen::Matrix<double, 3, 1> err_trans; // err is 3-dim vector
+        err_trans = tran_e - tran_g;
+        b.push_back(err_trans.norm()); // get norm-2 (in double value)
+    }
+
+    // compute RMSE for err
+    for (auto i=0; i<b.size(); i++) {
+        result2 += b[i]*b[i]; // accumulated squared err
+    }
+    result2 = sqrt(result2/b.size()); // mean -> square root, obtain RMSE
+
+    b.clear();
+    return result2;
+    // end your code here
 }
 
 void DrawTrajectoryAligned(vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_e,
