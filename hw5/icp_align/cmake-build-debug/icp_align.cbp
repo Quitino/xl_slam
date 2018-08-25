@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="icp_align"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\root\;CMake Files\..\..\..\..\..\root\Pangolin\;CMake Files\..\..\..\..\..\root\Pangolin\build\;CMake Files\..\..\..\..\..\root\Pangolin\build\src\;CMake Files\..\..\..\slambook\;CMake Files\..\..\..\slambook\3rdparty\;CMake Files\..\..\..\slambook\3rdparty\Sophus\;CMake Files\..\..\..\slambook\3rdparty\Sophus\build\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/data/code/xl_slam/hw5/icp_align/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/data/code/xl_slam/hw5/icp_align/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/data/code/xl_slam/hw5/icp_align/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="icp_align">
+				<Option output="/data/code/xl_slam/hw5/icp_align/cmake-build-debug/icp_align" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/data/code/xl_slam/hw5/icp_align/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/root/Pangolin/include"/>
+					<Add directory="/root/Pangolin/build/src/include"/>
+					<Add directory="/data/code/slambook/3rdparty/Sophus"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 icp_align"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="icp_align/fast">
+				<Option output="/data/code/xl_slam/hw5/icp_align/cmake-build-debug/icp_align" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/data/code/xl_slam/hw5/icp_align/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/root/Pangolin/include"/>
+					<Add directory="/root/Pangolin/build/src/include"/>
+					<Add directory="/data/code/slambook/3rdparty/Sophus"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 icp_align/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/icp_align/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/data/code/xl_slam/hw5/icp_align/icp_align.cpp">
+			<Option target="icp_align"/>
+		</Unit>
+		<Unit filename="/data/code/xl_slam/hw5/icp_align/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/data/code/xl_slam/hw5/icp_align/../../../../../root/Pangolin/build/src/PangolinConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\root\Pangolin\build\src\"/>
+		</Unit>
+		<Unit filename="/data/code/xl_slam/hw5/icp_align/../../../../../root/Pangolin/build/src/PangolinConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\root\Pangolin\build\src\"/>
+		</Unit>
+		<Unit filename="/data/code/xl_slam/hw5/icp_align/../../../../../root/Pangolin/build/src/PangolinTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\root\Pangolin\build\src\"/>
+		</Unit>
+		<Unit filename="/data/code/xl_slam/hw5/icp_align/../../../slambook/3rdparty/Sophus/build/SophusConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\slambook\3rdparty\Sophus\build\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

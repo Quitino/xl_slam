@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
 
 
     // Perform ICP alignment (compute the relative transformation between two trajectories)
-
+    // use SVD from opencv api
 
     return 0;
 }

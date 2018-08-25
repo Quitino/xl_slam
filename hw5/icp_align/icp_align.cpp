@@ -3,6 +3,10 @@
 #include <iostream>
 #include <fstream>
 
+#include <Eigen/Core>
+#include <Eigen/Geometry>
+#include <Eigen/SVD>
+
 // need pangolin for plotting trajectory
 #include <pangolin/pangolin.h>
 
@@ -15,10 +19,20 @@ string trajectory_file = "./compare.txt"; // time_e , t_e , q_e , time_g , t_g ,
 // start point is red and end point is blue
 void DrawTrajectory(vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_e, vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_g);
 
+/*void pose_estimation_3d3d (
+        const vector<Eigen::Vector3d>& pts1,
+        const vector<Eigen::Vector3d>& pts2,
+        Mat& R, Mat& t
+);
+ */
+
 int main(int argc, char **argv) {
 
     vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_e;
     vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> poses_g;
+
+    vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> trans_e;
+    vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> trans_g;
 
     /// implement pose reading code
     // start your code here (5~10 lines)
@@ -37,15 +51,37 @@ int main(int argc, char **argv) {
       Eigen::Vector3d t_e(data[1], data[2], data[3]);
       Sophus::SE3 pose_e(q_e,t_e);
       poses_e.push_back(pose_e);
+      trans_e.push_back(t_e);
 
       Eigen::Quaterniond q_g(data[15], data[12], data[13], data[14]);
       Eigen::Vector3d t_g(data[9], data[10], data[11]);
       Sophus::SE3 pose_g(q_g,t_g);
       poses_g.push_back(pose_g);
+      trans_g.push_back(t_g);
     }
     
     T_file.close();
     // end your code here
+
+    // print size of estimated poses and GT poses
+    cout<< "estimated poses: " << poses_e.size() << "個"<<endl;  // 612
+    cout<< "GT poses: " << poses_g.size() << "個"<<endl;         // 612
+
+    // 612 對 3D-3D pairs correspondence
+    // Given t_e, t_g
+
+    Eigen::Vector3d p1, p2;  // center of mass
+    int N = trans_e.size(); // N=612
+    for ( int i=0; i<N; i++ )
+    {
+        p1 = p1 + trans_e[i];
+        p2 = p2 + trans_g[i];
+    }
+    p1 = p1 / N;
+    p2 = p2 / N;
+
+    cout << "Center of estimated poses: " << p1.transpose() << endl;
+    cout << "Center of GT poses: " << p2.transpose() << endl;
 
     // Before ICP alignment
     // draw trajectory in pangolin

@@ -27,6 +27,12 @@ iostream
 -
 fstream
 -
+Eigen/Core
+-
+Eigen/Geometry
+-
+Eigen/SVD
+-
 pangolin/pangolin.h
 -
 

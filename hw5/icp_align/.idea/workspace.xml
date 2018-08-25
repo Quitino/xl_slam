@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="compute_error" targetName="compute_error" />
+      <config projectName="icp_align" targetName="icp_align" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -11,12 +11,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2031241-a3d4-449f-a0fd-52cff54416e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/icp_align/build/CMakeFiles/icp_align.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/icp_align/build/CMakeFiles/icp_align.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/icp_align/build/CMakeFiles/icp_align.dir/icp_align.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/icp_align/build/icp_align" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/icp_align/build/icp_align" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/icp_align/icp_align.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/icp_align/icp_align.cpp" afterDir="false" />
+    <list default="true" id="3f1c5e0a-d75d-4622-9c19-6b26e9ab741a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../hw3/compute_error/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw3/compute_error/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/icp_align.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/icp_align.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/icp_align.dir/icp_align.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/icp_align" beforeDir="false" afterPath="$PROJECT_DIR$/build/icp_align" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icp_align.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/icp_align.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,32 +27,31 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FUSProjectUsageTrigger">
-    <session id="827146148">
+    <session id="-891287189">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cpp" value="1" />
-          <entry key="h" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="3" />
+          <entry key="ObjectiveC" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="815" />
+          <entry key="cpp" value="288" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="815" />
+          <entry key="ObjectiveC" value="288" />
         </counts>
       </usages-collector>
     </session>
@@ -60,31 +59,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/compute_error.cpp">
+        <entry file="file://$PROJECT_DIR$/icp_align.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="70" column="4" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="70" />
+            <state relative-caret-position="435">
+              <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/x86_64-linux-gnu/bits/mathcalls.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="155" column="35" selection-start-line="155" selection-start-column="35" selection-end-line="155" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/GL/glew.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="1157" column="30" selection-start-line="1157" selection-start-column="30" selection-end-line="1157" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -97,7 +78,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/compute_error.cpp" />
+        <option value="$PROJECT_DIR$/icp_align.cpp" />
       </list>
     </option>
   </component>
@@ -107,8 +88,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="526" />
     <option name="y" value="49" />
     <option name="width" value="1535" />
@@ -126,8 +106,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="compute_error" type="b2602c69:ProjectViewProjectNode" />
-              <item name="compute_error" type="462c0819:PsiDirectoryNode" />
+              <item name="icp_align" type="b2602c69:ProjectViewProjectNode" />
+              <item name="icp_align" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -138,7 +118,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../hw5/icp_align/CMakeLists.txt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CMakeLists.txt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -154,20 +134,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.compute_error">
+  <component name="RunManager" selected="Application.icp_align">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="compute_error" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="compute_error" TARGET_NAME="compute_error" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="compute_error" RUN_TARGET_NAME="compute_error">
+    <configuration name="icp_align" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="icp_align" TARGET_NAME="icp_align" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="icp_align" RUN_TARGET_NAME="icp_align">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Build All" />
-      <item itemvalue="Application.compute_error" />
+      <item itemvalue="Application.icp_align" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -175,20 +155,20 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e2031241-a3d4-449f-a0fd-52cff54416e7" name="Default Changelist" comment="" />
-      <created>1535115363649</created>
+      <changelist id="3f1c5e0a-d75d-4622-9c19-6b26e9ab741a" name="Default Changelist" comment="" />
+      <created>1535152149928</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1535115363649</updated>
-      <workItem from="1535115365330" duration="7201000" />
+      <updated>1535152149928</updated>
+      <workItem from="1535152151266" duration="2536000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7201000" />
+    <option name="totallyTimeSpent" value="2536000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
+    <frame x="526" y="49" width="1535" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -219,24 +199,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/include/GL/glew.h">
+    <entry file="file://$PROJECT_DIR$/icp_align.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="1157" column="30" selection-start-line="1157" selection-start-column="30" selection-end-line="1157" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/x86_64-linux-gnu/bits/mathcalls.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="155" column="35" selection-start-line="155" selection-start-column="35" selection-end-line="155" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compute_error.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="70" column="4" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="70" />
+        <state relative-caret-position="435">
+          <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
