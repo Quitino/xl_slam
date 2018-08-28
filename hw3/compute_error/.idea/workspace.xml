@@ -12,11 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2031241-a3d4-449f-a0fd-52cff54416e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../hw5/icp_align/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/icp_align/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/icp_align/build/CMakeFiles/icp_align.dir/icp_align.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/icp_align/build/CMakeFiles/icp_align.dir/icp_align.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/icp_align/build/icp_align" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/icp_align/build/icp_align" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/icp_align/icp_align.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/icp_align/icp_align.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,6 +26,7 @@
     <session id="827146148">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -189,7 +186,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983211" />

@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/traceError.dir/traceError.cpp.o  -o traceError -Wl,-rpath,/home/stevencui/Software/Sophus/build /home/stevencui/Software/Sophus/build/libSophus.so 

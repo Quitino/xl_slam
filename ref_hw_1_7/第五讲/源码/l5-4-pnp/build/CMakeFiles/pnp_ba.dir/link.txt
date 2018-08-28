@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/pnp_ba.dir/GN-BA.cpp.o  -o pnp_ba -Wl,-rpath,/home/stevencui/Software/Sophus/build /home/stevencui/Software/Sophus/build/libSophus.so 

@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O3 -std=c++11 -O3 -DNDEBUG -L/home/stevencui/Software/android-ndk-r16b/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/lib/gcc/aarch64-linux-android/4.9.x -lm -shared -Wl,-soname,libParseCmd.so -o libParseCmd.so CMakeFiles/ParseCmd.dir/common/flags/command_args.cpp.o 

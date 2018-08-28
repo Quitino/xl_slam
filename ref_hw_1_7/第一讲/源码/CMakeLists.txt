@@ -1,0 +1,15 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+set(CMAKE_BUILD_TYPE Release) 
+PROJECT(sayhello)
+
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include)
+ADD_LIBRARY(hello SHARED ${PROJECT_SOURCE_DIR}/src/hello.c)
+
+ADD_EXECUTABLE(sayhello useHello.c)
+TARGET_LINK_LIBRARIES(sayhello hello)
+
+INSTALL(TARGETS hello 
+	LIBRARY DESTINATION /usr/local/lib)
+
+INSTALL(FILES ${PROJECT_SOURCE_DIR}/include/hello.h 
+	DESTINATION /usr/local/include)

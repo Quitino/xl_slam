@@ -1,0 +1,11 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+SET(BUILD_TYPE Release)
+
+PROJECT(useEigen)
+
+INCLUDE_DIRECTORIES("/usr/include/eigen3")
+
+ADD_EXECUTABLE(${PROJECT_NAME} useEigen.cpp)
+
+

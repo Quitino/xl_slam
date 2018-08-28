@@ -1,0 +1,25 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+PROJECT(disparity)
+
+FIND_PACKAGE(OpenCV REQUIRED)
+FIND_PACKAGE(Pangolin REQUIRED)
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS}
+ "/usr/include/eigen3/"
+ ${Pangolin_INCLUDE_DIRS})
+
+ADD_EXECUTABLE(${PROJECT_NAME} disparity.cpp)
+
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
+${OpenCV_LIBS}
+${Pangolin_LIBRARIES})
+
+#MESSAGE(STATUS "OpenCV: ${OpenCV_LIBS} \n 
+#	2: ${OpenCV_LIBRARIES} \n
+#	3: ${OpenCV_INCLUDE_DIRS} \n  
+#	Pangolin ${Pangolin_LIBS} \n
+#	2: ${Pangolin_LIBRARIES}\n
+#	3: ${Pangolin_INCLUDE_DIRS}\n")
+

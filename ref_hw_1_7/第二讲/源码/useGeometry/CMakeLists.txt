@@ -1,0 +1,9 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+SET(BUILD_TYPE Release)
+
+INCLUDE_DIRECTORIES("/usr/include/eigen3")
+
+PROJECT(useGeometry)
+
+ADD_EXECUTABLE(${PROJECT_NAME} useGeometry.cpp)

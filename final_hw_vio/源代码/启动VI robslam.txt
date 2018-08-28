@@ -1,0 +1,19 @@
+﻿
+启动：
+
+1.修改ifconfig
+gedit ~/.bashrc
+
+2.打开终端
+roscore
+
+3.打开VI ORBSLAM2文件路径，打开终端
+roslaunch Examples/ROS/ORB_VIO/launch/testeuroc.launch
+
+4.新打开终端
+rosbag play /home/turtle/Research/ORB_SLAM2/DataSet/MH_01_easy/MH_01_easy.bag
+
+
+5. 数据校对时间搓
+python convert_euroc_csv.py /home/turtle/Research/ORB_SLAM2/DataSet/MH_01_easy/mav0/state_groundtruth_estimate0/data.csv /home/turtle/Research/ORB_SLAM2/DataSet/MH_01_easy/mav0/state_groundtruth_estimate0/data2.csv
+
