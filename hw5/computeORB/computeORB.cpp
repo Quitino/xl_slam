@@ -109,7 +109,19 @@ void computeAngle(const cv::Mat &image, vector<cv::KeyPoint> &keypoints) {
     int half_patch_size = 8;
     for (auto &kp : keypoints) {
 	// START YOUR CODE HERE (~7 lines)
-        kp.angle = 0; // compute kp.angle 
+        kp.angle = 0; // compute kp.angle
+        // avoid boundary points
+        float x_location = keypoints.data()->pt.x;
+        float y_location = keypoints.data()->pt.y;
+        if ( x_location < half_patch_size || x_location > image.cols - half_patch_size + 1 ||
+                y_location < half_patch_size || y_location > image.rows - half_patch_size + 1 ) {
+            continue;
+        }
+        // compute m01 and m10
+        // loop through a patch around x_location & y_location, ref from imageBasic.cpp
+        for () {
+            m01
+        }
         // END YOUR CODE HERE
     }
     return;
