@@ -18,9 +18,9 @@ int main(int argc, char **argv) {
 
     vector<double> x_data, y_data;      // 数据
     for (int i = 0; i < N; i++) {
-        double x = i / 100.0;
+        double x = i / 100.0; // scale to 0--1
         x_data.push_back(x);
-        y_data.push_back(exp(ar * x * x + br * x + cr) + rng.gaussian(w_sigma));
+        y_data.push_back(exp(ar * x * x + br * x + cr) + rng.gaussian(w_sigma)); // 产生測量值 y_data
     }
 
     // 开始Gauss-Newton迭代
@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
 
     for (int iter = 0; iter < iterations; iter++) {
 
-        Matrix3d H = Matrix3d::Zero();             // Hessian = J^T J in Gauss-Newton
+        Matrix3d H = Matrix3d::Zero();             // Hessian = J^T * J in Gauss-Newton
         Vector3d b = Vector3d::Zero();             // bias
         cost = 0;
 
@@ -38,13 +38,13 @@ int main(int argc, char **argv) {
             // start your code here
             double error = 0;   // 第i个数据点的计算误差
             error =  yi - exp(ae*xi*xi + be*xi + ce) ; // 填写计算error的表达式
-            Vector3d J; // 雅可比矩阵
+            Vector3d J; // 雅可比矩阵, 是向量. [de/da, de/db, de/dc]
             J[0] = -exp(ae*xi*xi + be*xi + ce)*xi*xi;  // de/da
             J[1] = -exp(ae*xi*xi + be*xi + ce)*xi;  // de/db
             J[2] = -exp(ae*xi*xi + be*xi + ce);  // de/dc
 
             H += J * J.transpose(); // GN近似的H
-            b += -error * J;
+            b += -error * J;  // See book P. 112 , eqt(6.21)
             // end your code here
 
             cost += error * error;
@@ -55,11 +55,11 @@ int main(int argc, char **argv) {
         Vector3d dx;
         LLT<MatrixXd> llt;
         llt.compute(H);
-        dx = llt.solve(b);
+        dx = llt.solve(b); // increment dx
         
 	// end your code here
 
-        if (isnan(dx[0])) {
+        if (std::isnan(dx[0])){
             cout << "result is nan!" << endl;
             break;
         }

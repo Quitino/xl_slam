@@ -1,0 +1,3 @@
+/data/code/xl_slam/hw5/GN_BA/cmake-build-debug/CMakeFiles/edit_cache.dir
+/data/code/xl_slam/hw5/GN_BA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/data/code/xl_slam/hw5/GN_BA/cmake-build-debug/CMakeFiles/GN_BA.dir
