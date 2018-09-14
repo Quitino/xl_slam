@@ -46,8 +46,8 @@ void bfMatch(const vector<DescType> &desc1, const vector<DescType> &desc2, vecto
 int main(int argc, char **argv) {
 
     // load image
-    cv::Mat first_image = cv::imread(first_file, 0);    // load grayscale image
-    cv::Mat second_image = cv::imread(second_file, 0);  // load grayscale image
+    cv::Mat first_image = cv::imread(first_file, 0);    // use flag=0 to load grayscale image
+    cv::Mat second_image = cv::imread(second_file, 0);  // use flag=0 to load grayscale image
 
     // plot the image
     cv::imshow("first image", first_image);
@@ -118,10 +118,21 @@ void computeAngle(const cv::Mat &image, vector<cv::KeyPoint> &keypoints) {
             continue;
         }
         // compute m01 and m10
+        float m01=0, m10=0;
         // loop through a patch around x_location & y_location, ref from imageBasic.cpp
-        for () {
-            m01
+        for ( size_t y=y_location-half_patch_size; y<y_location+half_patch_size; y++ )
+        {
+            for ( size_t x=x_location-half_patch_size; x<x_location+half_patch_size; x++ )
+            {
+                // 访问位于 x,y 处的像素的 I(x,y)
+                float gray_data = (float)image.at<uchar>(y,x);
+
+                m01 += y*gray_data;
+                m10 += x*gray_data;
+            }
         }
+        kp.angle = std::atan(m01/m10) * (180.0/pi); // obtain in degree unit
+
         // END YOUR CODE HERE
     }
     return;
@@ -388,13 +399,46 @@ int ORB_pattern[256 * 4] = {
         -1, -6, 0, -11/*mean (0.127148), correlation (0.547401)*/
 };
 
+// obtain rotationed position
+void GetPosAfterRotation(int x_in, int y_in, float angle, int &x_out, int &y_out)
+{
+    float fCos = (float)cos(angle * pi / 180.0);
+    float fSin = (float)sin(angle * pi / 180.0);
+    float x_temp = (float)x_in * fCos - (float)y_in * fSin;
+    float y_temp = (float)x_in * fSin + (float)y_in * fCos;
+    x_out = (int)x_temp; // sample to pixel position
+    y_out = (int)y_temp;
+
+}
+
 // compute the descriptor
 void computeORBDesc(const cv::Mat &image, vector<cv::KeyPoint> &keypoints, vector<DescType> &desc) {
+    int rot_p_x = 0;
+    int rot_p_y = 0;
+    int rot_q_x = 0;
+    int rot_q_y = 0;
     for (auto &kp: keypoints) {
-        DescType d(256, false);
+        DescType d(256, false); // 相當於 vector<bool> d(256, false) --> 256 個 bool, false by default
         for (int i = 0; i < 256; i++) {
             // START YOUR CODE HERE (~7 lines)
             d[i] = 0;  // if kp goes outside, set d.clear()
+            // use ORB_pattern[256*4]
+            // p
+            GetPosAfterRotation(ORB_pattern[4*i], ORB_pattern[4*i+1], kp.angle, rot_p_x, rot_p_y);
+            rot_p_x += kp.pt.x;
+            rot_p_y += kp.pt.y;
+            // q
+            GetPosAfterRotation(ORB_pattern[4*i+2], ORB_pattern[4*i+3], kp.angle, rot_q_x, rot_q_y);
+            rot_q_x += kp.pt.x;
+            rot_q_y += kp.pt.y;
+            // check whether out of boundary
+            if (rot_p_x < 0 || rot_p_x >= image.cols || rot_q_x < 0 || rot_q_x >= image.cols ||
+                rot_p_y < 0 || rot_p_x >= image.rows || rot_q_x < 0 || rot_q_x >= image.rows) {
+                d.clear(); // clear as empty
+                break;
+            } else {
+                d[i] = (image.at<uchar>(rot_p_y, rot_p_x) > image.at<uchar>(rot_q_y, rot_q_x))? 0 : 1;
+            }
 	    // END YOUR CODE HERE
         }
         desc.push_back(d);
