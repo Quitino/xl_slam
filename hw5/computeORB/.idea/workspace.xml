@@ -12,13 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf4e5b03-1d14-48ba-a99a-a463ddc9f9c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../hw4/gaussnewton/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw4/gaussnewton/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GN_BA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GN_BA/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/computeORB.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/computeORB.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/computeORB.dir/computeORB.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/computeORB.dir/computeORB.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/computeORB" beforeDir="false" afterPath="$PROJECT_DIR$/build/computeORB" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/computeORB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/computeORB.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matches.png" beforeDir="false" afterPath="$PROJECT_DIR$/matches.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ref_hw_1_7/hw5/hw5_ws/l5-2-orb-detect/computeORB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../ref_hw_1_7/hw5/hw5_ws/l5-2-orb-detect/computeORB.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,24 +42,24 @@
         <counts>
           <entry key="cpp" value="1" />
           <entry key="h" value="1" />
-          <entry key="hpp" value="2" />
+          <entry key="hpp" value="3" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CMakeLists.txt" value="1" />
-          <entry key="ObjectiveC" value="4" />
+          <entry key="ObjectiveC" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="955" />
+          <entry key="cpp" value="1274" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="955" />
+          <entry key="ObjectiveC" value="1274" />
         </counts>
       </usages-collector>
     </session>
@@ -74,11 +74,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/computeORB.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="436" column="44" selection-start-line="436" selection-start-column="44" selection-end-line="436" selection-end-column="44" />
+            <state relative-caret-position="425">
+              <caret line="494" column="4" selection-start-line="494" selection-start-column="4" selection-end-line="494" selection-end-column="4" />
               <folding>
                 <element signature="e#63#92#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/opencv2/features2d/features2d.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="1035" column="122" selection-start-line="1035" selection-start-column="24" selection-end-line="1035" selection-end-column="122" />
             </state>
           </provider>
         </entry>
@@ -111,6 +120,11 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>bfMatch</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -200,12 +214,12 @@
       <option name="presentableId" value="Default" />
       <updated>1536852386312</updated>
       <workItem from="1536852387666" duration="6934000" />
-      <workItem from="1536944285360" duration="3185000" />
+      <workItem from="1536944285360" duration="5602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10119000" />
+    <option name="totallyTimeSpent" value="12536000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="0" />
@@ -263,10 +277,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/include/opencv2/features2d/features2d.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="1035" column="122" selection-start-line="1035" selection-start-column="24" selection-end-line="1035" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/computeORB.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="436" column="44" selection-start-line="436" selection-start-column="44" selection-end-line="436" selection-end-column="44" />
+        <state relative-caret-position="425">
+          <caret line="494" column="4" selection-start-line="494" selection-start-column="4" selection-end-line="494" selection-end-column="4" />
           <folding>
             <element signature="e#63#92#0" expanded="true" />
           </folding>

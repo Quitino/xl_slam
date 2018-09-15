@@ -6,9 +6,10 @@
 #include <opencv2/opencv.hpp>
 
 #include <string>
+#include <chrono>
 
 using namespace std;
-
+using namespace chrono;
 // global variables
 string first_file = "./1.png";
 string second_file = "./2.png";
@@ -457,7 +458,42 @@ void bfMatch(const vector<DescType> &desc1, const vector<DescType> &desc2, vecto
     int d_max = 50;
 
     // START YOUR CODE HERE (~12 lines)
-    // find matches between desc1 and desc2. 
+    // find matches between desc1 and desc2.
+
+
+    steady_clock::time_point t1 = steady_clock::now();
+
+    int d1_num = -1; // number of descriptor1
+    for (auto &d1: desc1)
+    {
+        d1_num++;
+        if(d1.empty()) continue;
+        vector<vector<int>> d1_match(0,vector<int>(2)); // 2D array
+
+        int d2_num = -1; // number of descriptor2
+
+        for(auto &d2: desc2)
+        {
+            d2_num++;
+            if(d2.empty()) continue;
+
+            int HammingDist = 0;
+            for(int n = 0; n<256; n++) { // compare all 256 bits
+                HammingDist += (d1[n] == d2[n])? 0 : 1;
+            }
+            vector<int> d2_HamDis(2);
+            d2_HamDis =  {HammingDist, d2_num};
+            d1_match.push_back(d2_HamDis);
+        }
+        sort(d1_match.begin(), d1_match.end());
+        int dist = d1_match[0][0];
+        if(dist <= d_max){
+            cv::DMatch m(d1_num,d1_match[0][1],dist); // query descriptor index(第一图的特征 ID), train descriptor index (第二个图的特征 ID), and distance between descriptors
+            matches.push_back(m);
+        }
+    }
+    
+    */
     // END YOUR CODE HERE
 
     for (auto &m: matches) {

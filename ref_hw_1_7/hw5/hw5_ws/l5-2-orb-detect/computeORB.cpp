@@ -466,12 +466,13 @@ void bfMatch(const vector<DescType> &desc1, const vector<DescType> &desc2, vecto
     int d1_num = -1;
     for (auto &d1: desc1)
     {
-	d1_num++;     
-	if(d1.empty()) continue;
+		d1_num++;     
+		if(d1.empty()) continue;
         vector<vector<int>> d1_match(0,vector<int>(2));
 
      	int d2_num = -1;
-      	for(auto &d2: desc2)
+    
+    for(auto &d2: desc2)
 	{
 	    d2_num++;
 	    if(d2.empty()) continue;
