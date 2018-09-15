@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/data/code/slambook/3rdparty/Sophus/sophus/se3.h
-so3.h
-/data/code/slambook/3rdparty/Sophus/sophus/so3.h
-
 /data/code/slambook/3rdparty/Sophus/sophus/so3.h
 Eigen/Core
 -
@@ -26,8 +22,6 @@ Eigen/Dense
 Eigen/Geometry
 -
 sophus/so3.h
--
-sophus/se3.h
 -
 iostream
 -

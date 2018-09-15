@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="E2Rt"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\slambook\;CMake Files\..\..\..\slambook\3rdparty\;CMake Files\..\..\..\slambook\3rdparty\Sophus\;CMake Files\..\..\..\slambook\3rdparty\Sophus\build\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/data/code/xl_slam/hw5/E2Rt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/data/code/xl_slam/hw5/E2Rt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/data/code/xl_slam/hw5/E2Rt/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="E2Rt">
+				<Option output="/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/E2Rt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/data/code/xl_slam/hw5/E2Rt/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/data/code/slambook/3rdparty/Sophus"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 E2Rt"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="E2Rt/fast">
+				<Option output="/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/E2Rt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/data/code/xl_slam/hw5/E2Rt/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/data/code/slambook/3rdparty/Sophus"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 E2Rt/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/data/code/xl_slam/hw5/E2Rt/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/data/code/xl_slam/hw5/E2Rt/E2Rt.cpp">
+			<Option target="E2Rt"/>
+		</Unit>
+		<Unit filename="/data/code/xl_slam/hw5/E2Rt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/data/code/xl_slam/hw5/E2Rt/../../../slambook/3rdparty/Sophus/build/SophusConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\slambook\3rdparty\Sophus\build\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

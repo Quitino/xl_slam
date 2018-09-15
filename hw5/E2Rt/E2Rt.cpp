@@ -10,7 +10,8 @@
 using namespace Eigen;
 
 #include <sophus/so3.h>
-#include <sophus/se3.h>
+using namespace Sophus;
+
 #include <iostream>
 
 using namespace std;
@@ -27,28 +28,54 @@ int main(int argc, char **argv) {
     Matrix3d R;
     Vector3d t;
 
-    // SVD and fix sigular values
+    // SVD and fix singular values
     // START YOUR CODE HERE
+    JacobiSVD<MatrixXd> svd(E, ComputeThinU | ComputeThinV);
+    Matrix3d U = svd.matrixU(); // Obtain matrix U
+    Matrix3d V = svd.matrixV(); // Obtain matrix V
+    Matrix3d Sigma = U.inverse() * E * V.transpose().inverse(); // Obtain matrix Sigma
+    cout<<"U:\n"<<U<<"\nV:\n"<<V<<"\nSigma:\n"<<Sigma<<endl;
+    vector<double> tao = {Sigma(0,0), Sigma(1,1), Sigma(2,2)};
+    sort(tao.begin(),tao.end());
+    double tao_mean = (tao[1]+tao[2])*0.5;
+
+    Matrix3d SigmaFix = Matrix3d::Zero(); // SigmaFix: 處理后的Sigma矩陣
+    SigmaFix(0,0) = tao_mean;
+    SigmaFix(1,1) = tao_mean;
+    cout<<"Sigma after fix: \n"<<SigmaFix<<endl;
 
     // END YOUR CODE HERE
 
     // set t1, t2, R1, R2 
     // START YOUR CODE HERE
-    Matrix3d t_wedge1;
-    Matrix3d t_wedge2;
+    Matrix3d R_Z1 = AngleAxisd(M_PI/2,Vector3d(0,0,1)).matrix(); // R_Z1: 沿 Z 轴旋转 90 度得到的旋转矩阵
+    Matrix3d R_Z2 = AngleAxisd(-M_PI/2,Vector3d(0,0,1)).matrix();
+    Matrix3d t_wedge1 = U * R_Z1 * SigmaFix * U.transpose(); // t1^
+    Matrix3d t_wedge2 = U * R_Z2 * SigmaFix * U.transpose(); // t2^
 
-    Matrix3d R1;
-    Matrix3d R2;
+    Matrix3d R1 = U * R_Z1.transpose() * V.transpose();
+    Matrix3d R2 = U * R_Z2.transpose() * V.transpose();
+
     // END YOUR CODE HERE
 
     cout << "R1 = " << R1 << endl;
     cout << "R2 = " << R2 << endl;
-    //cout << "t1 = " << Sophus::SO3d::vee(t_wedge1) << endl;
-    //cout << "t2 = " << Sophus::SO3d::vee(t_wedge2) << endl;
+    cout << "t1 = " << SO3::vee(t_wedge1).transpose() << endl;
+    cout << "t2 = " << SO3::vee(t_wedge2).transpose() << endl;
 
     // check t^R=E up to scale
-    Matrix3d tR = t_wedge1 * R1;
-    cout << "t^R = " << tR << endl;
+
+    Matrix3d tR1 = t_wedge1 * R1;
+    cout << "1. t^R = " << tR1 << endl;
+
+    Matrix3d tR2 = t_wedge2 * R2;
+    cout << "2. t^R = " << tR2 << endl;
+
+    Matrix3d tR3 = t_wedge1 * R2;
+    cout << "3. t^R = " << tR3 << endl;
+
+    Matrix3d tR4 = t_wedge2 * R1;
+    cout << "4. t^R = " << tR4 << endl;
 
     return 0;
 }
