@@ -492,7 +492,7 @@ void bfMatch(const vector<DescType> &desc1, const vector<DescType> &desc2, vecto
             matches.push_back(m);
         }
     }
-    
+
     */
     // END YOUR CODE HERE
 

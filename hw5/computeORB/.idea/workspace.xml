@@ -12,13 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf4e5b03-1d14-48ba-a99a-a463ddc9f9c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/computeORB.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/computeORB.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/computeORB.dir/computeORB.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/computeORB.dir/computeORB.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/computeORB" beforeDir="false" afterPath="$PROJECT_DIR$/build/computeORB" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/computeORB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/computeORB.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matches.png" beforeDir="false" afterPath="$PROJECT_DIR$/matches.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ref_hw_1_7/hw5/hw5_ws/l5-2-orb-detect/computeORB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../ref_hw_1_7/hw5/hw5_ws/l5-2-orb-detect/computeORB.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/computeORB.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="494" column="4" selection-start-line="494" selection-start-column="4" selection-end-line="494" selection-end-column="4" />
+            <state relative-caret-position="-1129">
+              <caret line="98" column="43" lean-forward="true" selection-start-line="98" selection-start-column="43" selection-end-line="98" selection-end-column="43" />
               <folding>
                 <element signature="e#63#92#0" expanded="true" />
               </folding>
@@ -214,12 +208,12 @@
       <option name="presentableId" value="Default" />
       <updated>1536852386312</updated>
       <workItem from="1536852387666" duration="6934000" />
-      <workItem from="1536944285360" duration="5602000" />
+      <workItem from="1536944285360" duration="7232000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12536000" />
+    <option name="totallyTimeSpent" value="14166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="0" />
@@ -286,8 +280,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/computeORB.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="494" column="4" selection-start-line="494" selection-start-column="4" selection-end-line="494" selection-end-column="4" />
+        <state relative-caret-position="-1129">
+          <caret line="98" column="43" lean-forward="true" selection-start-line="98" selection-start-column="43" selection-end-line="98" selection-end-column="43" />
           <folding>
             <element signature="e#63#92#0" expanded="true" />
           </folding>
