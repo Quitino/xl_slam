@@ -93,14 +93,14 @@ int main(int argc, char **argv) {
             //if(DEBUG) cout<<"cost: "<<cost<<endl;
         }
 
-	// solve dx 
+	    // solve dx
         Vector6d dx;
 
         // START YOUR CODE HERE 
 
         // END YOUR CODE HERE
 
-        if (isnan(dx[0])) {
+        if (std::isnan(dx[0])) {
             cout << "result is nan!" << endl;
             break;
         }

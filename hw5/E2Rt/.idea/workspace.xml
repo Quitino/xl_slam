@@ -11,15 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51060186-40fc-40b2-81d7-8ca420a11371" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/E2Rt.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/E2Rt.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/E2Rt.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/E2Rt.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/E2Rt.dir/E2Rt.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/E2Rt.dir/E2Rt.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/E2Rt.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/E2Rt.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/E2Rt.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/E2Rt.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/E2Rt" beforeDir="false" afterPath="$PROJECT_DIR$/build/E2Rt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../computeORB/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../computeORB/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="51060186-40fc-40b2-81d7-8ca420a11371" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +24,7 @@
     <session id="824765093">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -65,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/E2Rt.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="438">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
               <folding>
                 <element signature="e#67#88#0" expanded="true" />
               </folding>
@@ -128,7 +121,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CMakeLists.txt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GN_BA/CMakeLists.txt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -170,12 +163,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1537003903027</updated>
-      <workItem from="1537003904511" duration="3043000" />
+      <workItem from="1537003904511" duration="3243000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3043000" />
+    <option name="totallyTimeSpent" value="3243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="0" />
@@ -219,7 +212,7 @@
     <entry file="file://$PROJECT_DIR$/E2Rt.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="438">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
           <folding>
             <element signature="e#67#88#0" expanded="true" />
           </folding>
