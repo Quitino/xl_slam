@@ -73,7 +73,7 @@ inline float GetPixelValue(const cv::Mat &img, float x, float y) {
 int main(int argc, char **argv) {
 
     // images, note they are CV_8UC1, not CV_8UC3
-    Mat img1 = imread(file_1, 0);
+    Mat img1 = imread(file_1, 0); // read in gray-scale image
     Mat img2 = imread(file_2, 0);
 
     // key points, using GFTT here.
@@ -84,9 +84,12 @@ int main(int argc, char **argv) {
     // now lets track these key points in the second image
     // first use single level LK in the validation picture
     vector<KeyPoint> kp2_single;
-    vector<bool> success_single;
+    vector<bool> success_single; // assign to each keypoint
+
     OpticalFlowSingleLevel(img1, img2, kp1, kp2_single, success_single);
 
+    /*
+    cout << " before multi-level LK..." << endl;
     // then test multi-level LK
 
     vector<KeyPoint> kp2_multi;
@@ -127,10 +130,13 @@ int main(int argc, char **argv) {
             cv::line(img2_CV, pt1[i], pt2[i], cv::Scalar(0, 250, 0));
         }
     }
-
+    */
     cv::imshow("tracked single level", img2_single);
+
+    /*
     cv::imshow("tracked multi level", img2_multi);
     cv::imshow("tracked by opencv", img2_CV);
+     */
     cv::waitKey(0);
 
     return 0;
@@ -148,7 +154,8 @@ void OpticalFlowSingleLevel(
     // parameters
     int half_patch_size = 4;
     int iterations = 10;
-    bool have_initial = !kp2.empty();
+    bool have_initial = !kp2.empty(); // whether kp2 is initialized
+
 
     for (size_t i = 0; i < kp1.size(); i++) {
         auto kp = kp1[i];
@@ -174,13 +181,16 @@ void OpticalFlowSingleLevel(
             }
 
             // compute cost and jacobian
-            for (int x = -half_patch_size; x < half_patch_size; x++)
+            for (int x = -half_patch_size; x < half_patch_size; x++) // use x & y to loop through each patch
                 for (int y = -half_patch_size; y < half_patch_size; y++) {
 
                     // TODO START YOUR CODE HERE (~8 lines)
                     //double error = -(GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy) - GetPixelValue(img1, kp.pt.x + x, kp.pt.y + y));
-                    double error = -(GetPixelValue(img1, kp.pt.x + x, kp.pt.y + y + dy) - GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy));
-                    Eigen::Vector2d J;  // Jacobian
+                    double error = GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy) - GetPixelValue(img1, kp.pt.x + x, kp.pt.y + y + dy);
+                    Eigen::Vector2d J;  // Jacobian , 2x1 dim
+                    // J = [dI/dx, dI/dy] ~= [ [I(x-dx) + I(x+dx)] * 0.5 , [I(y-dy) + I(y+dy)] * 0.5  ]
+
+                    // select "forward" or "inverse" approach
                     if (inverse == false) {
                         // Forward Jacobian
                         J[0] = (GetPixelValue(img2, kp.pt.x + x + dx + 1, kp.pt.y + y + dy) - GetPixelValue(img2, kp.pt.x + x + dx - 1, kp.pt.y + y + dy)) / 2;
@@ -193,7 +203,7 @@ void OpticalFlowSingleLevel(
                     }
 
                     // compute H, b and set cost;
-                    H += J*J.transpose();
+                    H += J*J.transpose(); // J is 2x1 dim, J^T is 1x2 dim => H is 2x2 dim
                     b += -error * J;                    
                     cost += error * error;
                     // TODO END YOUR CODE HERE
@@ -205,7 +215,7 @@ void OpticalFlowSingleLevel(
             update = H.ldlt().solve(b);
             // TODO END YOUR CODE HERE
 
-            if (isnan(update[0])) {
+            if (std::isnan(update[0])) {
                 // sometimes occurred when we have a black or white patch and H is irreversible
                 cout << "update is nan" << endl;
                 succ = false;
@@ -227,7 +237,7 @@ void OpticalFlowSingleLevel(
 
         // set kp2
         if (have_initial) {
-            kp2[i].pt = kp.pt + Point2f(dx, dy);
+            kp2[i].pt = kp.pt + Point2f(dx, dy); // update from kp1
         } else {
             KeyPoint tracked = kp;
             tracked.pt += cv::Point2f(dx, dy);
