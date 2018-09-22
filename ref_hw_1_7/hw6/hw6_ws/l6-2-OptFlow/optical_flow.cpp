@@ -259,13 +259,13 @@ void OpticalFlowMultiLevel(
     vector<Mat> pyr1, pyr2; // image pyramids
     // TODO START YOUR CODE HERE (~8 lines)
     for (int i = 0; i < pyramids; i++) {
-	Mat img1_temp,  img2_temp;
-	resize(img1, img1_temp, Size(img1.cols * scales[i], img1.rows * scales[i]));
-	resize(img2, img2_temp, Size(img2.cols * scales[i], img2.rows * scales[i]));
-	pyr1.push_back(img1_temp);
-	pyr2.push_back(img2_temp);
-	cout<<"Pyramid: "<<i<<" img1 size: "<<img1_temp.cols<<" "<<img1_temp.rows<<endl;
-    }
+	 	Mat img1_temp,  img2_temp;
+	 	resize(img1, img1_temp, Size(img1.cols * scales[i], img1.rows * scales[i]));
+	 	resize(img2, img2_temp, Size(img2.cols * scales[i], img2.rows * scales[i]));
+	 	pyr1.push_back(img1_temp);
+	 	pyr2.push_back(img2_temp);
+	 	cout<<"Pyramid: "<<i<<" img1 size: "<<img1_temp.cols<<" "<<img1_temp.rows<<endl;
+     	}
     // TODO END YOUR CODE HERE
     // coarse-to-fine LK tracking in pyramids
     // TODO START YOUR CODE HEREi
@@ -277,19 +277,19 @@ void OpticalFlowMultiLevel(
     	vector<KeyPoint> vkp1;
         for(int j = 0; j < kp1.size(); j++) {
             KeyPoint kp1_temp = kp1[j];
-	    kp1_temp.pt *= scales[i];
-	    vkp1.push_back(kp1_temp);
-	    if(i < pyramids - 1) {
-		KeyPoint kp2_temp = vkp2_last[j];
-		kp2_temp.pt /= pyramid_scale;
-		vkp2_now.push_back(kp2_temp);
-	    }
-	}
-	vsucc.clear();	
+	    	kp1_temp.pt *= scales[i];
+	    	vkp1.push_back(kp1_temp);
+	    	if(i < pyramids - 1) {
+				KeyPoint kp2_temp = vkp2_last[j];
+				kp2_temp.pt /= pyramid_scale;
+				vkp2_now.push_back(kp2_temp);
+	    	}
+		}
+		vsucc.clear();	
     	OpticalFlowSingleLevel(pyr1[i], pyr2[i], vkp1, vkp2_now, vsucc, inverse);
-	vkp2_last.clear();
-	vkp2_last.swap(vkp2_now);
-	cout<<"pyramid: "<<i<<" vkp2_last size: "<<vkp2_last.size() <<" vkp2_now size: "<<vkp2_now.size()<<endl;
+		vkp2_last.clear();
+		vkp2_last.swap(vkp2_now);
+		cout<<"pyramid: "<<i<<" vkp2_last size: "<<vkp2_last.size() <<" vkp2_now size: "<<vkp2_now.size()<<endl;
     }
     kp2 = vkp2_last;
     success = vsucc;

@@ -12,45 +12,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae8d4fd8-229b-4e5e-bca4-8a23d1c41a08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/GN_BA.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/GN_BA.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/GN_BA.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/GN_BA.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/GN_BA.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/GN_BA" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/GN_BA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../hw5/GN_BA/build/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../hw5/GN_BA/build/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/optical_flow.dir/optical_flow.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.0/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.0/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.0/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.0/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.0/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/optical_flow.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/optical_flow.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/optical_flow.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/optical_flow.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/optical_flow.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/optical_flow.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/optical_flow.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/optical_flow.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/optical_flow.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/optical_flow.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/optical_flow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/optical_flow.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,11 +83,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="optical_flow.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/optical_flow.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
+            <state relative-caret-position="524">
+              <caret line="143" column="13" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -104,11 +95,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="tracking.hpp" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/include/opencv2/video/tracking.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="175" column="18" selection-start-line="175" selection-start-column="18" selection-end-line="175" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.hpp" pinned="false" current-in-tab="false">
         <entry file="file:///usr/include/opencv2/core/core.hpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="66855">
-              <caret line="4457" column="43" selection-start-line="4457" selection-start-column="43" selection-end-line="4457" selection-end-column="43" />
+              <caret line="4460" column="43" selection-start-line="4460" selection-start-column="43" selection-end-line="4460" selection-end-column="43" />
               <folding>
                 <element signature="e#172680#172694#0" expanded="true" />
               </folding>
@@ -116,7 +116,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="features2d.hpp" pinned="false" current-in-tab="false">
         <entry file="file:///usr/include/opencv2/features2d/features2d.hpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2715">
@@ -148,11 +148,14 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="67" />
-    <option name="y" value="25" />
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="549" />
+    <option name="y" value="156" />
     <option name="width" value="1533" />
-    <option name="height" value="868" />
+    <option name="height" value="840" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -162,7 +165,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -174,6 +176,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,16 +198,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.optical_flow">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="optical_flow" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="optical_flow" TARGET_NAME="optical_flow" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="optical_flow" RUN_TARGET_NAME="optical_flow">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="optical_flow" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="optical_flow" TARGET_NAME="optical_flow" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="optical_flow" RUN_TARGET_NAME="optical_flow" />
     <list>
       <item itemvalue="Application.Build All" />
       <item itemvalue="Application.optical_flow" />
@@ -222,35 +217,36 @@
       <updated>1537479477105</updated>
       <workItem from="1537479478737" duration="4123000" />
       <workItem from="1537509199559" duration="554000" />
+      <workItem from="1537617973494" duration="2015000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4677000" />
+    <option name="totallyTimeSpent" value="6692000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
+    <frame x="549" y="156" width="1533" height="840" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25319007" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30593607" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,8 +258,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/optical_flow.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
+        <state relative-caret-position="1980">
+          <caret line="132" column="5" lean-forward="true" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -284,6 +280,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2715">
           <caret line="181" column="40" selection-start-line="181" selection-start-column="40" selection-end-line="181" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/opencv2/core/core.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66855">
+          <caret line="4460" column="43" selection-start-line="4460" selection-start-column="43" selection-end-line="4460" selection-end-column="43" />
+          <folding>
+            <element signature="e#172680#172694#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/opencv2/features2d/features2d.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2715">
+          <caret line="181" column="40" selection-start-line="181" selection-start-column="40" selection-end-line="181" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/opencv2/video/tracking.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="175" column="18" selection-start-line="175" selection-start-column="18" selection-end-line="175" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optical_flow.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="143" column="13" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

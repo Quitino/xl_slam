@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/data/code7/xl_slam/hw6/optical_flow/optical_flow.cpp" "/data/code7/xl_slam/hw6/optical_flow/cmake-build-debug/CMakeFiles/optical_flow.dir/optical_flow.cpp.o"
+  "/data/code7/xl_slam/hw6/optical_flow/optical_flow.cpp" "/data/code7/xl_slam/hw6/optical_flow/build2/CMakeFiles/optical_flow.dir/optical_flow.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

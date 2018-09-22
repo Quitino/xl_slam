@@ -1,6 +1,6 @@
-/root/Downloads/clion-2018.2.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /data/code/xl_slam/hw6/optical_flow
--- The C compiler identification is GNU 4.8.4
--- The CXX compiler identification is GNU 4.8.4
+/root/Downloads/clion-2018.1.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /data/code7/xl_slam/hw6/optical_flow
+-- The C compiler identification is GNU 5.4.0
+-- The CXX compiler identification is GNU 5.4.0
 -- Check for working C compiler: /usr/bin/cc
 -- Check for working C compiler: /usr/bin/cc -- works
 -- Detecting C compiler ABI info
@@ -13,6 +13,17 @@
 -- Detecting CXX compiler ABI info - done
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found CUDA: /usr/local/cuda (found suitable exact version "8.0") 
+-- Found OpenCV: /usr/local (found version "3.3.0") 
 -- Configuring done
 -- Generating done
--- Build files have been written to: /data/code/xl_slam/hw6/optical_flow/cmake-build-debug
+-- Build files have been written to: /data/code7/xl_slam/hw6/optical_flow/cmake-build-debug

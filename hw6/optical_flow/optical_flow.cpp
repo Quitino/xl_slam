@@ -86,15 +86,16 @@ int main(int argc, char **argv) {
     vector<KeyPoint> kp2_single;
     vector<bool> success_single; // assign to each keypoint
 
+    cout << "Calling single-level LK..." << endl;
     OpticalFlowSingleLevel(img1, img2, kp1, kp2_single, success_single);
 
-    /*
-    cout << " before multi-level LK..." << endl;
+
+    cout << " Calling multi-level LK..." << endl;
     // then test multi-level LK
 
-    vector<KeyPoint> kp2_multi;
+    vector<KeyPoint> kp2_multi; // keypoints in image2 for multi-layer
     vector<bool> success_multi;
-    OpticalFlowMultiLevel(img1, img2, kp1, kp2_multi, success_multi);
+    OpticalFlowMultiLevel(img1, img2, kp1, kp2_multi, success_multi, true);
 
     // use opencv's flow for validation
     vector<Point2f> pt1, pt2;
@@ -104,6 +105,7 @@ int main(int argc, char **argv) {
     cv::calcOpticalFlowPyrLK(img1, img2, pt1, pt2, status, error, cv::Size(8, 8));
 
     // plot the differences of those functions
+
     Mat img2_single;
     cv::cvtColor(img2, img2_single, CV_GRAY2BGR);
     for (int i = 0; i < kp2_single.size(); i++) {
@@ -112,7 +114,7 @@ int main(int argc, char **argv) {
             cv::line(img2_single, kp1[i].pt, kp2_single[i].pt, cv::Scalar(0, 250, 0));
         }
     }
-    
+
     Mat img2_multi;
     cv::cvtColor(img2, img2_multi, CV_GRAY2BGR);
     for (int i = 0; i < kp2_multi.size(); i++) {
@@ -130,13 +132,13 @@ int main(int argc, char **argv) {
             cv::line(img2_CV, pt1[i], pt2[i], cv::Scalar(0, 250, 0));
         }
     }
-    */
+
     cv::imshow("tracked single level", img2_single);
 
-    /*
+
     cv::imshow("tracked multi level", img2_multi);
     cv::imshow("tracked by opencv", img2_CV);
-     */
+
     cv::waitKey(0);
 
     return 0;
@@ -255,87 +257,52 @@ void OpticalFlowMultiLevel(
         bool inverse) {
 
     // parameters
-    int pyramids = 4;
+    int pyramids = 4; // level_0 (the original resolution), level_1, level_2, level_3
     double pyramid_scale = 0.5;
     double scales[] = {1.0, 0.5, 0.25, 0.125};
 
     // create pyramids
     vector<Mat> pyr1, pyr2; // image pyramids
     // TODO START YOUR CODE HERE (~8 lines)
-    Mat temp1 = img1;
-    Mat temp2 = img2;
-    //vector<vector<KeyPoint>> kp1_pyr;
-    //vector<KeyPoint> kp1tmp;
-    
     for (int i = 0; i < pyramids; i++) {
-        //Mat tmp1, tmp2;
-        pyr1.push_back(temp1);
-        pyr2.push_back(temp2);
-        Mat temp3, temp4;
-        cv::pyrDown(temp1, temp3, Size(temp1.cols/2, temp1.rows/2));
-        cv::pyrDown(temp2, temp4, Size(temp2.cols/2, temp2.rows/2));
-        temp1 = temp3;
-        temp2 = temp4;
-        /*
-        //resize(img1, tmp1, Size(img1.cols*scales[i], img1.rows*scales[i]));
-        //resize(img2, tmp2, Size(img2.cols*scales[i], img2.rows*scales[i]));
-
-        pyr1.push_back(tmp1);
-        pyr2.push_back(tmp2);
-
-        for (int j=0; j < kp1.size(); j++)
-        {
-            kp1tmp[j].pt = kp1[j].pt*scales[i];
-        }
-        kp1_pyr.push_back(kp1tmp);
-        */
+        Mat img1_temp,  img2_temp; // img1_temp & img2_temp are opencv matrix type
+        resize(img1, img1_temp, Size(img1.cols * scales[i], img1.rows * scales[i]));
+        resize(img2, img2_temp, Size(img2.cols * scales[i], img2.rows * scales[i]));
+        pyr1.push_back(img1_temp);
+        pyr2.push_back(img2_temp);
+        cout<<"Pyramid: "<<i<<" img1 size: "<<img1_temp.cols<<" , "<<img1_temp.rows<<endl;
     }
+
     // TODO END YOUR CODE HERE
 
     // coarse-to-fine LK tracking in pyramids
     // TODO START YOUR CODE HERE
-    /*
-    vector<bool> success_multi;
-    OpticalFlowSingleLevel(pyr1[3], pyr2[3], kp1_pyr[3], kp2, success_multi);
-    OpticalFlowSingleLevel(pyr1[2], pyr2[2], kp1_pyr[2], kp2, success_multi);
-    OpticalFlowSingleLevel(pyr1[1], pyr2[1], kp1_pyr[1], kp2, success_multi);
-    OpticalFlowSingleLevel(pyr1[0], pyr2[0], kp1_pyr[0], kp2, success_multi);
-    */
-    
-    for (int level = pyramids-1 ; level >= 0; level--)
-    {
-
-        KeyPoint kp1_tmp;
-        //vector<KeyPoint> kp1_single;
-        vector<KeyPoint> kp1_pyr;
-        for (int i=0; i < kp1.size(); i++)
-        {
-            KeyPoint pt_pyr=kp1[i];
-            pt_pyr.pt = pt_pyr.pt*scales[level];
-            kp1_pyr.push_back(pt_pyr);
-            //kp1_tmp.pt.x = kp1[j].pt.x * scales[i];
-            //kp1_tmp.pt.y = kp1[j].pt.y * scales[i];
-            //kp1_single.push_back(kp1_tmp);
-        }
-
-        OpticalFlowSingleLevel(pyr1[level], pyr2[level], kp1_pyr, kp2, success, inverse);
-
-        if (level!=0)
-        {
-            for (int i=0; i<kp2.size();i++)
-            {
-                kp2[i].pt = kp2[i].pt*2;
+    vector<KeyPoint> vkp2_last; // img2上一層的keypoints
+    vector<KeyPoint> vkp2_now; // img2當前層的keypoints
+    vector<bool> vsucc;
+    // from the toppest layer to the bottom layer
+    for(int i = pyramids - 1; i >= 0; i--) {
+        vector<KeyPoint> vkp1;
+        for (int j = 0; j < kp1.size(); j++) {
+            // 使用 img1 (x_i , y_i ) 处的梯度
+            KeyPoint kp1_temp = kp1[j]; // select keypoints in img1
+            kp1_temp.pt *= scales[i];  // * scales for pyramids
+            vkp1.push_back(kp1_temp); // now, kp1_temp are keypoints in img1 with corresponding  pyramid layer
+            if (i < pyramids - 1) { // 下一層開始
+                KeyPoint kp2_temp = vkp2_last[j]; // 取自上一層(解析度小的)的 keypoints
+                kp2_temp.pt /= pyramid_scale; // 除以相應的scale， 實際上keypoint的位置放大了
+                vkp2_now.push_back(kp2_temp);
             }
         }
 
-        /*
-        for (int j=0; j < kp2.size(); j++)
-        {
-            kp2[j].pt = kp2[j].pt * 2;
-        }
-        */
+        vsucc.clear();
+        OpticalFlowSingleLevel(pyr1[i], pyr2[i], vkp1, vkp2_now, vsucc, inverse);
+        vkp2_last.clear();
+        vkp2_last.swap(vkp2_now);
+        cout<<"pyramid: "<<i<<" vkp2_last size: "<<vkp2_last.size() <<" vkp2_now size: "<<vkp2_now.size()<<endl;
     }
-    
+    kp2 = vkp2_last;
+    success = vsucc;
     // TODO END YOUR CODE HERE
     // don't forget to set the results into kp2
 }
