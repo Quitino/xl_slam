@@ -188,7 +188,8 @@ void OpticalFlowSingleLevel(
 
                     // TODO START YOUR CODE HERE (~8 lines)
                     //double error = -(GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy) - GetPixelValue(img1, kp.pt.x + x, kp.pt.y + y));
-                    double error = GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy) - GetPixelValue(img1, kp.pt.x + x, kp.pt.y + y + dy);
+                    // double error = GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy) - GetPixelValue(img1, kp.pt.x + x, kp.pt.y + y + dy);
+                    double error = 0;
                     Eigen::Vector2d J;  // Jacobian , 2x1 dim
                     // J = [dI/dx, dI/dy] ~= [ [I(x-dx) + I(x+dx)] * 0.5 , [I(y-dy) + I(y+dy)] * 0.5  ]
 
@@ -197,11 +198,13 @@ void OpticalFlowSingleLevel(
                         // Forward Jacobian
                         J[0] = (GetPixelValue(img2, kp.pt.x + x + dx + 1, kp.pt.y + y + dy) - GetPixelValue(img2, kp.pt.x + x + dx - 1, kp.pt.y + y + dy)) / 2;
                         J[1] = (GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy + 1) - GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy - 1)) / 2;
+                        error = double(GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy) - GetPixelValue(img1, kp.pt.x + x, kp.pt.y + y + dy));
                     } else {
-                        // Inverse Jacobian
+                        // Inverse Jacobian // 反向法
                         // NOTE this J does not change when dx, dy is updated, so we can store it and only compute error
-                        J[0] = (GetPixelValue(img1, kp.pt.x + x + 1, kp.pt.y+y) - GetPixelValue(img1, kp.pt.x + x - 1, kp.pt.y+y)) / 2;
-                        J[1] = (GetPixelValue(img1, kp.pt.x + x , kp.pt.y+y+1) - GetPixelValue(img1, kp.pt.x + x, kp.pt.y+y-1)) / 2;
+                        J[0] = (GetPixelValue(img1, kp.pt.x + x + 1, kp.pt.y + y) - GetPixelValue(img1, kp.pt.x + x - 1, kp.pt.y + y)) / 2;
+                        J[1] = (GetPixelValue(img1, kp.pt.x + x , kp.pt.y + y + 1) - GetPixelValue(img1, kp.pt.x + x, kp.pt.y + y -1)) / 2;
+                        error = double(GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy) - GetPixelValue(img1, kp.pt.x + x, kp.pt.y + y + dy));
                     }
 
                     // compute H, b and set cost;

@@ -10,6 +10,7 @@ using namespace std;
 
 typedef vector<Eigen::Vector2d, Eigen::aligned_allocator<Eigen::Vector2d>> VecVector2d;
 
+// DEFINE GLOBAL VARIABLES
 // Camera intrinsics
 // 内参
 double fx = 718.856, fy = 718.856, cx = 607.1928, cy = 185.2157;
@@ -18,7 +19,8 @@ double baseline = 0.573;
 // paths
 string left_file = "./left.png";
 string disparity_file = "./disparity.png";
-boost::format fmt_others("./%06d.png");    // other files
+boost::format fmt_others("./%06d.png");    // use boost::format to read images in format
+// boost::format fmt_others("/data/kitti-dataset/kitti_vo_grayscale_dataset/sequences/00/image_0/%06d.png") // total 4541 images
 
 // useful typedefs
 typedef Eigen::Matrix<double, 6, 6> Matrix6d;
@@ -35,11 +37,11 @@ typedef Eigen::Matrix<double, 6, 1> Vector6d;
  * @param T21
  */
 void DirectPoseEstimationMultiLayer(
-        const cv::Mat &img1,
-        const cv::Mat &img2,
-        const VecVector2d &px_ref,
-        const vector<double> depth_ref,
-        Sophus::SE3 &T21
+        const cv::Mat &img1, // reference image
+        const cv::Mat &img2, // current image
+        const VecVector2d &px_ref, // pixel location in reference image
+        const vector<double> depth_ref, // depth map in reference image, only use vector array to store them
+        Sophus::SE3 &T21 // transformation matrix (relative pose) from img1(ref) to img2(curr)
 );
 
 // TODO implement this function
@@ -52,11 +54,11 @@ void DirectPoseEstimationMultiLayer(
  * @param T21
  */
 void DirectPoseEstimationSingleLayer(
-        const cv::Mat &img1,
-        const cv::Mat &img2,
-        const VecVector2d &px_ref,
-        const vector<double> depth_ref,
-        Sophus::SE3 &T21
+        const cv::Mat &img1, // reference image
+        const cv::Mat &img2, // current image
+        const VecVector2d &px_ref, // pixel location in reference image
+        const vector<double> depth_ref, // depth map in reference image, only use vector array to store them
+        Sophus::SE3 &T21 // transformation matrix (relative pose) from img1(ref) to img2(curr)
 );
 
 // bilinear interpolation
@@ -74,22 +76,24 @@ inline float GetPixelValue(const cv::Mat &img, float x, float y) {
 
 int main(int argc, char **argv) {
 
-    cv::Mat left_img = cv::imread(left_file, 0);
-    cv::Mat disparity_img = cv::imread(disparity_file, 0);
+    cv::Mat left_img = cv::imread(left_file, 0); // read in gray-scale (0-255)
+    cv::Mat disparity_img = cv::imread(disparity_file, 0); // read in gray-scale (0-255)
 
     // let's randomly pick pixels in the first image and generate some 3d points in the first image's frame
     cv::RNG rng;
-    int nPoints = 1000;
-    int boarder = 40;
-    VecVector2d pixels_ref;
-    vector<double> depth_ref;
+    int nPoints = 1000; // randomly choose 1000 points, original points: 1241x376=466616, selected points ratio = 0.2 %
+    int boarder = 40; // border is 40 pixels
+    VecVector2d pixels_ref; // pixels for comparison in reference image
+    vector<double> depth_ref; // depth values in reference image
 
-    // generate pixels in ref and load depth data
+    // we can also set to pick pixels with sufficient image gradient, known as semi-dense
+
+    // randomly sample pixels in ref and load depth data
     for (int i = 0; i < nPoints; i++) {
         int x = rng.uniform(boarder, left_img.cols - boarder);  // don't pick pixels close to boarder
         int y = rng.uniform(boarder, left_img.rows - boarder);  // don't pick pixels close to boarder
-        int disparity = disparity_img.at<uchar>(y, x);
-        double depth = fx * baseline / disparity; // you know this is disparity to depth
+        int disparity = disparity_img.at<uchar>(y, x); // disparity only consumes several pixels, so use int type
+        double depth = fx * baseline / disparity; // you know this is disparity to depth. In book , P.91 eqt(5.16)
         depth_ref.push_back(depth);
         pixels_ref.push_back(Eigen::Vector2d(x, y));
     }
@@ -99,9 +103,10 @@ int main(int argc, char **argv) {
 
     for (int i = 1; i < 6; i++) {  // 1~10
         cout << "Reading: " << (fmt_others % i).str() << "\n" << endl;
-        cv::Mat img = cv::imread((fmt_others % i).str(), 0);
-        //DirectPoseEstimationSingleLayer(left_img, img, pixels_ref, depth_ref, T_cur_ref);    // first you need to test single layer
-        DirectPoseEstimationMultiLayer(left_img, img, pixels_ref, depth_ref, T_cur_ref);
+        cv::Mat img = cv::imread((fmt_others % i).str(), 0); // read in gray-scale
+        // first you need to test single layer
+        DirectPoseEstimationSingleLayer(left_img, img, pixels_ref, depth_ref, T_cur_ref);    // left_img is reference img, hence "000000.png",
+        //DirectPoseEstimationMultiLayer(left_img, img, pixels_ref, depth_ref, T_cur_ref); // for mult-layer (image pyramids)
     }
 }
 
@@ -118,7 +123,7 @@ void DirectPoseEstimationSingleLayer(
     int iterations = 100;
 
     double cost = 0, lastCost = 0;
-    int nGood = 0;  // good projections
+    int nGood = 0;  // good projections // 以 good 标记出投影在内部的点, 有多少個能投影在內部
     VecVector2d goodProjection;
 
     for (int iter = 0; iter < iterations; iter++) {
