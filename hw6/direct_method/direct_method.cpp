@@ -19,8 +19,8 @@ double baseline = 0.573;
 // paths
 string left_file = "./left.png";
 string disparity_file = "./disparity.png";
-boost::format fmt_others("./%06d.png");    // use boost::format to read images in format
-// boost::format fmt_others("/data/kitti-dataset/kitti_vo_grayscale_dataset/sequences/00/image_0/%06d.png") // total 4541 images
+//boost::format fmt_others("./%06d.png");    // use boost::format to read images in format
+boost::format fmt_others("/data/kitti-dataset/kitti_vo_grayscale_dataset/sequences/00/image_0/%06d.png"); // total 4541 images
 
 // useful typedefs
 typedef Eigen::Matrix<double, 6, 6> Matrix6d;
@@ -100,16 +100,38 @@ int main(int argc, char **argv) {
 
     // estimates 01~05.png's pose using this information
     Sophus::SE3 T_cur_ref;
+    Sophus::SE3 T_ref_cur; // used to store poses
 
     // the initialized value of T_cur_ref is eyes(4)
     cout << "the initialized T_cur_ref: \n" <<  T_cur_ref.matrix() << endl;
-    for (int i = 1; i < 6; i++) {  // 1~10
+    //for (int i = 1; i < 6; i++) {  // 1~10
+    for (int i = 1; i <= 10; i++) { // 1~10
         cout << "Reading: " << (fmt_others % i).str() << "\n" << endl;
         cv::Mat img = cv::imread((fmt_others % i).str(), 0); // read in gray-scale
         // first you need to test single layer
         //DirectPoseEstimationSingleLayer(left_img, img, pixels_ref, depth_ref, T_cur_ref);    // left_img is reference img, hence "000000.png",
         DirectPoseEstimationMultiLayer(left_img, img, pixels_ref, depth_ref, T_cur_ref); // for mult-layer (image pyramids)
+        // print estimated poses:
+        T_ref_cur = T_cur_ref.inverse();
+        cout << "******* estimated poses w.r.t. reference frame(in 4x4 matrix): \n" << T_ref_cur.matrix() << endl;
+        // save tracked poses T_ref_cur (quaternion format)
+        // write tracked poses output to file : tracked_poses_result.txt
+        std::ofstream myfile;
+        myfile.open ("tracked_poses_result.txt", std::ofstream::app);
+        myfile << std::setprecision(15);
+
+        myfile << T_ref_cur.translation().transpose() << " "
+               << T_ref_cur.so3().unit_quaternion().x() << " "
+               << T_ref_cur.so3().unit_quaternion().y() << " "
+               << T_ref_cur.so3().unit_quaternion().z() << " "
+               << T_ref_cur.so3().unit_quaternion().w() << "\n";
+
+        myfile.close();
+
     }
+
+    // From tracked_poses_result.txt, draw the poses in pangolin
+
 }
 
 void DirectPoseEstimationSingleLayer(
@@ -224,9 +246,9 @@ void DirectPoseEstimationSingleLayer(
     }
     cout<< "reference resolution: " << img1_show.cols << " , " << img1_show.rows << endl;
     cout<< "current resolution: " << img2_show.cols << " , " <<  img2_show.rows << endl;
-    cv::imshow("reference", img1_show);
-    cv::imshow("current", img2_show);
-    cv::waitKey();
+    //cv::imshow("reference", img1_show);
+    //cv::imshow("current", img2_show);
+    //cv::waitKey();
 }
 
 void DirectPoseEstimationMultiLayer(
