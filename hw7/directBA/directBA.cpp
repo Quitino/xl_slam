@@ -30,7 +30,7 @@ typedef vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> VecVe
 string pose_file = "./poses.txt";
 string points_file = "./points.txt";
 
-/* poses.txt
+/* poses.txt -- total 7 images (0.png, ... 6.png), T_cw : store in quaternion format: tx,ty,tz,qx,qy,qz,qw
 1.46323e+09 0.702775 0.084358 0.00503326 -0.0651624 0.112345 -0.160729 0.978416
 1.46323e+09 1.0694 0.102769 -0.1487 0.00222945 0.0342752 -0.247501 0.968279
 1.46323e+09 0.74723 0.168659 -0.341037 0.0646964 -0.0708158 -0.276756 0.956141
@@ -40,7 +40,7 @@ string points_file = "./points.txt";
 1.46323e+09 0.763371 0.172428 0.0192505 -0.0681163 -0.0208489 -0.16148 0.984302
  */
 
-/* points.txt
+/* points.txt -- each line, first three float numbers denote [x,y,z], the last 16 numbers denote intensity value, total 4,118 points
 -0.471274 -4.40961 3.76621 140.453 139.923 139.901 140.169 145.503 147.859 146.762 145.462 167.012 178.969 194.086 208.254 340.051 340.796 341.539 337.327
 -0.459047 -4.45304 3.83186 147.859 146.762 145.462 147.12 178.969 194.086 208.254 220.14 340.796 341.539 337.327 337.38 339.113 338.191 337.683 338.611
 0.221176 -3.60007 3.41384 308.475 325.507 333.023 338.321 299.138 316.006 328.791 336.053 290.544 302.37 320.362 331.31 285.574 291.719 306.631 322.094
@@ -153,7 +153,7 @@ void Draw(const VecSE3 &poses, const VecVec3d &points);
 
 int main(int argc, char **argv) {
 
-    // read poses and points
+    // 1. read poses and points
     VecSE3 poses;
     VecVec3d points;
     ifstream fin(pose_file);
@@ -192,7 +192,7 @@ int main(int argc, char **argv) {
 
     cout << "poses: " << poses.size() << ", points: " << points.size() << endl;
 
-    // read images
+    // 2. read images
     vector<cv::Mat> images;
     boost::format fmt("./%d.png");
     for (int i = 0; i < 7; i++) {
@@ -200,11 +200,12 @@ int main(int argc, char **argv) {
     } // finish reading images
 
     // Prior to optimization, draw the poses and points
-    //Draw(poses, points);
+    cout << "Prior to optimization, draw the poses and points" << endl;
+    Draw(poses, points);
 
 
     cout << "Start constructing graph" << endl;
-    // build optimization problem
+    // 3. build optimization problem
     //  z - g(x,y) : x (SE3) in 6-dim, y (XYZ) in 3-dim
     typedef g2o::BlockSolver<g2o::BlockSolverTraits<6, 3>> DirectBlock;  // 求解的向量是6＊1的, binary edge 對應的頂點， 一個是6維(pose), 一個是3維(point)
     // linearSolver : is the solver for equation Hx = -b, using dense solver
@@ -375,11 +376,13 @@ int main(int argc, char **argv) {
     // delete color data
     for (auto &c: color) delete[] c;
     return 0;
-}
+} // end of main()
+
+
 // use pangolin to draw camera poses and points.
 // input:
-//   poses:  a set of poses
-//   points: a set of 3d points
+//   poses:  a set of poses (T_cw : store in quaternion format: tx,ty,tz,qx,qy,qz,qw)
+//   points: a set of 3d points (w.r.t. world coordinate)
 void Draw(const VecSE3 &poses, const VecVec3d &points) {
     if (poses.empty() || points.empty()) {
         cerr << "parameter is empty!" << endl;
@@ -409,23 +412,25 @@ void Draw(const VecSE3 &poses, const VecVec3d &points) {
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
         // draw poses
-        float sz = 0.1;
+        float sz = 0.1; // 0.1 scale in z direction
         int width = 640, height = 480;
         for (auto &Tcw: poses) {
             glPushMatrix();
-            Sophus::Matrix4f m = Tcw.inverse().matrix().cast<float>();
+            Sophus::Matrix4f m = Tcw.inverse().matrix().cast<float>(); // Twc = Tcw.inverse() is suitable in plotting poses
             glMultMatrixf((GLfloat *) m.data());
-            glColor3f(1, 0, 0);
+            glColor3f(1, 0, 0); // draw the camera pose in red color
             glLineWidth(2);
-            glBegin(GL_LINES);
-            glVertex3f(0, 0, 0);
-            glVertex3f(sz * (0 - cx) / fx, sz * (0 - cy) / fy, sz);
+            glBegin(GL_LINES); // start the drawing on lines for camera pose
+            // totally, draw 8 lines for the camera, need 16 vertex
+            glVertex3f(0, 0, 0); // the camera center
+            glVertex3f(sz * (0 - cx) / fx, sz * (0 - cy) / fy, sz); // see book in P. 102, eq. (5.17')
             glVertex3f(0, 0, 0);
             glVertex3f(sz * (0 - cx) / fx, sz * (height - 1 - cy) / fy, sz);
             glVertex3f(0, 0, 0);
             glVertex3f(sz * (width - 1 - cx) / fx, sz * (height - 1 - cy) / fy, sz);
             glVertex3f(0, 0, 0);
-            glVertex3f(sz * (width - 1 - cx) / fx, sz * (0 - cy) / fy, sz);
+            glVertex3f(sz * (width - 1 - cx) / fx, sz * (0 - cy) / fy, sz); // finish 4 bevel edges
+
             glVertex3f(sz * (width - 1 - cx) / fx, sz * (0 - cy) / fy, sz);
             glVertex3f(sz * (width - 1 - cx) / fx, sz * (height - 1 - cy) / fy, sz);
             glVertex3f(sz * (width - 1 - cx) / fx, sz * (height - 1 - cy) / fy, sz);
@@ -433,21 +438,22 @@ void Draw(const VecSE3 &poses, const VecVec3d &points) {
             glVertex3f(sz * (0 - cx) / fx, sz * (height - 1 - cy) / fy, sz);
             glVertex3f(sz * (0 - cx) / fx, sz * (0 - cy) / fy, sz);
             glVertex3f(sz * (0 - cx) / fx, sz * (0 - cy) / fy, sz);
-            glVertex3f(sz * (width - 1 - cx) / fx, sz * (0 - cy) / fy, sz);
-            glEnd();
+            glVertex3f(sz * (width - 1 - cx) / fx, sz * (0 - cy) / fy, sz); // finish 4 base edges
+            glEnd(); // finsih this drawing
             glPopMatrix();
         }
 
-        // points
+        // draw points
         glPointSize(2);
-        glBegin(GL_POINTS);
+        glBegin(GL_POINTS); // start the drawing on points
         for (size_t i = 0; i < points.size(); i++) {
-            glColor3f(0.0, points[i][2]/4, 1.0-points[i][2]/4);
+            glColor3f(0.0, points[i][2]/4, 1.0-points[i][2]/4); // choose points' color, scale based on its z value (far: green, close: blue)
+            													// assue the z value will not exceed 4m.
             glVertex3d(points[i][0], points[i][1], points[i][2]);
         }
-        glEnd();
+        glEnd(); // finsih this drawing
 
-        pangolin::FinishFrame();
+        pangolin::FinishFrame(); // finish the entire drawing
         usleep(5000);   // sleep 5 ms
     }
 }

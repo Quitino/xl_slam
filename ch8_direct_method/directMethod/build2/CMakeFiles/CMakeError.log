@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /data/code8/xl_slam/ch8_direct_method/directMethod/build2/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cc48a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cc48a.dir/build.make CMakeFiles/cmTC_cc48a.dir/build
+make[1]: Entering directory '/data/code8/xl_slam/ch8_direct_method/directMethod/build2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cc48a.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_cc48a.dir/CheckSymbolExists.c.o   -c /data/code8/xl_slam/ch8_direct_method/directMethod/build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_cc48a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc48a.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC     CMakeFiles/cmTC_cc48a.dir/CheckSymbolExists.c.o  -o cmTC_cc48a -rdynamic 
+CMakeFiles/cmTC_cc48a.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_cc48a.dir/build.make:97: recipe for target 'cmTC_cc48a' failed
+make[1]: *** [cmTC_cc48a] Error 1
+make[1]: Leaving directory '/data/code8/xl_slam/ch8_direct_method/directMethod/build2/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_cc48a/fast' failed
+make: *** [cmTC_cc48a/fast] Error 2
+
+File /data/code8/xl_slam/ch8_direct_method/directMethod/build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /data/code8/xl_slam/ch8_direct_method/directMethod/build2/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_00697/fast"
+/usr/bin/make -f CMakeFiles/cmTC_00697.dir/build.make CMakeFiles/cmTC_00697.dir/build
+make[1]: Entering directory '/data/code8/xl_slam/ch8_direct_method/directMethod/build2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_00697.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_00697.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_00697
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_00697.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_00697.dir/CheckFunctionExists.c.o  -o cmTC_00697 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_00697.dir/build.make:97: recipe for target 'cmTC_00697' failed
+make[1]: *** [cmTC_00697] Error 1
+make[1]: Leaving directory '/data/code8/xl_slam/ch8_direct_method/directMethod/build2/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_00697/fast' failed
+make: *** [cmTC_00697/fast] Error 2
+
+
