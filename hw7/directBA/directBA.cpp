@@ -23,6 +23,10 @@ using namespace std;
 #include <pangolin/pangolin.h>
 #include <boost/format.hpp>
 
+using namespace Sophus;
+using namespace pangolin;
+using namespace g2o;
+
 typedef vector<Sophus::SE3, Eigen::aligned_allocator<Sophus::SE3>> VecSE3;  // a set of poses
 typedef vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> VecVec3d; // a set of 3d points
 
@@ -51,6 +55,15 @@ float fx = 277.34;
 float fy = 291.402;
 float cx = 312.234;
 float cy = 239.777;
+
+// append a global function to check whether is out of border
+inline bool bInImage(float u, float v, int w, int h)
+{
+    if(u>=0 && u<w && v>=0 && v<h) 
+	   return true;
+    else
+	   return false;
+}
 
 // bilinear interpolation
 // get the intensity value from pixel (x,y)
@@ -94,18 +107,45 @@ public:
 
 // TODO edge of projection error, implement it
 // 16x1 error, which is the errors in patch
-typedef Eigen::Matrix<double,16,1> Vector16d;
+typedef Eigen::Matrix<double,16,1> Vector16d;  // The dimention of error term is 16, type is Vector16d, connected vertex are "VertexSBAPointXYZ" & "VertexSophus"
 class EdgeDirectProjection : public g2o::BaseBinaryEdge<16, Vector16d, g2o::VertexSBAPointXYZ, VertexSophus> {
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
 
-    EdgeDirectProjection(float *color, cv::Mat &target) {
-        this->origColor = color;
+    EdgeDirectProjection(float *color, cv::Mat &target) { // use constructor to set color and target image
+        this->origColor = color; // origColor comes from 3d points (4x4=16 intensity value)
         this->targetImg = target;
+        this->w = targetImg.cols;
+		this->h = targetImg.rows;
     }
 
     ~EdgeDirectProjection() {}
 
+    virtual void computeError() override {
+        // TODO START YOUR CODE HERE
+        // compute projection error ...
+	    const VertexSBAPointXYZ* vertexPw = static_cast<const VertexSBAPointXYZ* >(vertex(0));
+	    const VertexSophus* vertexTcw = static_cast<const VertexSophus* >(vertex(1));
+	    Vector3d Pc = vertexTcw->estimate() * vertexPw->estimate();
+	    float u = Pc[0]/Pc[2] * fx + cx; // 3Dto2D, see eqt. (5.5) in P.86
+	    float v = Pc[1]/Pc[2] * fy + cy;
+	    // check whether is near of out of border
+	    if(!bInImage(u-3,v-3,w,h) || !bInImage(u+2,v+2,w,h)) {
+	        this->setLevel(1); // //set the level of the edge (bad term)
+	        for(int n=0;n<16;n++)
+	    	_error[n] = 0; // if near of out of border, don't participate in _error
+	    } else {
+	        for(int i = -2; i<2; i++) {
+	        	for(int j = -2; j<2; j++) {
+	    	      int num = 4 * i + j + 10;
+	    	      _error[num] = origColor[num] - GetPixelValue(targetImg, u+i, v+j); //compute projection error ...
+	        	}
+	        } // obtain _error[0], ... _error[15] , total 16 terms of projection error
+	    }
+             // END YOUR CODE HERE
+    }    
+
+    /*
     virtual void computeError() override {
         // TODO START YOUR CODE HERE
         // compute projection error ...
@@ -135,9 +175,60 @@ public:
 
 
         // END YOUR CODE HERE
-    }
+    }*/
 
-    // Let g2o compute jacobian for you
+    // Let g2o compute jacobian for you, no need to override linearizeOplus() function
+
+    // Here, we use analytic jacobian, so override it
+    virtual void linearizeOplus() override {
+	
+        if(level()==1) {
+	       _jacobianOplusXi = Matrix<double,16,3>::Zero();
+	       _jacobianOplusXj = Matrix<double,16,6>::Zero();
+	       return;
+	    }
+	    const VertexSBAPointXYZ* vertexPw = static_cast<const VertexSBAPointXYZ* >(vertex(0));
+	    const VertexSophus* vertexTcw = static_cast<const VertexSophus* >(vertex(1));
+	    Vector3d Pc = vertexTcw->estimate() * vertexPw->estimate();
+	    float x = Pc[0];
+	    float y = Pc[1];
+	    float z = Pc[2];
+	    float inv_z = 1.0/z;
+	    float inv_z2 = inv_z * inv_z;
+	    float u = x * inv_z * fx + cx;
+	    float v = y * inv_z * fy + cy;
+	    
+	    Matrix<double,2,3> J_Puv_Pc;
+	    J_Puv_Pc(0,0) = fx * inv_z;
+	    J_Puv_Pc(0,1) = 0;
+	    J_Puv_Pc(0,2) = -fx * x * inv_z2;
+	    J_Puv_Pc(1,0) = 0;
+	    J_Puv_Pc(1,1) = fy * inv_z;
+	    J_Puv_Pc(1,2) = -fy * y * inv_z2;
+	    //if(DEBUG) cout<<"J_Puv_PC:\n"<<J_Puv_Pc<<endl;
+     
+	    Matrix<double,3,6> J_Pc_kesi = Matrix<double,3,6>::Zero();
+	    J_Pc_kesi(0,0) = 1;
+	    J_Pc_kesi(0,4) = z;
+	    J_Pc_kesi(0,5) = -y;
+	    J_Pc_kesi(1,1) = 1;
+	    J_Pc_kesi(1,3) = -z;
+	    J_Pc_kesi(1,5) = x;
+	    J_Pc_kesi(2,2) = 1;
+	    J_Pc_kesi(2,3) = y;
+	    J_Pc_kesi(2,4) = -x;	
+	    //if(DEBUG) cout<<"J_Pc_kesi:\n"<<J_Pc_kesi<<endl;
+     
+	    Matrix<double,1,2> J_I_Puv;
+	    for(int i = -2; i<2; i++)
+	        for(int j = -2; j<2; j++) {
+	    	int num = 4 * i + j + 10;
+	    	J_I_Puv(0,0) = (GetPixelValue(targetImg,u+i+1,v+j) - GetPixelValue(targetImg,u+i-1,v+j))/2;
+	    	J_I_Puv(0,1) = (GetPixelValue(targetImg,u+i,v+j+1) - GetPixelValue(targetImg,u+i,v+j-1))/2;
+	    	_jacobianOplusXi.block<1,3>(num,0) = -J_I_Puv * J_Puv_Pc * vertexTcw->estimate().rotation_matrix(); 
+	    	_jacobianOplusXj.block<1,6>(num,0) = -J_I_Puv * J_Puv_Pc * J_Pc_kesi;
+	    }
+    }
 
     virtual bool read(istream &in) {}
 
@@ -146,6 +237,8 @@ public:
 private:
     cv::Mat targetImg;  // the target image
     float *origColor = nullptr;   // 16 floats, the color of this point
+    int w;
+    int h;
 };
 
 // plot the poses and points for you, need pangolin
@@ -174,7 +267,7 @@ int main(int argc, char **argv) {
     }
     fin.close();  // finish reading poses.
 
-    // use color to store grapyscale value, store 16 pixel value for each point
+    // use color to store grapyscale value, store 16 pixel value for each point, for total 4,118 points
     vector<float *> color;
     fin.open(points_file);
     while (!fin.eof()) {
@@ -183,8 +276,9 @@ int main(int argc, char **argv) {
         if (xyz[0] == 0) break;
         points.push_back(Eigen::Vector3d(xyz[0], xyz[1], xyz[2])); // wrap for Eigen::Vector3d format
         float *c = new float[16]; // temp variable, c is a 16-dim array
-        for (int i = 0; i < 16; i++) fin >> c[i];
-        color.push_back(c); //
+        for (int i = 0; i < 16; i++) 
+        	fin >> c[i]; // c contains 16 value of intensities for 4x4 patch
+        color.push_back(c); // color contains a set of c, for total 4,118 points
 
         if (fin.good() == false) break;
     }
@@ -193,7 +287,7 @@ int main(int argc, char **argv) {
     cout << "poses: " << poses.size() << ", points: " << points.size() << endl;
 
     // 2. read images
-    vector<cv::Mat> images;
+    vector<cv::Mat> images; // images contains 7 images
     boost::format fmt("./%d.png");
     for (int i = 0; i < 7; i++) {
         images.push_back(cv::imread((fmt % i).str(), 0));
@@ -201,7 +295,7 @@ int main(int argc, char **argv) {
 
     // Prior to optimization, draw the poses and points
     cout << "Prior to optimization, draw the poses and points" << endl;
-    Draw(poses, points);
+    //Draw(poses, points);
 
 
     cout << "Start constructing graph" << endl;
@@ -220,19 +314,37 @@ int main(int argc, char **argv) {
     optimizer.setVerbose(true);
     cout << "Finsh constructing graph" << endl;
 
-
-    // TODO add vertices, edges into the graph optimizer
-    // START YOUR CODE HERE
-
     cout << "Start adding vertex into graph" << endl;
+    // 4. TODO add vertices, edges into the graph optimizer
+    // START YOUR CODE HERE
+    // ADD vertices for VertexSBAPointXYZ (3D points)
+    for(int i = 0; i < points.size(); i++) {
+		VertexSBAPointXYZ* vertexPw = new VertexSBAPointXYZ();
+		vertexPw->setEstimate(points[i]);
+		vertexPw->setId(i);
+		vertexPw->setMarginalized(true);
+		optimizer.addVertex(vertexPw);
+    }
+
+    // ADD vertices for VertexSophus (camera_pose)
+    for(int j = 0; j < poses.size(); j++) {
+		VertexSophus* vertexTcw = new VertexSophus();
+		vertexTcw->setEstimate(poses[j]);
+		vertexTcw->setId(j + points.size()); // in case conflict with VertexSBAPointXYZ
+		optimizer.addVertex(vertexTcw);
+    }
+
+
+    /*
     // ADD vertices
-    // create pointer for VertexSophus
-    VertexSophus* Camerap = new VertexSophus();
+    // create pointer for VertexSophus, Camerap->camera_pose
+    VertexSophus* Camerap = new VertexSophus(); // pointer, considered as a set of VertexSophus (camera_pose)
     for (int i=0; i<poses.size(); i++)
+    // for (auto &pose: poses) {
     {
         Sophus::SE3 cam;
         cam = poses[i]; // poses are read from './poses.txt'
-        Camerap->setId(i);
+        Camerap->setId(i); // 
 
         if (i==0) {
             Camerap->setFixed(true); //第一個點固定為零點
@@ -259,9 +371,27 @@ int main(int argc, char **argv) {
         point3d->setMarginalized(true);
         optimizer.addVertex(point3d); // add vertex
     }
+    */
     cout << "Finsh adding vertex into graph" << endl;
 
     cout << "Start adding edges into graph" << endl;
+
+    // ADD edges, first check whether near or out of border
+    for(int c = 0; c < poses.size(); c++) 
+		for(int p = 0; p < points.size(); p++) {
+			// color[p] contains 16 intensity values, images[c] is a 640x480 grayscale image [0, 255.0]
+			// edge : 3d point's 4x4 patch in intensity <--> grayscale image, this edge is binary edge
+			// EdgeDirectProjection(float *color, cv::Mat &target) { // use constructor to set color (3D point's 16 intensity) and target image
+		    EdgeDirectProjection* edge = new EdgeDirectProjection(color[p],images[c]); // By this constructor, we can easily compute _error terms
+		    edge->setVertex(0,dynamic_cast<VertexSBAPointXYZ*>(optimizer.vertex(p))); // load vertex from optimizer (graph), index by id
+		    edge->setVertex(1,dynamic_cast<VertexSophus*>(optimizer.vertex(c + points.size())));
+		    edge->setInformation(Matrix<double,16,16>::Identity()); // set no correlation matrix
+		    RobustKernelHuber* rk = new RobustKernelHuber; // select Huber kernel
+		    rk->setDelta(1.0);
+		    edge->setRobustKernel(rk); // add Huber kernel for each edge
+		    optimizer.addEdge(edge); // finally, add the edge into optimizer (graph)    
+		}
+	/*
     // ADD edges, first check whether near or out of border
     int id=1;
     for (int i=0; i<poses.size(); i++) // loop through poses
@@ -309,7 +439,8 @@ int main(int argc, char **argv) {
             optimizer.addEdge(ba_edge);
         }
 
-    }
+    }*/
+
     cout << "Finsh adding edges into graph" << endl;
 
     cout<<"edges in graph: "<<optimizer.edges().size() <<endl;
@@ -321,9 +452,9 @@ int main(int argc, char **argv) {
 
     // END YOUR CODE HERE
 
-    // perform optimization
+    // 5. perform optimization
     cout << "START optimization ..." << endl;
-    optimizer.initializeOptimization(0);  //Initializes the structures for optimizing the whole graph, in level 0.
+    optimizer.initializeOptimization(0);  //Initializes the structures for optimizing the whole graph, in level 0, thus edges in level==1 will not participate in optimization.
     optimizer.optimize(200); // run optimization in 200 iterations
     cout << "FINISH optimization ..." << endl;
     // TODO fetch data from the optimizer
@@ -353,7 +484,7 @@ int main(int argc, char **argv) {
      */
 
 
-
+    /*
     for (int i=0; i<poses.size(); i++)
     {
         VertexSophus* pCamera = dynamic_cast<VertexSophus*>(optimizer.vertex(i));
@@ -367,7 +498,7 @@ int main(int argc, char **argv) {
         Eigen::Vector3d NewPointVec = pPoint->estimate();
         points[i] = NewPointVec;
     }
-
+	*/
     // END YOUR CODE HERE
 
     // plot the optimized points and poses
@@ -448,7 +579,7 @@ void Draw(const VecSE3 &poses, const VecVec3d &points) {
         glBegin(GL_POINTS); // start the drawing on points
         for (size_t i = 0; i < points.size(); i++) {
             glColor3f(0.0, points[i][2]/4, 1.0-points[i][2]/4); // choose points' color, scale based on its z value (far: green, close: blue)
-            													// assue the z value will not exceed 4m.
+            													// assume the z value will not exceed 4m.
             glVertex3d(points[i][0], points[i][1], points[i][2]);
         }
         glEnd(); // finsih this drawing

@@ -44,9 +44,9 @@ float cy = 239.777;
 inline bool bInImage(float u, float v, int w, int h)
 {
     if(u>=0 && u<w && v>=0 && v<h) 
-	return true;
+	   return true;
     else
-	return false;
+	   return false;
 }
 // bilinear interpolation
 inline float GetPixelValue(const cv::Mat &img, float x, float y) {
@@ -94,9 +94,9 @@ public:
     EdgeDirectProjection(float *color, cv::Mat &target) {
         this->origColor = color;
         this->targetImg = target;
-	this->w = targetImg.cols;
-	this->h = targetImg.rows;
-	if(DEBUG) cout<<"Edge: "<< w<< " "<<h<<endl;
+	    this->w = targetImg.cols;
+	    this->h = targetImg.rows;
+	    if(DEBUG) cout<<"Edge: "<< w<< " "<<h<<endl;
     }
 
     ~EdgeDirectProjection() {}
@@ -104,77 +104,79 @@ public:
     virtual void computeError() override {
         // TODO START YOUR CODE HERE
         // compute projection error ...
-	const VertexSBAPointXYZ* vertexPw = static_cast<const VertexSBAPointXYZ* >(vertex(0));
-	const VertexSophus* vertexTcw = static_cast<const VertexSophus* >(vertex(1));
-	Vector3d Pc = vertexTcw->estimate() * vertexPw->estimate();
-	float u = Pc[0]/Pc[2] * fx + cx;
-	float v = Pc[1]/Pc[2] * fy + cy;
-	if(!bInImage(u-3,v-3,w,h) || !bInImage(u+2,v+2,w,h)) {
-	    this->setLevel(1);
-	    for(int n=0;n<16;n++)
-		_error[n] = 0;
-	} else {
-	    for(int i = -2; i<2; i++) {
-	    	for(int j = -2; j<2; j++) {
-		    int num = 4 * i + j + 10;
-		    _error[num] = origColor[num] - GetPixelValue(targetImg, u+i, v+j);
-	    	}
+	    const VertexSBAPointXYZ* vertexPw = static_cast<const VertexSBAPointXYZ* >(vertex(0));
+	    const VertexSophus* vertexTcw = static_cast<const VertexSophus* >(vertex(1));
+	    Vector3d Pc = vertexTcw->estimate() * vertexPw->estimate();
+	    float u = Pc[0]/Pc[2] * fx + cx;
+	    float v = Pc[1]/Pc[2] * fy + cy;
+        // check whether near or out of border
+	    if(!bInImage(u-3,v-3,w,h) || !bInImage(u+2,v+2,w,h)) {
+	        this->setLevel(1);
+	        for(int n=0;n<16;n++)
+	    	_error[n] = 0;
+	    } else {
+	        for(int i = -2; i<2; i++) {
+	        	for(int j = -2; j<2; j++) {
+	    	      int num = 4 * i + j + 10;
+	    	      _error[num] = origColor[num] - GetPixelValue(targetImg, u+i, v+j);
+	        	}
+	        }
 	    }
-	}
-        // END YOUR CODE HERE
+             // END YOUR CODE HERE
     }
 
     // Let g2o compute jacobian for you
-    virtual void linearizeOplus() override
-    {
-	if(level()==1)
-	{
-	    _jacobianOplusXi = Matrix<double,16,3>::Zero();
-	    _jacobianOplusXj = Matrix<double,16,6>::Zero();
-	    return;
-	}
-	const VertexSBAPointXYZ* vertexPw = static_cast<const VertexSBAPointXYZ* >(vertex(0));
-	const VertexSophus* vertexTcw = static_cast<const VertexSophus* >(vertex(1));
-	Vector3d Pc = vertexTcw->estimate() * vertexPw->estimate();
-	float x = Pc[0];
-	float y = Pc[1];
-	float z = Pc[2];
-	float inv_z = 1.0/z;
-	float inv_z2 = inv_z * inv_z;
-	float u = x * inv_z * fx + cx;
-	float v = y * inv_z * fy + cy;
+    
+    virtual void linearizeOplus() override {
 	
-	Matrix<double,2,3> J_Puv_Pc;
-	J_Puv_Pc(0,0) = fx * inv_z;
-	J_Puv_Pc(0,1) = 0;
-	J_Puv_Pc(0,2) = -fx * x * inv_z2;
-	J_Puv_Pc(1,0) = 0;
-	J_Puv_Pc(1,1) = fy * inv_z;
-	J_Puv_Pc(1,2) = -fy * y * inv_z2;
-	if(DEBUG) cout<<"J_Puv_PC:\n"<<J_Puv_Pc<<endl;
-
-	Matrix<double,3,6> J_Pc_kesi = Matrix<double,3,6>::Zero();
-	J_Pc_kesi(0,0) = 1;
-	J_Pc_kesi(0,4) = z;
-	J_Pc_kesi(0,5) = -y;
-	J_Pc_kesi(1,1) = 1;
-	J_Pc_kesi(1,3) = -z;
-	J_Pc_kesi(1,5) = x;
-	J_Pc_kesi(2,2) = 1;
-	J_Pc_kesi(2,3) = y;
-	J_Pc_kesi(2,4) = -x;	
-	if(DEBUG) cout<<"J_Pc_kesi:\n"<<J_Pc_kesi<<endl;
-
-	Matrix<double,1,2> J_I_Puv;
-	for(int i = -2; i<2; i++)
-	    for(int j = -2; j<2; j++) {
-		int num = 4 * i + j + 10;
-		J_I_Puv(0,0) = (GetPixelValue(targetImg,u+i+1,v+j) - GetPixelValue(targetImg,u+i-1,v+j))/2;
-		J_I_Puv(0,1) = (GetPixelValue(targetImg,u+i,v+j+1) - GetPixelValue(targetImg,u+i,v+j-1))/2;
-		_jacobianOplusXi.block<1,3>(num,0) = -J_I_Puv * J_Puv_Pc * vertexTcw->estimate().rotation_matrix(); 
-		_jacobianOplusXj.block<1,6>(num,0) = -J_I_Puv * J_Puv_Pc * J_Pc_kesi;
+        if(level()==1) {
+	       _jacobianOplusXi = Matrix<double,16,3>::Zero();
+	       _jacobianOplusXj = Matrix<double,16,6>::Zero();
+	       return;
+	    }
+	    const VertexSBAPointXYZ* vertexPw = static_cast<const VertexSBAPointXYZ* >(vertex(0));
+	    const VertexSophus* vertexTcw = static_cast<const VertexSophus* >(vertex(1));
+	    Vector3d Pc = vertexTcw->estimate() * vertexPw->estimate();
+	    float x = Pc[0];
+	    float y = Pc[1];
+	    float z = Pc[2];
+	    float inv_z = 1.0/z;
+	    float inv_z2 = inv_z * inv_z;
+	    float u = x * inv_z * fx + cx;
+	    float v = y * inv_z * fy + cy;
+	    
+	    Matrix<double,2,3> J_Puv_Pc;
+	    J_Puv_Pc(0,0) = fx * inv_z;
+	    J_Puv_Pc(0,1) = 0;
+	    J_Puv_Pc(0,2) = -fx * x * inv_z2;
+	    J_Puv_Pc(1,0) = 0;
+	    J_Puv_Pc(1,1) = fy * inv_z;
+	    J_Puv_Pc(1,2) = -fy * y * inv_z2;
+	    if(DEBUG) cout<<"J_Puv_PC:\n"<<J_Puv_Pc<<endl;
+     
+	    Matrix<double,3,6> J_Pc_kesi = Matrix<double,3,6>::Zero();
+	    J_Pc_kesi(0,0) = 1;
+	    J_Pc_kesi(0,4) = z;
+	    J_Pc_kesi(0,5) = -y;
+	    J_Pc_kesi(1,1) = 1;
+	    J_Pc_kesi(1,3) = -z;
+	    J_Pc_kesi(1,5) = x;
+	    J_Pc_kesi(2,2) = 1;
+	    J_Pc_kesi(2,3) = y;
+	    J_Pc_kesi(2,4) = -x;	
+	    if(DEBUG) cout<<"J_Pc_kesi:\n"<<J_Pc_kesi<<endl;
+     
+	    Matrix<double,1,2> J_I_Puv;
+	    for(int i = -2; i<2; i++)
+	        for(int j = -2; j<2; j++) {
+	    	int num = 4 * i + j + 10;
+	    	J_I_Puv(0,0) = (GetPixelValue(targetImg,u+i+1,v+j) - GetPixelValue(targetImg,u+i-1,v+j))/2;
+	    	J_I_Puv(0,1) = (GetPixelValue(targetImg,u+i,v+j+1) - GetPixelValue(targetImg,u+i,v+j-1))/2;
+	    	_jacobianOplusXi.block<1,3>(num,0) = -J_I_Puv * J_Puv_Pc * vertexTcw->estimate().rotation_matrix(); 
+	    	_jacobianOplusXj.block<1,6>(num,0) = -J_I_Puv * J_Puv_Pc * J_Pc_kesi;
 	    }
     }
+    
     virtual bool read(istream &in) {}
 
     virtual bool write(ostream &out) const {}
