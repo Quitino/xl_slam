@@ -9,7 +9,7 @@
 using namespace std;
 
 // path to trajectory file
-string trajectory_file = "./trajectory.txt";
+string trajectory_file =  "./ldso_euroc_v1_01.txt";  //"./trajectory.txt";
 
 // function for plotting trajectory, don't edit this code
 // start point is red and end point is blue
